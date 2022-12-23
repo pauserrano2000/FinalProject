@@ -1,7 +1,7 @@
-import "./Nav.css";
+import "./MainNavigation.css";
 import { FC, PropsWithChildren } from "react";
 import { NavLink } from "react-router-dom";
-import { useThemeContext } from "../../../Context/theme-context";
+import { useThemeContext } from "../../../../Context/theme-context";
 
 type LinkProps = {
   path: string
@@ -23,7 +23,7 @@ const Link: FC<PropsWithChildren<LinkProps>> = ({ path, children }) => {
   )
 }
 
-export const Nav = ({ children }: PropsWithChildren) => {
+export const MainNavigation = ({ children }: PropsWithChildren) => {
 
   return (
     <nav>
@@ -34,4 +34,4 @@ export const Nav = ({ children }: PropsWithChildren) => {
   )
 }
 
-Nav.Link = Link
+MainNavigation.Link = Link
