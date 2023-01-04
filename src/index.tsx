@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MantineProvider } from '@mantine/core';
 import { ThemeContextProvider } from "./Context/theme-context";
+import { AuthContextProvider } from "./Context/auth-context";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,9 +14,9 @@ root.render(
   <React.StrictMode>
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <ThemeContextProvider>
-        <BrowserRouter>
+        <AuthContextProvider>
           <App />
-        </BrowserRouter>
+        </AuthContextProvider>
       </ThemeContextProvider>
     </MantineProvider>
   </React.StrictMode>
