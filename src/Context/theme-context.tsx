@@ -1,20 +1,26 @@
 import React, { FC, PropsWithChildren, useState, useContext } from "react";
 
+type ThemeContextObj = {
+    Theme: "light" | "dark";
+    switchThemeHandler: () => void;
+}
 
-const ThemeContext = React.createContext({
-    isDarkTheme: false,
-    switchHandler: () => {},
+const ThemeContext = React.createContext<ThemeContextObj>({
+    Theme: "light",
+    switchThemeHandler: () => { },
 });
 
 export const ThemeContextProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [isDarkTheme, setIsDarkTheme] = useState(false)
-    const switchHandler = () => {
-        setIsDarkTheme(prevState => !prevState);
+    const [Theme, setTheme] = useState<"light" | "dark">("light");
+    const switchThemeHandler = () => {
+        setTheme(prevState =>
+            prevState === "light" ? "dark" : "light");
     }
-    const contextValue = {
-        isDarkTheme,
-        switchHandler
+    const contextValue: ThemeContextObj = {
+        Theme,
+        switchThemeHandler
     }
+
     return (
         <ThemeContext.Provider value={contextValue}>
             {children}
@@ -22,7 +28,6 @@ export const ThemeContextProvider: FC<PropsWithChildren> = ({ children }) => {
     )
 }
 
-//We will use this to connect our containers/components to the theme context
 export const useThemeContext = () => {
     return useContext(ThemeContext)
 };
