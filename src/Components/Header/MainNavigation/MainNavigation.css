@@ -1,0 +1,43 @@
+.main-navigation {
+  width: 55%;
+}
+
+.navlink-wrapper {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4rem;
+}
+
+.navlink {
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: 0.5s
+}
+
+.navlink:hover{
+  font-size: 1.4rem;
+  transition: 0.2s
+}
+
+.active {
+  font-size: 1.4rem;
+  border-bottom: 0.1rem solid;
+  transition: 0.5s
+}
+
+.dark-navlink {
+  color: white;
+  border-color: white;
+  transition: 0.5s
+}
+
+.light-navlink {
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    transition: 0.5s
+}
