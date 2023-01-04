@@ -1,0 +1,24 @@
+.search {
+    min-height: 93vh;
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .heading{
+    font-size: 5rem;
+  }
+  
+  .dark-heading {
+    color: white;
+    border-color: white;
+    transition: 1s
+  }
+  
+  .light-heading {
+      color: rgb(0, 0, 0);
+      border-color: rgb(0, 0, 0);
+      transition: 1s
+  }
