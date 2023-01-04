@@ -1,0 +1,73 @@
+.header {
+  height: 7vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+}
+
+.logo-wrapper {
+  width: 15%;
+  min-width: 10rem;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo {
+  width:80%;
+  min-width: 10rem;
+}
+
+.dark-logo {
+  fill: white;
+  transition: 1s;
+}
+
+.light-logo {
+  fill:black;
+  transition: 1s;
+}
+
+.button-wrapper {
+  width: 20%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.link{
+  background-color: transparent;
+  text-decoration: none;
+  line-height: 1.15;
+  
+  min-width:5.5rem;
+  padding: 0.5em;
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.signup-link {
+  border: 0.1em solid;
+  border-radius: 1rem;
+}
+
+.dark-link {
+  color: white;
+  border-color: white;
+  transition: 1s;
+}
+
+.light-link {
+  color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+  transition: 1s;
+}
