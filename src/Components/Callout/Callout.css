@@ -1,0 +1,33 @@
+.callout {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.light-callout {
+  color: black;
+  transition: 1s;
+}
+
+.dark-callout {
+  color: white;
+  transition: 1s;
+}
+
+.callout-link {
+  margin-left: 0.3rem;
+  text-decoration: none;
+}
+
+.callout-link:hover {
+  text-decoration: underline;
+}
+
+.light-callout-link {
+  color: #7aa8da;
+  transition: 1s;
+}
+
+.dark-callout-link {
+  color: #7484ec;
+  transition: 1s;
+}
