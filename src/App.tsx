@@ -24,12 +24,14 @@ function App() {
             <Route path="/" element={<Welcome />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="*" element={<Welcome />} />
           </>}
           {isLoggedIn && <>
             <Route path="/search" element={<Search />} />
             <Route path="/image-generation" element={<ImageGeneration />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="*" element={<Search />} />
           </>}
         </Routes>
       </BrowserRouter>
