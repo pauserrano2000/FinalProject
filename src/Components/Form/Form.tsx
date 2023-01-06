@@ -1,3 +1,4 @@
+import "./Form.css";
 import React, { FC, PropsWithChildren } from 'react';
 import { useThemeContext } from "../../Context/theme-context";
 
@@ -30,7 +31,7 @@ const Input: FC<InputProps> = ({
 }) => {
     const { Theme } = useThemeContext();
     return (
-        <div className={`input-wrapper ${Theme}-input-wrapper`}>
+        <div className="input-wrapper">
             <label className={`label ${Theme}-label`} htmlFor={id}>
                 {label}
             </label>
@@ -43,7 +44,7 @@ const Input: FC<InputProps> = ({
                 value={value}
             />
             {hasError && (
-                <p className='error-text'>{errorText}</p>
+                <p className="error-text">{errorText}</p>
             )}
         </div>
     )
@@ -60,9 +61,8 @@ const Submit: React.FC<SubmitProps> = ({ onSubmit, disabled, text }) => {
 
 
 export const Form = ({ children }: PropsWithChildren) => {
-    const { Theme } = useThemeContext();
     return (
-        <form className={`form ${Theme}-form`}>
+        <form className="form">
             {children}
         </form>
     );
