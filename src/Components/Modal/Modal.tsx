@@ -1,5 +1,5 @@
-import { createPortal } from 'react-dom';
 import "./Modal.css";
+import { createPortal } from 'react-dom';
 import { FC, PropsWithChildren} from "react";
 import { Backdrop } from './Backdrop/Backdrop';
 
@@ -17,7 +17,7 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({ children, onClose }) 
             document.getElementById('backdrop-root')!
         )}
         {createPortal(
-            <div className='modal'>
+            <div className="modal">
                 {children}
             </div>
             ,

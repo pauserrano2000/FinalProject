@@ -1,9 +1,8 @@
 .modal {
     position: fixed;
-    top: 30vh;
-    left: 10%;
-    width: 80%;
-    overflow: hidden;
+    top: 15%;
+    left: 32.5%;
 
-    background-color: azure;
+    width:35%;
+    overflow: hidden;
   }
