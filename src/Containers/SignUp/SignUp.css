@@ -1,4 +1,51 @@
-.signup{
-    min-height: 93vh;
-    width: 100%;
-  }
+.signup {
+  min-height: 93vh;
+  width: 100%;
+}
+
+.signup-modal {
+  border-radius: 1rem;
+  padding: 1.5rem;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.light-signup-modal {
+  background-color: #ffffff;
+}
+
+.dark-signup-modal {
+  background-color: #1A1B1E;
+}
+
+.small-logo{
+  width:4rem;
+}
+
+.dark-small-logo {
+  fill: #ffffff;
+  transition: 1s;
+}
+
+.light-small-logo {
+  fill:black;
+  transition: 1s;
+}
+
+.signup-title {
+  font-size: 2rem;
+  margin: 0 0 0 0;
+}
+
+.light-signup-title {
+  color: black;
+  transition: 1s;
+}
+
+.dark-signup-title {
+  color: #ffffff;
+  transition: 1s;
+}
