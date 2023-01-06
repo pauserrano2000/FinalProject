@@ -1,6 +1,6 @@
 import "./MainNavigation.css";
 import { FC, PropsWithChildren } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useThemeContext } from "../../../Context/theme-context";
 
 type LinkProps = {
