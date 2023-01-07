@@ -3,21 +3,38 @@
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.heading{
-  font-size: 5rem;
+.headline{
+  font-size: 3rem;
 }
 
-.dark-heading {
+.dark-headline {
   color: white;
   border-color: white;
   transition: 1s
 }
 
-.light-heading {
+.light-headline {
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    transition: 1s
+}
+
+.overview{
+  font-size: 1.5rem;
+}
+
+.dark-overview {
+  color: white;
+  border-color: white;
+  transition: 1s
+}
+
+.light-overview {
     color: rgb(0, 0, 0);
     border-color: rgb(0, 0, 0);
     transition: 1s
