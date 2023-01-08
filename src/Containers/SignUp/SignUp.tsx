@@ -5,7 +5,9 @@ import { Form } from "../../Components/Form/Form";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { showNotification } from '@mantine/notifications';
+import { IconCheck } from '@tabler/icons';
 import { Callout } from "../../Components/Callout/Callout";
 import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
@@ -21,7 +23,13 @@ export const SignUp: FC = () => {
   const passwordInput = useInput(validatePassword);
 
   const signupHandler = () => {
-    login("1")
+    showNotification({
+      color: 'green',
+      icon: <IconCheck />,
+      title: 'Account succesfully created',
+      message: 'You are able to log in now',
+      autoClose: 5000,
+    })
     navigate("/search")
   }
 
@@ -33,7 +41,7 @@ export const SignUp: FC = () => {
 
   return (
     <Modal onClose={() => navigate("/")}>
-      <div className={`signup-modal ${Theme}-signup-modal`}>
+      <main className={`signup-modal ${Theme}-signup-modal`}>
         <Logo className="small-logo" />
         <h1 className={`signup-title ${Theme}-signup-title`}>
           Sign up to ImageHub
@@ -88,7 +96,7 @@ export const SignUp: FC = () => {
         <Callout to="/login" textLink="Log in">
           Already have an account?
         </Callout>
-      </div>
+      </main>
     </Modal >
 
 

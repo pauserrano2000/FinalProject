@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MantineProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 import { ThemeContextProvider } from "./Context/theme-context";
 import { AuthContextProvider } from "./Context/auth-context";
 
@@ -12,12 +13,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
-      <ThemeContextProvider>
-        <AuthContextProvider>
-          <App />
-        </AuthContextProvider>
-      </ThemeContextProvider>
+    <MantineProvider  withGlobalStyles withNormalizeCSS>
+      <NotificationsProvider>
+        <ThemeContextProvider>
+          <AuthContextProvider>
+            <App />
+          </AuthContextProvider>
+        </ThemeContextProvider>
+      </NotificationsProvider>
     </MantineProvider>
   </React.StrictMode>
 );
