@@ -1,8 +1,8 @@
 .modal {
     position: fixed;
     top: 15%;
-    left: 32.5%;
+    left: 35%;
 
-    width:35%;
+    width:30%;
     overflow: hidden;
   }

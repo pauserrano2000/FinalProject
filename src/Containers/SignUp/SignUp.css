@@ -1,5 +1,5 @@
 .signup-modal {
-  border-radius: 1rem;
+  border-radius: 2rem;
   padding: 1.5rem;
 
   display:flex;
@@ -13,7 +13,7 @@
 }
 
 .dark-signup-modal {
-  background-color: #1A1B1E;
+  background-color: #141517;
 }
 
 .small-logo{
