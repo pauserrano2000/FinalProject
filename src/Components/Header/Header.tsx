@@ -6,7 +6,7 @@ import { useAuthContext } from "../../Context/auth-context";
 import { MainNavigation } from "./MainNavigation/MainNavigation";
 import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
 import { MenuDropdown } from "./MenuDropdown/MenuDropdown";
-import { ReactComponent as Logo} from "../../Assets/logo.svg"
+import { ReactComponent as Logo } from "../../Assets/logo.svg"
 
 export const Header: FC = () => {
   const { Theme } = useThemeContext();
@@ -14,14 +14,14 @@ export const Header: FC = () => {
   const navigate = useNavigate()
 
   const logoutHandler = () => {
-     logout()
-     navigate("/")
+    logout()
+    navigate("/")
   }
 
   return (
     <header className="header">
       <Link className="logo-wrapper" to={isLoggedIn ? "/search" : "/"}>
-        <Logo className={`logo ${Theme}-logo `}/>
+        <Logo className={`logo ${Theme}-logo `} />
       </Link>
 
       <MainNavigation>
@@ -51,12 +51,12 @@ export const Header: FC = () => {
         </>}
         {isLoggedIn && <>
           <MenuDropdown>
-             <MenuDropdown.Option onClick={logoutHandler}>
-                Log out
-             </MenuDropdown.Option>
-             <MenuDropdown.Option onClick={()=>navigate("/")}>
-                Profile settings
-             </MenuDropdown.Option>
+            <MenuDropdown.Option onClick={logoutHandler}>
+              Log out
+            </MenuDropdown.Option>
+            <MenuDropdown.Option onClick={() => navigate("/")}>
+              Profile settings
+            </MenuDropdown.Option>
           </MenuDropdown>
         </>}
         <SwitchTheme />

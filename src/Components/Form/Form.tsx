@@ -51,9 +51,8 @@ const Input: FC<InputProps> = ({
 }
 
 const Submit: React.FC<SubmitProps> = ({ onSubmit, disabled, text }) => {
-    const { Theme } = useThemeContext();
     return (
-        <button className={`submit ${Theme}-submit`} onClick={onSubmit} disabled={disabled}>
+        <button className="submit" onClick={onSubmit} disabled={disabled}>
             {text}
         </button>
     );

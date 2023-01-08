@@ -33,11 +33,10 @@
 .dark-navlink {
   color: white;
   border-color: white;
-  transition: 0.5s
 }
 
 .light-navlink {
     color: rgb(0, 0, 0);
     border-color: rgb(0, 0, 0);
-    transition: 0.5s
 }
+

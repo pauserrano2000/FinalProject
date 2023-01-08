@@ -5,29 +5,18 @@
 
 .light-callout {
   color: black;
-  transition: 1s;
 }
 
 .dark-callout {
   color: white;
-  transition: 1s;
 }
 
 .callout-link {
   margin-left: 0.3rem;
   text-decoration: none;
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.callout-link:hover {
-  text-decoration: underline;
-}
 
-.light-callout-link {
-  color: #7aa8da;
-  transition: 1s;
-}
-
-.dark-callout-link {
-  color: #7484ec;
-  transition: 1s;
-}

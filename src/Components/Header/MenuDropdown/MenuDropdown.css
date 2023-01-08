@@ -46,7 +46,6 @@
 
 .dark-option {
   color: white;
-  transition: 0.5s;
 }
 
 .dark-option:hover {
@@ -55,7 +54,6 @@
 
 .light-option {
   color: black;
-  transition: 0.5s;
 }
 
 .light-option:hover {
