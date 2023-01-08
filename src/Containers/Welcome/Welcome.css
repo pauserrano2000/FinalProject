@@ -70,11 +70,15 @@
   font-weight: 600;
   border-radius: 0.5rem;
   color: #ffff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0.2rem 0.6rem;
 
   display: flex;
   justify-content: center;
 }
 
+.call-to-action:active{
+  transform: translateY(0.15rem);
+}
 .signup-call-to-action{
   background-image: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
 }
