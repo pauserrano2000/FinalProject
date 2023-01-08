@@ -30,7 +30,7 @@ export const LogIn: FC = () => {
 
   return (
       <Modal onClose={() => navigate("/")}>
-        <div className={`login-modal ${Theme}-login-modal`}>
+        <main className={`login-modal ${Theme}-login-modal`}>
           <Logo className="small-logo" />
           <h1 className={`login-title ${Theme}-login-title`}>
             Log in to ImageHub
@@ -54,7 +54,7 @@ export const LogIn: FC = () => {
               onChange={passwordInput.ChangeHandler}
               onBlur={passwordInput.BlurHandler}
               hasError={passwordInput.hasError}
-              errorText="At least 8 characters, with numbers, lowercase and uppercase letters"
+              errorText="Include numbers and capital letters (8+ characters)"
             />
             <Form.Submit
               onSubmit={loginHandler}
@@ -65,7 +65,7 @@ export const LogIn: FC = () => {
           <Callout to="/signup" textLink="Create an account">
             New to ImageHub?
           </Callout>
-        </div>
+        </main>
       </Modal >
   );
 };
