@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./Components/Header/Header"
-import { Welcome} from "./Containers/Welcome/Welcome"
+import { Welcome } from "./Containers/Welcome/Welcome"
 import { LogIn } from "./Containers/LogIn/LogIn"
 import { SignUp } from './Containers/SignUp/SignUp';
 import { Search } from './Containers/Search/Search';
@@ -21,9 +21,10 @@ function App() {
         <Header />
         <Routes>
           {!isLoggedIn && <>
-            <Route path="/" element={<Welcome />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<Welcome />}>
+              <Route path="/login" element={<LogIn />} />
+              <Route path="/signup" element={<SignUp />} />
+            </Route>
             <Route path="*" element={<Welcome />} />
           </>}
           {isLoggedIn && <>

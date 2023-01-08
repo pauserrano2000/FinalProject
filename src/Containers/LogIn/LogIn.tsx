@@ -29,10 +29,9 @@ export const LogIn: FC = () => {
   }
 
   return (
-    <div className="login">
       <Modal onClose={() => navigate("/")}>
         <div className={`login-modal ${Theme}-login-modal`}>
-          <Logo className={`small-logo ${Theme}-small-logo`} />
+          <Logo className="small-logo" />
           <h1 className={`login-title ${Theme}-login-title`}>
             Log in to ImageHub
           </h1>
@@ -68,7 +67,5 @@ export const LogIn: FC = () => {
           </Callout>
         </div>
       </Modal >
-    </div>
-
   );
 };

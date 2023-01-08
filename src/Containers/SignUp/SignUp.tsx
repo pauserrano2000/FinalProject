@@ -32,67 +32,66 @@ export const SignUp: FC = () => {
 
 
   return (
-    <div className="signup">
-      <Modal onClose={() => navigate("/")}>
-        <div className={`signup-modal ${Theme}-signup-modal`}>
-          <Logo className={`small-logo ${Theme}-small-logo `} />
-          <h1 className={`signup-title ${Theme}-signup-title`}>
-            Sign up to ImageHub
-          </h1>
-          <Form>
-            <Form.Input
-              label="First name"
-              type="text"
-              id="first"
-              value={firstNameInput.value}
-              onChange={firstNameInput.ChangeHandler}
-              onBlur={firstNameInput.BlurHandler}
-              hasError={firstNameInput.hasError}
-              errorText="Numbers and some special characters not allowed"
-            />
-            <Form.Input
-              label="Last name"
-              type="text"
-              id="last"
-              value={lastNameInput.value}
-              onChange={lastNameInput.ChangeHandler}
-              onBlur={lastNameInput.BlurHandler}
-              hasError={lastNameInput.hasError}
-              errorText="Numbers and some special characters not allowed"
-            />
-            <Form.Input
-              label="Email address"
-              type="email"
-              id="email"
-              value={emailInput.value}
-              onChange={emailInput.ChangeHandler}
-              onBlur={emailInput.BlurHandler}
-              hasError={emailInput.hasError}
-              errorText="E.g. example@example.com"
-            />
-            <Form.Input
-              label="Password"
-              type="password"
-              id="password"
-              value={passwordInput.value}
-              onChange={passwordInput.ChangeHandler}
-              onBlur={passwordInput.BlurHandler}
-              hasError={passwordInput.hasError}
-              errorText="At least 8 characters, with numbers, lowercase and uppercase letters"
-            />
-            <Form.Submit
-              onSubmit={signupHandler}
-              disabled={!formIsValid}
-              text="Sign up"
-            />
-          </Form>
-          <Callout to="/login" textLink="Log in">
-            Already have an account?
-          </Callout>
-        </div>
-      </Modal >
+    <Modal onClose={() => navigate("/")}>
+      <div className={`signup-modal ${Theme}-signup-modal`}>
+        <Logo className="small-logo" />
+        <h1 className={`signup-title ${Theme}-signup-title`}>
+          Sign up to ImageHub
+        </h1>
+        <Form>
+          <Form.Input
+            label="First name"
+            type="text"
+            id="first"
+            value={firstNameInput.value}
+            onChange={firstNameInput.ChangeHandler}
+            onBlur={firstNameInput.BlurHandler}
+            hasError={firstNameInput.hasError}
+            errorText="Numbers and some special characters not allowed"
+          />
+          <Form.Input
+            label="Last name"
+            type="text"
+            id="last"
+            value={lastNameInput.value}
+            onChange={lastNameInput.ChangeHandler}
+            onBlur={lastNameInput.BlurHandler}
+            hasError={lastNameInput.hasError}
+            errorText="Numbers and some special characters not allowed"
+          />
+          <Form.Input
+            label="Email address"
+            type="email"
+            id="email"
+            value={emailInput.value}
+            onChange={emailInput.ChangeHandler}
+            onBlur={emailInput.BlurHandler}
+            hasError={emailInput.hasError}
+            errorText="E.g. example@example.com"
+          />
+          <Form.Input
+            label="Password"
+            type="password"
+            id="password"
+            value={passwordInput.value}
+            onChange={passwordInput.ChangeHandler}
+            onBlur={passwordInput.BlurHandler}
+            hasError={passwordInput.hasError}
+            errorText="At least 8 characters, with numbers, lowercase and uppercase letters"
+          />
+          <Form.Submit
+            onSubmit={signupHandler}
+            disabled={!formIsValid}
+            text="Sign up"
+          />
+        </Form>
+        <Callout to="/login" textLink="Log in">
+          Already have an account?
+        </Callout>
+      </div>
+    </Modal >
 
 
-    </div >
+
   );
 };
