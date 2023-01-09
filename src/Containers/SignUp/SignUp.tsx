@@ -1,10 +1,9 @@
 import "./SignUp.css";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Modal } from "../../Components/Modal/Modal";
 import { Form } from "../../Components/Form/Form";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
-import { useAuthContext } from "../../Context/auth-context";
 import { useNavigate } from "react-router-dom";
 import { showNotification } from '@mantine/notifications';
 import { IconCheck } from '@tabler/icons';
@@ -14,7 +13,6 @@ import { validateName, validateEmail, validatePassword } from "../../Services/va
 
 export const SignUp: FC = () => {
   const { Theme } = useThemeContext();
-  const { login } = useAuthContext();
   const navigate = useNavigate()
 
   const firstNameInput = useInput(validateName);
