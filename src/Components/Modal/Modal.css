@@ -3,6 +3,6 @@
     top: 15%;
     left: 35%;
 
-    width:30%;
+    min-width:30%;
     overflow: hidden;
   }

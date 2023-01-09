@@ -24,13 +24,18 @@ export const SignUp: FC = () => {
 
   const signupHandler = () => {
     showNotification({
-      color: 'green',
+      title: "Account succesfully created",
+      message: "You are able to log in now",
+      color: "green",
+      autoClose: 3000,
       icon: <IconCheck />,
-      title: 'Account succesfully created',
-      message: 'You are able to log in now',
-      autoClose: 5000,
+      styles: (theme) => ({
+        root: { backgroundColor: theme.colors.green[5], borderColor: theme.colors.green[5] },
+        title: { color: theme.white },
+        description: { color: theme.white },
+      }),
     })
-    navigate("/search")
+    navigate("/")
   }
 
   let formIsValid = false;
@@ -85,7 +90,7 @@ export const SignUp: FC = () => {
             onChange={passwordInput.ChangeHandler}
             onBlur={passwordInput.BlurHandler}
             hasError={passwordInput.hasError}
-            errorText="At least 8 characters, with numbers, lowercase and uppercase letters"
+            errorText="Include numbers and capital letters (8+ characters)"
           />
           <Form.Submit
             onSubmit={signupHandler}
