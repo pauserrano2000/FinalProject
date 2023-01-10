@@ -20,7 +20,7 @@ export const Header: FC = () => {
 
   return (
     <header className="header">
-      <Link className="logo-wrapper" to={isLoggedIn ? "/search" : "/"}>
+      <Link className="logo-wrapper" to="/">
         <Logo className={`logo ${Theme}-logo `} />
       </Link>
 

@@ -18,7 +18,7 @@ export const ThemeContextProvider: FC<PropsWithChildren> = ({ children }) => {
     }
     const contextValue: ThemeContextObj = {
         Theme,
-        switchThemeHandler
+        switchThemeHandler,
     }
 
     return (

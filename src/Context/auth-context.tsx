@@ -9,7 +9,7 @@ type AuthContextObj = {
 }
 
 const AuthContext = React.createContext<AuthContextObj>({
-    token: null,
+    token: null, //authentication token
     isLoggedIn: false,
     login: (token: string) => { },
     logout: () => { },
