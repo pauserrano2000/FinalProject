@@ -22,10 +22,15 @@ export const LogIn: FC = () => {
   const emailInput = useInput(validateEmail);
   const passwordInput = useInput(validatePassword);
 
+  let formIsValid = false;
+  if (emailInput.isValid && passwordInput.isValid) {
+    formIsValid = true;
+  }
+  
   const loginHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const authToken = await getAuthToken(emailInput.value, passwordInput.value);
-    if (authToken) {
+    if (authToken && formIsValid) {
       fetchUserData(authToken);
       showLoadingSuccesNotification(
         "Welcome again to ImageHub",
@@ -38,15 +43,10 @@ export const LogIn: FC = () => {
       emailInput.reset()
       passwordInput.reset()
       showErrorNotification(
-        "The introduced credentials are not correct",
-        "Check again that the email exists on our database or that the password is correct"
+        "The introduced credentials are not valid",
+        "Check again that the email or password are correct"
       );
     }
-  }
-
-  let formIsValid = false;
-  if (emailInput.isValid && passwordInput.isValid) {
-    formIsValid = true;
   }
 
   return (
