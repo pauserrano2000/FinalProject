@@ -8,6 +8,7 @@ import { Search } from './Containers/Search/Search';
 import { ImageGeneration } from './Containers/ImageGeneration/ImageGeneration';
 import { Detail } from './Containers/Detail/Detail';
 import { Favorites } from './Containers/Favorites/Favorites';
+import { ProfileSettings } from './Containers/ProfileSettings/ProfileSettings';
 import { useThemeContext } from "./Context/theme-context";
 import { useAuthContext } from "./Context/auth-context";
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/image-generation" element={<ImageGeneration />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/settings" element={<ProfileSettings />} />
             <Route path="*" element={<Navigate to="/search" />} />
           </>}
         </Routes>

@@ -1,0 +1,22 @@
+.settings {
+    min-height: 93vh;
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .heading{
+    font-size: 5rem;
+  }
+  
+  .dark-heading {
+    color: white;
+    border-color: white;
+  }
+  
+  .light-heading {
+      color: rgb(0, 0, 0);
+      border-color: rgb(0, 0, 0);
+  }

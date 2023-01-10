@@ -54,7 +54,7 @@ export const Header: FC = () => {
             <MenuDropdown.Option onClick={logoutHandler}>
               Log out
             </MenuDropdown.Option>
-            <MenuDropdown.Option onClick={() => navigate("/")}>
+            <MenuDropdown.Option onClick={() => navigate("/settings")}>
               Profile settings
             </MenuDropdown.Option>
           </MenuDropdown>
