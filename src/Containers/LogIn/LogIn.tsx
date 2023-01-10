@@ -7,8 +7,7 @@ import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
 import { useUserContext } from "../../Context/user-context";
 import { useNavigate } from "react-router-dom";
-import { showNotification } from '@mantine/notifications';
-import { IconX } from '@tabler/icons';
+import { showLoadingSuccesNotification, showErrorNotification } from "../../Services/notifications";
 import { Callout } from "../../Components/Callout/Callout";
 import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateEmail, validatePassword } from "../../Services/validate";
@@ -28,24 +27,20 @@ export const LogIn: FC = () => {
     const authToken = await getAuthToken(emailInput.value, passwordInput.value);
     if (authToken) {
       fetchUserData(authToken);
-      login(authToken);
+      showLoadingSuccesNotification(
+        "Welcome again to ImageHub",
+        "Succesfull login (entering in a few seconds...)"
+      );
+      setTimeout(login, 3000, authToken);
       navigate("/search")
     }
     else {
       emailInput.reset()
       passwordInput.reset()
-      showNotification({
-        title: "The introduced credentials are not correct",
-        message: "Check again that the email exists on our database or that the password is correct",
-        color: "red",
-        autoClose: 5000,
-        icon: <IconX  />,
-        styles: (theme) => ({
-          root: { backgroundColor: theme.colors.red[5], borderColor: theme.colors.red[5] },
-          title: { color: theme.white },
-          description: { color: theme.white },
-        }),
-      })
+      showErrorNotification(
+        "The introduced credentials are not correct",
+        "Check again that the email exists on our database or that the password is correct"
+      );
     }
   }
 
