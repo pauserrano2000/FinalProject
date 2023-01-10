@@ -1,9 +1,11 @@
 import React, { FC } from "react";
 import { useThemeContext } from "../../../../Context/theme-context";
+import { useUserContext } from "../../../../Context/user-context";
 import { Avatar } from '@mantine/core';
 
 export const AvatarButton: FC = React.memo(() => {
     const { Theme } = useThemeContext();
+    const { initials } = useUserContext();
     return (
         <Avatar
             variant="outline"
@@ -13,7 +15,7 @@ export const AvatarButton: FC = React.memo(() => {
             src="avatar.png"
             alt="User initials"
         >
-            IN
+            {initials ?? "??"}
         </Avatar>
     )
 })

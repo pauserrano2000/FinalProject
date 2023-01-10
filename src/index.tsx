@@ -7,17 +7,20 @@ import { MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { ThemeContextProvider } from "./Context/theme-context";
 import { AuthContextProvider } from "./Context/auth-context";
+import { UserContextProvider } from './Context/user-context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <MantineProvider  withGlobalStyles withNormalizeCSS>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
       <NotificationsProvider>
         <ThemeContextProvider>
           <AuthContextProvider>
-            <App />
+            <UserContextProvider>
+              <App />
+            </UserContextProvider>
           </AuthContextProvider>
         </ThemeContextProvider>
       </NotificationsProvider>
