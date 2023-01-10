@@ -16,18 +16,18 @@
 .navlink {
   text-decoration: none;
   font-size: 1.3rem;
-  transition: 0.5s
+  transition: 0.3s;
 }
 
-.navlink:hover{
+.navlink:hover {
   font-size: 1.4rem;
-  transition: 0.5s
+  transition: 0.3s;
 }
 
 .active {
   font-size: 1.4rem;
   border-bottom: 0.1rem solid;
-  transition: 0.5s
+  transition: 0.3s;
 }
 
 .dark-navlink {
@@ -36,7 +36,6 @@
 }
 
 .light-navlink {
-    color: rgb(0, 0, 0);
-    border-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
 }
-

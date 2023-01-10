@@ -20,12 +20,13 @@ export const SignUp: FC = () => {
   const emailInput = useInput(validateEmail);
   const passwordInput = useInput(validatePassword);
 
-  const signupHandler = () => {
+  const signupHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     showNotification({
       title: "Account succesfully created",
       message: "You are able to log in now",
       color: "green",
-      autoClose: 3000,
+      autoClose: 5000,
       icon: <IconCheck />,
       styles: (theme) => ({
         root: { backgroundColor: theme.colors.green[5], borderColor: theme.colors.green[5] },
@@ -49,7 +50,7 @@ export const SignUp: FC = () => {
         <h1 className={`signup-title ${Theme}-signup-title`}>
           Sign up to ImageHub
         </h1>
-        <Form>
+        <Form onSubmit={signupHandler}>
           <Form.Input
             label="First name"
             type="text"
@@ -91,7 +92,6 @@ export const SignUp: FC = () => {
             errorText="Include numbers and capital letters (8+ characters)"
           />
           <Form.Submit
-            onSubmit={signupHandler}
             disabled={!formIsValid}
             text="Sign up"
           />
