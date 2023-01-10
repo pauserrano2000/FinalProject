@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "./Components/Header/Header"
 import { Welcome } from "./Containers/Welcome/Welcome"
 import { LogIn } from "./Containers/LogIn/LogIn"
@@ -25,14 +25,14 @@ function App() {
               <Route path="/login" element={<LogIn />} />
               <Route path="/signup" element={<SignUp />} />
             </Route>
-            <Route path="*" element={<Welcome />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </>}
           {isLoggedIn && <>
             <Route path="/search" element={<Search />} />
             <Route path="/image-generation" element={<ImageGeneration />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/favorites" element={<Favorites />} />
-            <Route path="*" element={<Search />} />
+            <Route path="*" element={<Navigate to="/search" />} />
           </>}
         </Routes>
       </BrowserRouter>
