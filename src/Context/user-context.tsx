@@ -30,8 +30,9 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setLastName(userData.lastName);
         setEmail(userData.email);
        }
-       else {
-        console.log("No user data available")
+       else { 
+        //Theoretically never reached except for a sudden server crash (edge case)
+        console.log("Error: No user data available")
        }
     }
 
