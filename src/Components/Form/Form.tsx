@@ -14,9 +14,12 @@ type InputProps = {
 }
 
 type SubmitProps = {
-    onSubmit: (event: React.MouseEvent<HTMLButtonElement>) => void;
     disabled: boolean;
     text: string;
+}
+
+type FormProps = {
+    onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const Input: FC<InputProps> = ({
@@ -50,18 +53,18 @@ const Input: FC<InputProps> = ({
     )
 }
 
-const Submit: React.FC<SubmitProps> = ({ onSubmit, disabled, text }) => {
+const Submit: React.FC<SubmitProps> = ({ disabled, text }) => {
     return (
-        <button className="submit" onClick={onSubmit} disabled={disabled}>
+        <button className="submit" type="submit" disabled={disabled}>
             {text}
         </button>
     );
 };
 
 
-export const Form = ({ children }: PropsWithChildren) => {
+export const Form = ({ children, onSubmit }: PropsWithChildren<FormProps>) => {
     return (
-        <form className="form">
+        <form className="form" onSubmit={onSubmit}>
             {children}
         </form>
     );
