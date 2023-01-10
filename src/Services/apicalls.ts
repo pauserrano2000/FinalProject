@@ -13,6 +13,7 @@ export const getAuthToken = async (
     if (response.data.length > 0) {
       return response.data[0].id.toString();
     } else {
+      console.log("The credentials are not correct");
       return null;
     }
   } catch (error) {
@@ -21,11 +22,11 @@ export const getAuthToken = async (
   }
 };
 
-type UserData = {
+interface UserData {
   firstName: string;
   lastName: string;
   email: string;
-};
+}
 
 export const getUserData = async (token: string): Promise<UserData | null> => {
   try {
@@ -42,6 +43,33 @@ export const getUserData = async (token: string): Promise<UserData | null> => {
   } catch (error) {
     console.error(error);
     return null;
+  }
+};
+
+interface User extends UserData {
+  password: string;
+}
+
+export const createUser = async (user: User): Promise<boolean> => {
+  try {
+    // Checks if the email already exists in the database
+    const existingUserResponse = await axios.get(
+      `${JSON_SERVER_API_URL}/users`,
+      {
+        params: { email: user.email },
+      }
+    );
+    if (existingUserResponse.data.length > 0) {
+      console.log("Email already exists");
+      return false;
+    } else {
+      // If the email doesn't already exist, makes a POST request to create a new user
+      const response = await axios.post(`${JSON_SERVER_API_URL}/users`, user);
+      return true;
+    }
+  } catch (error) {
+    console.error(error);
+    return false;
   }
 };
 
