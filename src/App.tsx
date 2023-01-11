@@ -34,7 +34,6 @@ function App() {
   useEffect(() => { //executes twice initially in developement mode due to React.Strict
     if (isLoggedIn && !isUpToDate) {
        fetchUserData(token!);
-       console.log("executed")
     }
   }, [fetchUserData,isLoggedIn,isUpToDate,token]);
 
