@@ -9,6 +9,7 @@ type UserContextObj = {
     isUpToDate: boolean;
     initials: string | null;
     populateUserData: (userData: UserData) => void;
+    resetUserData: () => void;
 }
 
 const UserContext = React.createContext<UserContextObj>({
@@ -18,6 +19,7 @@ const UserContext = React.createContext<UserContextObj>({
     isUpToDate: false,
     initials: null,
     populateUserData: (userData: UserData) => {},
+    resetUserData: () => {},
 });
 
 export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -35,7 +37,12 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setIsUpToDate(true);
     },[])
 
-    //todo: set uptodate false
+    const resetUserData = () => {
+        setFirstName(null);
+        setLastName(null);
+        setEmail(null);
+        setIsUpToDate(false);
+    }
 
     const contextValue: UserContextObj = {
         firstName,
@@ -44,6 +51,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         initials,
         isUpToDate,
         populateUserData,
+        resetUserData,
     }
 
     return (

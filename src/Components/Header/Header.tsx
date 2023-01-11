@@ -3,6 +3,7 @@ import { FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
+import { useUserContext } from "../../Context/user-context";
 import { MainNavigation } from "./MainNavigation/MainNavigation";
 import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
 import { MenuDropdown } from "./MenuDropdown/MenuDropdown";
@@ -11,11 +12,13 @@ import { ReactComponent as Logo } from "../../Assets/logo.svg"
 export const Header: FC = () => {
   const { Theme } = useThemeContext();
   const { isLoggedIn, logout } = useAuthContext();
+  const { resetUserData } = useUserContext();
   const navigate = useNavigate()
 
   const logoutHandler = () => {
-    logout()
-    navigate("/")
+    logout();
+    resetUserData();
+    navigate("/");
   }
 
   return (
