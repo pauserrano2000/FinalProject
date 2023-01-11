@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren, useState, useContext, useCallback } from "react";
 import { type UserData } from "../Services/apicalls";
+import { getInitials } from "../Utils/utils";
 
 type UserContextObj = {
     firstName: string | null;
@@ -25,7 +26,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const [email, setEmail] = useState<string | null>(null);
     const [isUpToDate, setIsUpToDate] = useState(false);
 
-    const initials = (firstName && firstName?.charAt(0) + (lastName && lastName?.charAt(0))) ?? null;
+    const initials = getInitials(firstName,lastName);
     
     const populateUserData = useCallback((userData: UserData) => {
         setFirstName(userData.firstName);
