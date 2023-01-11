@@ -7,7 +7,7 @@ import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
 import { useUserContext } from "../../Context/user-context";
 import { useNavigate } from "react-router-dom";
-import { showLoadingSuccesNotification, showErrorNotification } from "../../Services/notifications";
+import { useNotification } from "../../Hooks/useNotification";
 import { Callout } from "../../Components/Callout/Callout";
 import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateEmail, validatePassword } from "../../Services/validate";
@@ -17,7 +17,8 @@ export const LogIn: FC = () => {
   const { Theme } = useThemeContext();
   const { login } = useAuthContext();
   const { fetchUserData } = useUserContext();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { showSuccesNotification, showErrorNotification } = useNotification();
 
   const emailInput = useInput(validateEmail);
   const passwordInput = useInput(validatePassword);
@@ -26,34 +27,34 @@ export const LogIn: FC = () => {
   if (emailInput.isValid && passwordInput.isValid) {
     formIsValid = true;
   }
-  
+
   const loginHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const authToken = await getAuthToken(emailInput.value, passwordInput.value);
     if (authToken && formIsValid) {
       const isSuccesfull = await fetchUserData(authToken);
       if (isSuccesfull) {
-        showLoadingSuccesNotification(
-          `Welcome to ImageHub`,
-          "Succesfull login (entering in a few seconds...)"
-        );
+        showSuccesNotification({
+          title: `Welcome to ImageHub`,
+          message: "Succesfull login (entering in a few seconds...)",
+          loading: true,
+        });
         setTimeout(login, 3000, authToken);
         navigate("/search")
       }
       else { //Theoretically never reached except for a sudden server crash (edge case)
-        showErrorNotification(
-          "No user data available",
-          "Something went wrong..."
-        );
+        showErrorNotification({
+          title: "No user data available",
+          message: "Something went wrong..."
+        });
       }
     }
     else {
-      emailInput.reset()
       passwordInput.reset()
-      showErrorNotification(
-        "The introduced credentials are not valid",
-        "Check again that the email or password are correct"
-      );
+      showErrorNotification({
+        title: "The introduced credentials are not valid",
+        message: "Check again that the email or password are correct",
+      });
     }
   }
 

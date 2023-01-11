@@ -5,15 +5,17 @@ import { Form } from "../../Components/Form/Form";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useNavigate } from "react-router-dom";
-import { showSuccesNotification, showErrorNotification } from "../../Services/notifications";
+import { useNotification } from "../../Hooks/useNotification";
 import { Callout } from "../../Components/Callout/Callout";
 import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
 import { createUser } from "../../Services/apicalls";
+import { capitalizeFirstLetter } from "../../Utils/utils";
 
 export const SignUp: FC = () => {
   const { Theme } = useThemeContext();
   const navigate = useNavigate()
+  const { showSuccesNotification, showErrorNotification } = useNotification();
 
   const firstNameInput = useInput(validateName);
   const lastNameInput = useInput(validateName);
@@ -26,8 +28,8 @@ export const SignUp: FC = () => {
   }
 
   const user = {
-    firstName: firstNameInput.value,
-    lastName: lastNameInput.value,
+    firstName: capitalizeFirstLetter(firstNameInput.value),
+    lastName: capitalizeFirstLetter(lastNameInput.value),
     email: emailInput.value,
     password: passwordInput.value
   };
@@ -36,17 +38,18 @@ export const SignUp: FC = () => {
     event.preventDefault();
     const isCreated = await createUser(user)
     if (isCreated && formIsValid) {
-      showSuccesNotification(
-        "Account succesfully created",
-        "You are able to log in now");
+      showSuccesNotification({
+        title: "Account succesfully created",
+        message: "You are able to log in now",
+      });
       navigate("/");
     }
     else {
       emailInput.reset()
-      showErrorNotification(
-        "The introduced email already exists in our database",
-        "Do you already have an account created?"
-      );
+      showErrorNotification({
+        title: "The introduced email already exists in our database",
+        message: "Do you already have an account created?"
+      });
     }
 
   }
