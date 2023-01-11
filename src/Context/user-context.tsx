@@ -6,7 +6,7 @@ type UserContextObj = {
     lastName: string | null;
     email: string | null;
     initials: string | null;
-    fetchUserData: (token: string) => void;
+    fetchUserData: (token: string) => Promise<boolean>;
 }
 
 const UserContext = React.createContext<UserContextObj>({
@@ -14,7 +14,7 @@ const UserContext = React.createContext<UserContextObj>({
     lastName: null,
     email: null,
     initials: null,
-    fetchUserData: (token: string) => { },
+    fetchUserData: async (token: string) => false,
 });
 
 export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -29,10 +29,10 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setFirstName(userData.firstName);
         setLastName(userData.lastName);
         setEmail(userData.email);
+        return true;
        }
        else { 
-        //Theoretically never reached except for a sudden server crash (edge case)
-        console.log("Error: No user data available")
+        return false;
        }
     }
 

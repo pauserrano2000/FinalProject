@@ -31,13 +31,21 @@ export const LogIn: FC = () => {
     event.preventDefault();
     const authToken = await getAuthToken(emailInput.value, passwordInput.value);
     if (authToken && formIsValid) {
-      fetchUserData(authToken);
-      showLoadingSuccesNotification(
-        "Welcome again to ImageHub",
-        "Succesfull login (entering in a few seconds...)"
-      );
-      setTimeout(login, 3000, authToken);
-      navigate("/search")
+      const isSuccesfull = await fetchUserData(authToken);
+      if (isSuccesfull) {
+        showLoadingSuccesNotification(
+          `Welcome to ImageHub`,
+          "Succesfull login (entering in a few seconds...)"
+        );
+        setTimeout(login, 3000, authToken);
+        navigate("/search")
+      }
+      else { //Theoretically never reached except for a sudden server crash (edge case)
+        showErrorNotification(
+          "No user data available",
+          "Something went wrong..."
+        );
+      }
     }
     else {
       emailInput.reset()
