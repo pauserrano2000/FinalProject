@@ -22,7 +22,7 @@ export const getAuthToken = async (
   }
 };
 
-interface UserData {
+export interface UserData {
   firstName: string;
   lastName: string;
   email: string;
@@ -46,7 +46,7 @@ export const getUserData = async (token: string): Promise<UserData | null> => {
   }
 };
 
-interface User extends UserData {
+export interface User extends UserData {
   password: string;
 }
 

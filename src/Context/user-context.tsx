@@ -1,47 +1,48 @@
-import React, { FC, PropsWithChildren, useState, useContext } from "react";
-import { getUserData } from "../Services/apicalls";
+import React, { FC, PropsWithChildren, useState, useContext, useCallback } from "react";
+import { type UserData } from "../Services/apicalls";
 
 type UserContextObj = {
     firstName: string | null;
     lastName: string | null;
     email: string | null;
+    isUpToDate: boolean;
     initials: string | null;
-    fetchUserData: (token: string) => Promise<boolean>;
+    populateUserData: (userData: UserData) => void;
 }
 
 const UserContext = React.createContext<UserContextObj>({
     firstName: null,
     lastName: null,
     email: null,
+    isUpToDate: false,
     initials: null,
-    fetchUserData: async (token: string) => false,
+    populateUserData: (userData: UserData) => {},
 });
 
 export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const [firstName, setFirstName] = useState<string | null>(null);
     const [lastName, setLastName] = useState<string | null>(null);
     const [email, setEmail] = useState<string | null>(null);
+    const [isUpToDate, setIsUpToDate] = useState(false);
+
     const initials = (firstName && firstName?.charAt(0) + (lastName && lastName?.charAt(0))) ?? null;
     
-    const fetchUserData = async (token: string) => {
-       const userData = await getUserData(token);
-       if (userData) {
+    const populateUserData = useCallback((userData: UserData) => {
         setFirstName(userData.firstName);
         setLastName(userData.lastName);
         setEmail(userData.email);
-        return true;
-       }
-       else { 
-        return false;
-       }
-    }
+        setIsUpToDate(true);
+    },[])
+
+    //todo: set uptodate false
 
     const contextValue: UserContextObj = {
         firstName,
         lastName,
         email,
         initials,
-        fetchUserData,
+        isUpToDate,
+        populateUserData,
     }
 
     return (

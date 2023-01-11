@@ -5,7 +5,6 @@ import { Form } from "../../Components/Form/Form";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
-import { useUserContext } from "../../Context/user-context";
 import { useNavigate } from "react-router-dom";
 import { useNotification } from "../../Hooks/useNotification";
 import { Callout } from "../../Components/Callout/Callout";
@@ -16,7 +15,6 @@ import { getAuthToken } from "../../Services/apicalls";
 export const LogIn: FC = () => {
   const { Theme } = useThemeContext();
   const { login } = useAuthContext();
-  const { fetchUserData } = useUserContext();
   const navigate = useNavigate();
   const { showSuccesNotification, showErrorNotification } = useNotification();
 
@@ -32,8 +30,6 @@ export const LogIn: FC = () => {
     event.preventDefault();
     const authToken = await getAuthToken(emailInput.value, passwordInput.value);
     if (authToken && formIsValid) {
-      const isSuccesfull = await fetchUserData(authToken);
-      if (isSuccesfull) {
         showSuccesNotification({
           title: `Welcome to ImageHub`,
           message: "Succesfull login (entering in a few seconds...)",
@@ -41,13 +37,6 @@ export const LogIn: FC = () => {
         });
         setTimeout(login, 3000, authToken);
         navigate("/search")
-      }
-      else { //Theoretically never reached except for a sudden server crash (edge case)
-        showErrorNotification({
-          title: "No user data available",
-          message: "Something went wrong..."
-        });
-      }
     }
     else {
       passwordInput.reset()
