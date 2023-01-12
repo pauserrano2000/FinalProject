@@ -42,7 +42,7 @@ export const createUser = async (user: User): Promise<boolean> => {
   // If the email doesn't already exist, makes a POST request to create a new user
   if (isEmailValid) {
     const response = await axios.post(`${API_URL.JSON_SERVER}/users`, user);
-    const isCreated = response.statusText === "Created"
+    const isCreated = response.statusText === "Created";
     return isCreated;
   }
   return false;
