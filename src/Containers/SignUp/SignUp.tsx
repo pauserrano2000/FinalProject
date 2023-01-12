@@ -27,16 +27,16 @@ export const SignUp: FC = () => {
     formIsValid = true;
   }
 
-  const user = {
-    firstName: capitalizeFirstLetter(firstNameInput.value),
-    lastName: capitalizeFirstLetter(lastNameInput.value),
-    email: emailInput.value,
-    password: passwordInput.value
-  };
-
   const signupHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const user = {
+      firstName: capitalizeFirstLetter(firstNameInput.value),
+      lastName: capitalizeFirstLetter(lastNameInput.value),
+      email: emailInput.value,
+      password: passwordInput.value
+    };
     const isCreated = await createUser(user)
+
     if (isCreated && formIsValid) {
       showSuccesNotification({
         title: "Account succesfully created",
@@ -51,7 +51,6 @@ export const SignUp: FC = () => {
         message: "Do you already have an account created?"
       });
     }
-
   }
 
   return (
