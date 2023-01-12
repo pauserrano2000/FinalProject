@@ -35,20 +35,27 @@ export const SignUp: FC = () => {
       email: emailInput.value,
       password: passwordInput.value
     };
-    const isCreated = await createUser(user)
-
-    if (isCreated && formIsValid) {
-      showSuccesNotification({
-        title: "Account succesfully created",
-        message: "You are able to log in now",
-      });
-      navigate("/");
-    }
-    else {
-      emailInput.reset()
+    try {
+      const isCreated = await createUser(user)
+      if (isCreated) {
+        showSuccesNotification({
+          title: "Account succesfully created",
+          message: "You are able to log in now",
+        });
+        navigate("/");
+      }
+      else {
+        emailInput.reset()
+        showErrorNotification({
+          title: "The introduced email already exists in our database",
+          message: "Do you already have an account created?"
+        });
+      }
+    } catch (error) {
+      console.log(error);
       showErrorNotification({
-        title: "The introduced email already exists in our database",
-        message: "Do you already have an account created?"
+        title: "The server is not working, http requests failing",
+        message: "The admin should check this..",
       });
     }
   }

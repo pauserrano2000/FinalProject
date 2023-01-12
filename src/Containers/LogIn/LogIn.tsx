@@ -28,8 +28,9 @@ export const LogIn: FC = () => {
 
   const loginHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const authToken = await getAuthToken(emailInput.value, passwordInput.value);
-    if (authToken && formIsValid) {
+    try {
+      const authToken = await getAuthToken(emailInput.value, passwordInput.value);
+      if ((typeof authToken === 'string')) {
         showSuccesNotification({
           title: `Welcome to ImageHub`,
           message: "Succesfull login (entering in a few seconds...)",
@@ -37,12 +38,19 @@ export const LogIn: FC = () => {
         });
         setTimeout(login, 3000, authToken);
         navigate("/search")
-    }
-    else {
-      passwordInput.reset()
+      }
+      else {
+        passwordInput.reset()
+        showErrorNotification({
+          title: authToken.errorTitle,
+          message: authToken.errorMessage,
+        });
+      }
+    } catch (error) {
+      console.log(error);
       showErrorNotification({
-        title: "The introduced credentials are not valid",
-        message: "Check again that the email or password are correct",
+        title: "The server is not working, http requests failing",
+        message:"The admin should check this..",
       });
     }
   }

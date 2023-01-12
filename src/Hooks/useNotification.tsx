@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { showNotification } from '@mantine/notifications';
 import { IconX, IconCheck } from '@tabler/icons';
 
@@ -7,12 +8,12 @@ type NotificationParams = {
   loading?: boolean;
 }
 export const useNotification = () => {
-  const showSuccesNotification = ({title, message,loading=false}:NotificationParams) => {
+  const showSuccesNotification = useCallback(({ title, message, loading = false }: NotificationParams) => {
     showNotification({
       title,
       message,
       loading,
-      color: (loading ? undefined : "green"), 
+      color: (loading ? undefined : "green"),
       autoClose: (loading ? 3000 : 5000),
       icon: (loading ? null : <IconCheck />), //none
       styles: (theme) => ({
@@ -24,9 +25,9 @@ export const useNotification = () => {
         description: { color: theme.white },
       }),
     });
-  };
+  }, []);
 
-  const showErrorNotification = ({title, message}:NotificationParams) => {
+  const showErrorNotification = useCallback(({ title, message }: NotificationParams) => {
     showNotification({
       title,
       message,
@@ -42,7 +43,7 @@ export const useNotification = () => {
         description: { color: theme.white },
       }),
     });
-  };
+  }, []);
 
   return {
     showSuccesNotification,
