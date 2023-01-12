@@ -47,6 +47,27 @@ export const createUser = async (user: User): Promise<boolean> => {
   return false;
 };
 
+//todo error handling
+export const updateUser = async ( 
+  token: string,
+  updates: {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    password?: string;
+  }
+) => {
+  try {
+    const response = await axios.put(
+      `http://localhost:3000/users/${token}`,
+      updates
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const generateImageFromDescription = async (description: string) => {
   const response = await axios.post(API_URL.DALL_E, {
     prompt: description,
