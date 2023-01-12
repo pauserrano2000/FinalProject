@@ -1,13 +1,17 @@
 import axios from "axios";
 
-const JSON_SERVER_API_URL = "http://localhost:3000";
+enum API_URL {
+  JSON_SERVER = "http://localhost:3000",
+  DALL_E = "https://api.openai.com/v1/images/generations",
+  UNSPLASH = "https://api.unsplash.com"
+}
 
 export const getAuthToken = async (
   email: string,
   password: string
 ): Promise<string | null> => {
   try {
-    const response = await axios.get(`${JSON_SERVER_API_URL}/users`, {
+    const response = await axios.get(`${API_URL.JSON_SERVER}/users`, {
       params: { email, password },
     });
     if (response.data.length > 0) {
@@ -30,7 +34,7 @@ export interface UserData {
 
 export const getUserData = async (token: string): Promise<UserData | null> => {
   try {
-    const response = await axios.get(`${JSON_SERVER_API_URL}/users/${token}`);
+    const response = await axios.get(`${API_URL.JSON_SERVER}/users/${token}`);
     if (response.data !== null) {
       return {
         firstName: response.data.firstName,
@@ -54,7 +58,7 @@ export const createUser = async (user: User): Promise<boolean> => {
   try {
     // Checks if the email already exists in the database
     const existingUserResponse = await axios.get(
-      `${JSON_SERVER_API_URL}/users`,
+      `${API_URL.JSON_SERVER}/users`,
       {
         params: { email: user.email },
       }
@@ -64,7 +68,7 @@ export const createUser = async (user: User): Promise<boolean> => {
       return false;
     } else {
       // If the email doesn't already exist, makes a POST request to create a new user
-      const response = await axios.post(`${JSON_SERVER_API_URL}/users`, user);
+      const response = await axios.post(`${API_URL.JSON_SERVER}/users`, user);
       return true;
     }
   } catch (error) {
@@ -73,10 +77,8 @@ export const createUser = async (user: User): Promise<boolean> => {
   }
 };
 
-const DALL_E_API_URL = "https://api.openai.com/v1/images/generations";
-
 export const generateImageFromDescription = async (description: string) => {
-  const response = await axios.post(DALL_E_API_URL, {
+  const response = await axios.post(API_URL.DALL_E, {
     prompt: description,
     model: "image-alpha-001",
     api_key: "YOUR_API_KEY_HERE",
@@ -84,10 +86,8 @@ export const generateImageFromDescription = async (description: string) => {
   return response.data.data.url;
 };
 
-const UNSPLASH_API_URL = "https://api.unsplash.com";
-
 export const searchPhotos = (query: string) => {
-  return axios.get(`${UNSPLASH_API_URL}/search/photos`, {
+  return axios.get(`${API_URL.UNSPLASH}/search/photos`, {
     params: { query },
     headers: {
       Authorization: `Client-ID YOUR_ACCESS_KEY`,
