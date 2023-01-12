@@ -118,8 +118,5 @@ export const SignUp: FC = () => {
         </Callout>
       </main>
     </Modal >
-
-
-
   );
 };
