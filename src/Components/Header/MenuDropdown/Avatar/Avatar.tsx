@@ -1,21 +1,21 @@
 import React, { FC } from "react";
 import { useThemeContext } from "../../../../Context/theme-context";
 import { useUserContext } from "../../../../Context/user-context";
-import { Avatar } from '@mantine/core';
+import { Avatar as MantineAvatar} from '@mantine/core';
 
-export const AvatarButton: FC = React.memo(() => {
-    const { Theme } = useThemeContext();
-    const { initials } = useUserContext();
+export const Avatar: FC = React.memo(() => {
+    const { theme } = useThemeContext();
+    const { initials, email } = useUserContext();
     return (
-        <Avatar
+        <MantineAvatar
             variant="outline"
             radius="md"
             size={43}
-            color={Theme === "dark" ? 'gray.0' : 'dark.9'}
+            color={theme === "dark" ? 'gray.0' : 'dark.9'}
             src="avatar.png"
-            alt="User initials"
+            alt={email ?? "user"}
         >
             {initials ?? "??"}
-        </Avatar>
+        </MantineAvatar>
     )
 })
