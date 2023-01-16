@@ -1,46 +1,53 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "firstName": "Admin",
-        "lastName": "1User",
-        "email": "user1@example.com",
-        "password": "Password1"
-      },
-      {
-        "id": 2,
-        "firstName": "Normal",
-        "lastName": "2User",
-        "email": "user2@example.com",
-        "password": "Password2"
-      },
-      {
-        "id": 3,
-        "firstName": "Normal",
-        "lastName": "3User",
-        "email": "user3@example.com",
-        "password": "Password3"
-      },
-      {
-        "id": 4,
-        "firstName": "Normal",
-        "lastName": "4User",
-        "email": "user4@example.com",
-        "password": "Password4"
-      },
-      {
-        "id": 5,
-        "firstName": "Normal",
-        "lastName": "5User",
-        "email": "user5@example.com",
-        "password": "Password5"
-      },
-      {
-        "id": 6,
-        "firstName": "Normal",
-        "lastName": "6User",
-        "email": "user6@example.com",
-        "password": "Password6"
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "user1@example.com",
+      "password": "Password1"
+    },
+    {
+      "id": 2,
+      "firstName": "Normal",
+      "lastName": "User",
+      "email": "user2@example.com",
+      "password": "Password2"
+    },
+    {
+      "id": 3,
+      "firstName": "Normal",
+      "lastName": "User",
+      "email": "user3@example.com",
+      "password": "Password3"
+    },
+    {
+      "id": 4,
+      "firstName": "Normal",
+      "lastName": "User",
+      "email": "user4@example.com",
+      "password": "Password4"
+    },
+    {
+      "id": 5,
+      "firstName": "Normal",
+      "lastName": "User",
+      "email": "user5@example.com",
+      "password": "Password5"
+    },
+    {
+      "id": 6,
+      "firstName": "Normal",
+      "lastName": "User",
+      "email": "user6@example.com",
+      "password": "Password6"
+    },
+    {
+      "firstName": "Hola",
+      "lastName": "Hola",
+      "email": "hola@hola.com",
+      "password": "Hola101010",
+      "id": 7
+    }
+  ]
+}
