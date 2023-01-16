@@ -13,7 +13,7 @@ export const Avatar: FC = React.memo(() => {
             size={43}
             color={theme === "dark" ? 'gray.0' : 'dark.9'}
             src="avatar.png"
-            alt={email ?? "user"}
+            alt={email ?? "??"}
         >
             {initials ?? "??"}
         </MantineAvatar>
