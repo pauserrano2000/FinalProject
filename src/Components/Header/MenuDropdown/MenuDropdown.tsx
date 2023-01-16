@@ -1,18 +1,19 @@
 import "./MenuDropdown.css";
 import { FC, PropsWithChildren, useState, useRef, useEffect } from "react";
 import { useThemeContext } from "../../../Context/theme-context";
-import { AvatarButton } from "./AvatarButton/AvatarButton"
+import { useUserContext } from "../../../Context/user-context";
+import { Avatar } from "./Avatar/Avatar"
 
 type OptionProps = {
     onClick: () => void;
 }
 
 const Option: FC<PropsWithChildren<OptionProps>> = ({ children, onClick }) => {
-    const { Theme } = useThemeContext();
+    const { theme } = useThemeContext();
 
     return (
         <button
-            className={`option ${Theme}-option`}
+            className={`option ${theme}-option`}
             onClick={onClick}
         >
             {children}
@@ -21,7 +22,8 @@ const Option: FC<PropsWithChildren<OptionProps>> = ({ children, onClick }) => {
 }
 
 export const MenuDropdown = ({ children }: PropsWithChildren) => {
-    const { Theme } = useThemeContext();
+    const { theme } = useThemeContext();
+    const { firstName, lastName, email } = useUserContext();
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
@@ -44,10 +46,18 @@ export const MenuDropdown = ({ children }: PropsWithChildren) => {
     return (
         <div ref={ref} className="dropdown">
             <button className="target" onClick={clickTargetHandler}>
-                <AvatarButton />
+                <Avatar />
             </button>
             {isVisible &&
-                <div className={`dropdown-content ${Theme}-dropdown-content`}>
+                <div className={`dropdown-content ${theme}-dropdown-content`}>
+                    <div className="user-info">
+                        <p className="user-info-name">
+                            {`${firstName} ${lastName}`}
+                        </p>
+                        <p className="user-info-email">
+                            {email}
+                        </p>
+                    </div>
                     {children}
                 </div>}
         </div>
