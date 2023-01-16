@@ -34,6 +34,7 @@
 }
 
 .user-info{
+  margin: 0.5rem;
   min-width: 13rem;
   line-height: 1;
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
@@ -41,19 +42,23 @@
   -webkit-text-fill-color: transparent;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
 .user-info-name{
+  margin: 0;
+  padding: 0.5em;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .user-info-email{
+  margin:0;
+  margin-top: -0.6rem;
+  padding: 0.5em;
   font-size: 0.8rem;
-  margin-top: -1rem;
 }
 
 .option {
