@@ -8,7 +8,7 @@ export const SwitchTheme: FC = React.memo(() => {
     return (
         <ActionIcon
             variant="outline"
-            color={theme === "dark" ? 'yellow.5' : 'indigo.9'}
+            color={theme === "dark" ? 'yellow.5' : 'blue'}
             onClick={switchThemeHandler}
             title={`Switch to ${theme === "dark" ? 'light' : 'dark'} theme`}
             size="md"
