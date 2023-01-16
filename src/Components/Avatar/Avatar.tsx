@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { useThemeContext } from "../../../../Context/theme-context";
-import { useUserContext } from "../../../../Context/user-context";
+import { useThemeContext } from "../../Context/theme-context";
+import { useUserContext } from "../../Context/user-context";
 import { Avatar as MantineAvatar} from '@mantine/core';
 
 export const Avatar: FC = React.memo(() => {
