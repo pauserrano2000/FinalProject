@@ -17,7 +17,7 @@ import { useUserContext } from './Context/user-context';
 import { useNotification } from "./Hooks/useNotification";
 
 function App() {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { isLoggedIn, token } = useAuthContext();
   const { isUpToDate, populateUserData } = useUserContext();
   const { showErrorNotification } = useNotification();
@@ -43,7 +43,7 @@ function App() {
 
 
   return (
-    <div className={`App ${isLoggedIn ? "" : "welcome-"}${Theme}-background`}>
+    <div className={`App ${isLoggedIn ? "" : "welcome-"}${theme}-background`}>
       <BrowserRouter>
         <Header />
         <Routes>

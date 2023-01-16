@@ -8,13 +8,13 @@ type LinkProps = {
 }
 
 const Link: FC<PropsWithChildren<LinkProps>> = ({ children, to }) => {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
 
   return (
     <li>
       <NavLink
         className={({ isActive }) =>
-          `${isActive ? "navlink active" : "navlink"} ${Theme}-navlink`
+          `${isActive ? "navlink active" : "navlink"} ${theme}-navlink`
         }
         to={to}
       >

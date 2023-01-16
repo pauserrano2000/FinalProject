@@ -7,7 +7,7 @@ import { useNotification } from "../../Hooks/useNotification";
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
 
 export const ProfileSettings: FC = () => {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { showSuccesNotification, showErrorNotification } = useNotification();
   
   const firstNameInput = useInput(validateName);
@@ -27,7 +27,7 @@ export const ProfileSettings: FC = () => {
   return (
     <main className="profile-settings">
       <div className="profile-settings-wrapper">
-        <h1 className={`heading ${Theme}-heading `}>
+        <h1 className={`heading ${theme}-heading `}>
           PROFILE SETTINGS
         </h1>
         <Form onSubmit={updateHandler}>

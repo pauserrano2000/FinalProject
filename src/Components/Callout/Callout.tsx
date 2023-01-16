@@ -8,9 +8,9 @@ type CalloutProps = {
     textLink: string;
 }
 export const Callout: FC<PropsWithChildren<CalloutProps>> = ({ children, to, textLink }) => {
-    const { Theme } = useThemeContext();
+    const { theme } = useThemeContext();
     return (
-        <p className={`callout ${Theme}-callout`}>
+        <p className={`callout ${theme}-callout`}>
             {children}
             <Link className="callout-link" to={to}>
                 {textLink}

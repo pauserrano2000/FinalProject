@@ -4,19 +4,19 @@ import { useThemeContext } from "../../Context/theme-context";
 import { Link, Outlet } from "react-router-dom";
 
 export const Welcome: FC = () => {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
 
   return (
     <main className="welcome">
       <div className="welcome-wrapper">
-        <h1 className={`headline ${Theme}-headline`}>
+        <h1 className={`headline ${theme}-headline`}>
           Find the
           <span className="headline-gradient">
             Perfect Image
           </span>
           for Your Design
         </h1>
-        <p className={`overview ${Theme}-overview`}>
+        <p className={`overview ${theme}-overview`}>
           Our wide selection of high-quality, free, copyright-free stock images makes it easy
           to find the perfect image for your design projects. Can't find exactly what you're
           looking for? Use our AI-powered generators to create custom images on the fly.

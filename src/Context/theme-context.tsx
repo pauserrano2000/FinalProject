@@ -1,23 +1,23 @@
 import React, { FC, PropsWithChildren, useState, useContext } from "react";
 
 type ThemeContextObj = {
-    Theme: "light" | "dark";
+    theme: "light" | "dark";
     switchThemeHandler: () => void;
 }
 
 const ThemeContext = React.createContext<ThemeContextObj>({
-    Theme: "light",
+    theme: "light",
     switchThemeHandler: () => { },
 });
 
 export const ThemeContextProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [Theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useState<"light" | "dark">("light");
     const switchThemeHandler = () => {
         setTheme(prevState =>
             prevState === "light" ? "dark" : "light");
     }
     const contextValue: ThemeContextObj = {
-        Theme,
+        theme,
         switchThemeHandler,
     }
 

@@ -4,16 +4,16 @@ import { ActionIcon } from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons';
 
 export const SwitchTheme: FC = React.memo(() => {
-    const { Theme, switchThemeHandler } = useThemeContext();
+    const { theme, switchThemeHandler } = useThemeContext();
     return (
         <ActionIcon
             variant="outline"
-            color={Theme === "dark" ? 'yellow.5' : 'indigo.9'}
+            color={theme === "dark" ? 'yellow.5' : 'indigo.9'}
             onClick={switchThemeHandler}
-            title="Switch to light/dark theme"
+            title={`Switch to ${theme === "dark" ? 'light' : 'dark'} theme`}
             size="md"
         >
-            {Theme === "dark" ? <IconSun size={20} /> : <IconMoonStars size={20} />}
+            {theme === "dark" ? <IconSun size={20} /> : <IconMoonStars size={20} />}
         </ActionIcon>
     )
 })

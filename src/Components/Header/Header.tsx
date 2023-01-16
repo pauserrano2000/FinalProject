@@ -10,7 +10,7 @@ import { MenuDropdown } from "./MenuDropdown/MenuDropdown";
 import { ReactComponent as Logo } from "../../Assets/logo.svg"
 
 export const Header: FC = () => {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { isLoggedIn, logout } = useAuthContext();
   const { resetUserData } = useUserContext();
   const navigate = useNavigate()
@@ -23,9 +23,9 @@ export const Header: FC = () => {
 
   return (
     <header className="header">
-      <Link className="logo-wrapper" to="/">
-        <Logo className={`logo ${Theme}-logo `} />
-      </Link>
+      <div className="logo-wrapper">
+        <Logo className={`logo ${theme}-logo `} />
+      </div>
 
       <MainNavigation>
         {isLoggedIn && <>
@@ -44,21 +44,21 @@ export const Header: FC = () => {
       <div className="button-wrapper">
         {!isLoggedIn && <>
           <Link
-            className={`link ${Theme}-link`} to="/login">
+            className={`link ${theme}-link`} to="/login">
             Log in
           </Link>
           <Link
-            className={`link signup-link ${Theme}-link`} to="/signup">
+            className={`link signup-link ${theme}-link`} to="/signup">
             Sign up
           </Link>
         </>}
         {isLoggedIn && <>
           <MenuDropdown>
-            <MenuDropdown.Option onClick={logoutHandler}>
-              Log out
-            </MenuDropdown.Option>
             <MenuDropdown.Option onClick={() => navigate("/settings")}>
               Profile settings
+            </MenuDropdown.Option>
+            <MenuDropdown.Option onClick={logoutHandler}>
+              Log out
             </MenuDropdown.Option>
           </MenuDropdown>
         </>}

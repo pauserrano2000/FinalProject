@@ -13,7 +13,7 @@ import { validateEmail, validatePassword } from "../../Services/validate";
 import { getAuthToken } from "../../Services/apicalls";
 
 export const LogIn: FC = () => {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { login } = useAuthContext();
   const navigate = useNavigate();
   const { showSuccesNotification, showErrorNotification } = useNotification();
@@ -57,9 +57,9 @@ export const LogIn: FC = () => {
 
   return (
     <Modal onClose={() => navigate("/")}>
-      <main className={`login-modal ${Theme}-login-modal`}>
+      <main className={`login-modal ${theme}-login-modal`}>
         <Logo className="small-logo" />
-        <h1 className={`login-title ${Theme}-login-title`}>
+        <h1 className={`login-title ${theme}-login-title`}>
           Log in to ImageHub
         </h1>
         <Form onSubmit={loginHandler}>

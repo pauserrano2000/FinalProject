@@ -32,14 +32,14 @@ const Input: FC<InputProps> = ({
     hasError,
     errorText
 }) => {
-    const { Theme } = useThemeContext();
+    const { theme } = useThemeContext();
     return (
         <div className="input-wrapper">
-            <label className={`label ${Theme}-label`} htmlFor={id}>
+            <label className={`label ${theme}-label`} htmlFor={id}>
                 {label}
             </label>
             <input
-                className={`input ${Theme}-input ${hasError ? "invalid-input" : ""}`}
+                className={`input ${theme}-input ${hasError ? "invalid-input" : ""}`}
                 type={type}
                 id={id}
                 onChange={onChange}

@@ -13,7 +13,7 @@ import { createUser } from "../../Services/apicalls";
 import { capitalizeFirstLetter } from "../../Utils/utils";
 
 export const SignUp: FC = () => {
-  const { Theme } = useThemeContext();
+  const { theme } = useThemeContext();
   const navigate = useNavigate()
   const { showSuccesNotification, showErrorNotification } = useNotification();
 
@@ -62,9 +62,9 @@ export const SignUp: FC = () => {
 
   return (
     <Modal onClose={() => navigate("/")}>
-      <main className={`signup-modal ${Theme}-signup-modal`}>
+      <main className={`signup-modal ${theme}-signup-modal`}>
         <Logo className="small-logo" />
-        <h1 className={`signup-title ${Theme}-signup-title`}>
+        <h1 className={`signup-title ${theme}-signup-title`}>
           Sign up to ImageHub
         </h1>
         <Form onSubmit={signupHandler}>
