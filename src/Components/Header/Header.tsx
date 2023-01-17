@@ -8,6 +8,7 @@ import { MainNavigation } from "./MainNavigation/MainNavigation";
 import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
 import { MenuDropdown } from "./MenuDropdown/MenuDropdown";
 import { ReactComponent as Logo } from "../../Assets/logo.svg"
+import { IconLogout, IconSettings } from "@tabler/icons";
 
 export const Header: FC = () => {
   const { theme } = useThemeContext();
@@ -55,9 +56,11 @@ export const Header: FC = () => {
         {isLoggedIn && <>
           <MenuDropdown>
             <MenuDropdown.Option onClick={() => navigate("/settings")}>
+              <IconSettings/>
               Profile settings
             </MenuDropdown.Option>
             <MenuDropdown.Option onClick={logoutHandler}>
+              <IconLogout/>
               Log out
             </MenuDropdown.Option>
           </MenuDropdown>

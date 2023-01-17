@@ -69,6 +69,11 @@
   font-size: 1rem;
   border-radius: 0.5rem;
   border: 0.06rem solid;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .dark-option {
