@@ -33,7 +33,7 @@ export const LogIn: FC = () => {
       if ((typeof authToken === 'string')) {
         showSuccesNotification({
           title: `Welcome to ImageHub`,
-          message: "Succesfull login (entering in a few seconds...)",
+          message: "Entering in a few seconds...",
           loading: true,
         });
         setTimeout(login, 3000, authToken);
