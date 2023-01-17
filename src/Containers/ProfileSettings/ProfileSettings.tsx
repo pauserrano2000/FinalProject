@@ -1,6 +1,7 @@
 import "./ProfileSettings.css";
 import { FC } from "react";
 import { Form } from "../../Components/Form/Form";
+import { Avatar } from "../../Components/Avatar/Avatar";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useNotification } from "../../Hooks/useNotification";
@@ -30,6 +31,7 @@ export const ProfileSettings: FC = () => {
         <h1 className={`heading ${theme}-heading `}>
           PROFILE SETTINGS
         </h1>
+        <Avatar size={100}/>
         <Form onSubmit={updateHandler}>
           <Form.Input
             label="First name"
