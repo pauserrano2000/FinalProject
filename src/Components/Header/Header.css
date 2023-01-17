@@ -64,8 +64,10 @@
 }
 
 .dark-link:hover {
-  color: #A6A7AB;
-  border-color: #A6A7AB;
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-color: #1F9BD3; /* midpoint color*/ 
 }
 
 .light-link {
@@ -74,6 +76,8 @@
 }
 
 .light-link:hover {
-  color: #495057;
-  border-color: #495057;
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-color: #1F9BD3;
 }

@@ -24,18 +24,19 @@
   transition: 0.3s;
 }
 
-.active {
-  font-size: 1.4rem;
-  border-bottom: 0.15rem solid;
-  transition: 0.3s;
-}
-
 .dark-navlink {
   color: white;
-  border-color: white;
 }
 
 .light-navlink {
   color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
+}
+
+.active {
+  font-size: 1.4rem;
+  border-bottom: 0.10rem solid #1F9BD3; /* midpoint color*/ 
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.3s;
 }
