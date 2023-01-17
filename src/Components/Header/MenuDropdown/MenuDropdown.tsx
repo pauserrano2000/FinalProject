@@ -36,7 +36,7 @@ export const MenuDropdown = ({ children }: PropsWithChildren) => {
 
     const clickOutsideHandler = (event: MouseEvent) => {
         if (ref.current && !ref.current.contains(event.target as Node)) {
-            setIsVisible(false);
+            setTimeout(setIsVisible, 10, false);
         }
     }
     const clickTargetHandler = () => {
@@ -44,13 +44,13 @@ export const MenuDropdown = ({ children }: PropsWithChildren) => {
     }
 
     return (
-        <div ref={ref} className="dropdown">
+        <div className="dropdown">
             <button className="target" onClick={clickTargetHandler}>
                 <Avatar size={45}/>
             </button>
             {isVisible &&
                 <div className={`dropdown-content ${theme}-dropdown-content`}>
-                    <div className="user-info">
+                    <div ref={ref} className="user-info">
                         <p className="user-info-name">
                             {`${firstName} ${lastName}`}
                         </p>
