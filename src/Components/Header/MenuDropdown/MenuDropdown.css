@@ -24,12 +24,12 @@
 }
 
 .dark-dropdown-content {
-  background-color: #25262b;
+  background-color: #25262b6b;
   border-color: rgb(55, 58, 64);
 }
 
 .light-dropdown-content {
-  background-color: white;
+  background-color: #f8f9fa6b;
   border-color: rgb(233, 236, 239);
 }
 
@@ -81,7 +81,7 @@
 }
 
 .dark-option:hover {
-  background-color: #373a40;
+  background-color: #373a403b;
 }
 
 .light-option {
@@ -90,5 +90,5 @@
 }
 
 .light-option:hover {
-  background-color: #f1f3f5;
+  background-color: #f1f3f588;
 }
