@@ -73,6 +73,7 @@
 
   display: flex;
   justify-content: center;
+  gap:0.3rem;
 }
 
 .call-to-action:active{

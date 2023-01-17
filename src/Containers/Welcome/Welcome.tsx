@@ -2,6 +2,7 @@ import "./Welcome.css";
 import { FC } from "react";
 import { useThemeContext } from "../../Context/theme-context";
 import { Link, Outlet } from "react-router-dom";
+import { IconBrandGithub } from "@tabler/icons";
 
 export const Welcome: FC = () => {
   const { theme } = useThemeContext();
@@ -30,6 +31,7 @@ export const Welcome: FC = () => {
           </Link>
           <a
             className="call-to-action github-call-to-action" href="https://github.com/pauserrano2000/FinalProject">
+            <IconBrandGithub/>
             GitHub
           </a>
         </div>
