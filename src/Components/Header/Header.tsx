@@ -55,7 +55,7 @@ export const Header: FC = () => {
         </>}
         {isLoggedIn && <>
           <MenuDropdown>
-            <MenuDropdown.Option onClick={() => navigate("/settings")}>
+            <MenuDropdown.Option onClick={() => navigate("/profile-settings")}>
               <IconSettings/>
               Profile settings
             </MenuDropdown.Option>

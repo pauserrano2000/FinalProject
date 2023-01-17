@@ -59,7 +59,7 @@ function App() {
             <Route path="/image-generation" element={<ImageGeneration />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/favorites" element={<Favorites />} />
-            <Route path="/settings" element={<ProfileSettings />} />
+            <Route path="/profile-settings" element={<ProfileSettings />} />
             <Route path="*" element={<Navigate to="/search" />} />
           </>}
         </Routes>
