@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useState, useContext, useCallback } from "react";
-import { UserData } from "../Services/apicalls-mapper";
+import { UserDataFE } from "../Services/apicalls-mapper";
 import { getInitials } from "../Utils/utils";
 
 type UserContextObj = {
@@ -8,7 +8,7 @@ type UserContextObj = {
     email: string | null;
     isUpToDate: boolean;
     initials: string | null;
-    populateUserData: (userData: UserData) => void;
+    populateUserData: (userData: UserDataFE) => void;
     resetUserData: () => void;
 }
 
@@ -18,7 +18,7 @@ const UserContext = React.createContext<UserContextObj>({
     email: null,
     isUpToDate: false,
     initials: null,
-    populateUserData: (userData: UserData) => {},
+    populateUserData: (userData: UserDataFE) => {},
     resetUserData: () => {},
 });
 
@@ -30,7 +30,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
     const initials = getInitials(firstName,lastName);
     
-    const populateUserData = useCallback((userData: UserData) => {
+    const populateUserData = useCallback((userData: UserDataFE) => {
         setFirstName(userData.firstName);
         setLastName(userData.lastName);
         setEmail(userData.email);

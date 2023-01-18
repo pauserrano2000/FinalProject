@@ -38,8 +38,7 @@ export const LogIn: FC = () => {
         });
         setTimeout(login, 3000, authToken);
         navigate("/search")
-      }
-      else {
+      } else {
         passwordInput.reset()
         showErrorNotification({
           title: authToken.errorTitle,
@@ -50,7 +49,7 @@ export const LogIn: FC = () => {
       console.log(error);
       showErrorNotification({
         title: "The server is not working, http requests failing",
-        message:"The admin should check this..",
+        message: "The admin should check this...",
       });
     }
   }

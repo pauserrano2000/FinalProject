@@ -43,8 +43,7 @@ export const SignUp: FC = () => {
           message: "You are able to log in now",
         });
         navigate("/");
-      }
-      else {
+      } else {
         emailInput.reset()
         showErrorNotification({
           title: "The introduced email already exists in our database",
@@ -55,7 +54,7 @@ export const SignUp: FC = () => {
       console.log(error);
       showErrorNotification({
         title: "The server is not working, http requests failing",
-        message: "The admin should check this..",
+        message: "The admin should check this...",
       });
     }
   }
@@ -71,7 +70,7 @@ export const SignUp: FC = () => {
           <Form.Input
             label="First name"
             type="text"
-            id="first"
+            id="firstName"
             value={firstNameInput.value}
             onChange={firstNameInput.ChangeHandler}
             onBlur={firstNameInput.BlurHandler}
@@ -81,7 +80,7 @@ export const SignUp: FC = () => {
           <Form.Input
             label="Last name"
             type="text"
-            id="last"
+            id="lastName"
             value={lastNameInput.value}
             onChange={lastNameInput.ChangeHandler}
             onBlur={lastNameInput.BlurHandler}
