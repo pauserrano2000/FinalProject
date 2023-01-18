@@ -4,7 +4,7 @@ export const cleanAxiosResponse = (response: any) => {
   return data;
 };
 
-export const hydrateFEAuthToken = (
+export const hydrateFEGetAuthToken = (
   cleanResponse: any
 ): string | { errorTitle: string; errorMessage: string } => {
   // Modifies the response to match the front-end's needs
@@ -23,17 +23,27 @@ export const hydrateFEAuthToken = (
   }
 };
 
-export type UserData = {
+export type UserDataFE = {
   firstName: string;
   lastName: string;
   email: string;
 };
 
-export const hydrateFEUserData = (cleanResponse: any): UserData => {
+export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
   // Modifies the response to match the front-end's needs
   return {
     firstName: cleanResponse.firstName,
     lastName: cleanResponse.lastName,
     email: cleanResponse.email,
   };
+};
+
+export const hydrateFECreateUser = (response: any): boolean => {
+  // Modifies the response to match the front-end's needs
+  return response.statusText === "Created";
+};
+
+export const hydrateFEUpdateUser = (response: any): boolean => {
+  // Modifies the response to match the front-end's needs
+  return response.statusText === "OK";
 };
