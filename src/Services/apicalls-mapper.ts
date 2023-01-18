@@ -41,12 +41,15 @@ export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
 export type ImageDataFE = {
   id: number;
   url: string;
+  description: string;
+  altDescription: string;
+  tags: string[];
 };
 
 export const hydrateFESearchImages = (cleanResponse: any): ImageDataFE[] => {
   // Modifies the response to match the front-end's needs
   const { results } = cleanResponse; //todo total and total_pages data
-  const images = results.map((image: any) => {
+  return results.map((image: any) => {
     return {
       id: image.id,
       url: image.urls.raw,
@@ -55,7 +58,6 @@ export const hydrateFESearchImages = (cleanResponse: any): ImageDataFE[] => {
       tags: image.tags.map((tag: any) => tag.title),
     };
   });
-  return images;
 };
 
 export const hydrateFECreateUser = (response: any): boolean => {
