@@ -8,7 +8,7 @@ import { useAuthContext } from "../../Context/auth-context";
 import { useUserContext } from "../../Context/user-context";
 import { useNotification } from "../../Hooks/useNotification";
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
-import { updateUser, type UpdateData } from "../../Services/apicalls";
+import { updateUser, type UpdateUserData } from "../../Services/apicalls";
 import { capitalizeFirstLetter } from "../../Utils/utils";
 
 export const ProfileSettings: FC = () => {
@@ -22,9 +22,9 @@ export const ProfileSettings: FC = () => {
   const emailInput = useInput(validateEmail);
   const passwordInput = useInput(validatePassword);
   
-  const updateHandler = async (event: React.FormEvent<HTMLFormElement>, key: keyof UpdateData, input: Input) => {
+  const updateHandler = async (event: React.FormEvent<HTMLFormElement>, key: keyof UpdateUserData, input: Input) => {
     event.preventDefault();
-    const update: UpdateData = {}
+    const update: UpdateUserData = {}
     if (key === "firstName" || key === "lastName") {
       update[key] = capitalizeFirstLetter(input.value);
     } else {

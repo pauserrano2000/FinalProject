@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useState, useContext, useCallback } from "react";
-import { UserDataFE } from "../Services/apicalls-mapper";
+import { type UserDataFE } from "../Services/apicalls-mapper";
 import { getInitials } from "../Utils/utils";
 
 type UserContextObj = {
