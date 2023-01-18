@@ -1,5 +1,14 @@
 import { useState } from 'react';
 
+export type Input = {
+  value: string;
+  isValid: boolean;
+  hasError: boolean;
+  ChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  BlurHandler: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
+  reset: () => void;
+}
+
 export const useInput = (validate: (value: string) => boolean) => {
   const [value, setValue] = useState<string>('');
   const [isTouched, setIsTouched] = useState<boolean>(false);

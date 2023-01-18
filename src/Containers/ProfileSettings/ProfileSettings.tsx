@@ -2,7 +2,7 @@ import "./ProfileSettings.css";
 import { FC } from "react";
 import { Form } from "../../Components/Form/Form";
 import { Avatar } from "../../Components/Avatar/Avatar";
-import { useInput } from "../../Hooks/useInput";
+import { useInput, type Input } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
 import { useUserContext } from "../../Context/user-context";
@@ -22,14 +22,6 @@ export const ProfileSettings: FC = () => {
   const emailInput = useInput(validateEmail);
   const passwordInput = useInput(validatePassword);
   
-  type Input = {
-      value: string;
-      isValid: boolean;
-      hasError: boolean;
-      ChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-      BlurHandler: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
-      reset: () => void;
-  }
   const updateHandler = async (event: React.FormEvent<HTMLFormElement>, key: keyof UpdateData, input: Input) => {
     event.preventDefault();
     const update: UpdateData = {}
