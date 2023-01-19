@@ -24,8 +24,7 @@ function App() {
 
   const fetchUserData = useCallback(async (token: string) => {
     try {
-      const userData = await getUserData(token);
-      populateUserData(userData);
+      populateUserData( await getUserData(token));
     } catch (error) {
       console.error(error);
       showErrorNotification({
