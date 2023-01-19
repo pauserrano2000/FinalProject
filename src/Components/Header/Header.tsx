@@ -8,7 +8,7 @@ import { MainNavigation } from "./MainNavigation/MainNavigation";
 import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
 import { MenuDropdown } from "./MenuDropdown/MenuDropdown";
 import { ReactComponent as Logo } from "../../Assets/logo.svg"
-import { IconLogout, IconSettings } from "@tabler/icons";
+import { IconLogout, IconSettings } from "../Icons/Icons"
 
 export const Header: FC = () => {
   const { theme } = useThemeContext();

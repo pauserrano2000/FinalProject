@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { showNotification } from '@mantine/notifications';
-import { IconX, IconCheck } from '@tabler/icons';
+import { IconX, IconCheck } from "../Components/Icons/Icons";
 
 type NotificationParams = {
   title: string;

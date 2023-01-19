@@ -2,7 +2,7 @@ import "./Welcome.css";
 import { FC } from "react";
 import { useThemeContext } from "../../Context/theme-context";
 import { Link, Outlet } from "react-router-dom";
-import { IconBrandGithub } from "@tabler/icons";
+import { IconBrandGithub } from "../../Components/Icons/Icons";
 
 export const Welcome: FC = () => {
   const { theme } = useThemeContext();

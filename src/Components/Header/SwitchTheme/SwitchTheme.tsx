@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useThemeContext } from "../../../Context/theme-context";
 import { ActionIcon } from '@mantine/core';
-import { IconSun, IconMoonStars } from '@tabler/icons';
+import { IconSun, IconMoonStars } from '../../Icons/Icons';
 
 export const SwitchTheme: FC = React.memo(() => {
     const { theme, switchThemeHandler } = useThemeContext();
