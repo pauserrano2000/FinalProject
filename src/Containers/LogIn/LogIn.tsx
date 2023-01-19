@@ -67,8 +67,8 @@ export const LogIn: FC = () => {
             type="email"
             id="email"
             value={emailInput.value}
-            onChange={emailInput.ChangeHandler}
-            onBlur={emailInput.BlurHandler}
+            onChange={emailInput.changeHandler}
+            onBlur={emailInput.blurHandler}
             hasError={emailInput.hasError}
             errorText="E.g. example@example.com"
           />
@@ -77,8 +77,8 @@ export const LogIn: FC = () => {
             type="password"
             id="password"
             value={passwordInput.value}
-            onChange={passwordInput.ChangeHandler}
-            onBlur={passwordInput.BlurHandler}
+            onChange={passwordInput.changeHandler}
+            onBlur={passwordInput.blurHandler}
             hasError={passwordInput.hasError}
             errorText="Include numbers and capital letters (8+ characters)"
           />

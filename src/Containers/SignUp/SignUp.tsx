@@ -72,8 +72,8 @@ export const SignUp: FC = () => {
             type="text"
             id="firstName"
             value={firstNameInput.value}
-            onChange={firstNameInput.ChangeHandler}
-            onBlur={firstNameInput.BlurHandler}
+            onChange={firstNameInput.changeHandler}
+            onBlur={firstNameInput.blurHandler}
             hasError={firstNameInput.hasError}
             errorText="Numbers and some special characters not allowed"
           />
@@ -82,8 +82,8 @@ export const SignUp: FC = () => {
             type="text"
             id="lastName"
             value={lastNameInput.value}
-            onChange={lastNameInput.ChangeHandler}
-            onBlur={lastNameInput.BlurHandler}
+            onChange={lastNameInput.changeHandler}
+            onBlur={lastNameInput.blurHandler}
             hasError={lastNameInput.hasError}
             errorText="Numbers and some special characters not allowed"
           />
@@ -92,8 +92,8 @@ export const SignUp: FC = () => {
             type="email"
             id="email"
             value={emailInput.value}
-            onChange={emailInput.ChangeHandler}
-            onBlur={emailInput.BlurHandler}
+            onChange={emailInput.changeHandler}
+            onBlur={emailInput.blurHandler}
             hasError={emailInput.hasError}
             errorText="E.g. example@example.com"
           />
@@ -102,8 +102,8 @@ export const SignUp: FC = () => {
             type="password"
             id="password"
             value={passwordInput.value}
-            onChange={passwordInput.ChangeHandler}
-            onBlur={passwordInput.BlurHandler}
+            onChange={passwordInput.changeHandler}
+            onBlur={passwordInput.blurHandler}
             hasError={passwordInput.hasError}
             errorText="Include numbers and capital letters (8+ characters)"
           />

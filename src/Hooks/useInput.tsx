@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 export type Input = {
   value: string;
   isValid: boolean;
   hasError: boolean;
-  ChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  BlurHandler: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
+  changeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  blurHandler: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
   reset: () => void;
 }
 
@@ -16,25 +16,25 @@ export const useInput = (validate: (value: string) => boolean) => {
   const isValid = validate(value);
   const hasError = isTouched && !isValid;
 
-  const ChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
-  const BlurHandler = (event: React.FocusEvent<HTMLInputElement>) => {
+  const blurHandler = (event: React.FocusEvent<HTMLInputElement>) => {
     setIsTouched(true);
   };
 
-  const reset = () => {
+  const reset = useCallback( () => {
     setValue('');
     setIsTouched(false);
-  };
+  }, [] )
 
   return {
     value,
     isValid,
     hasError,
-    ChangeHandler,
-    BlurHandler,
+    changeHandler,
+    blurHandler,
     reset
   };
 };
