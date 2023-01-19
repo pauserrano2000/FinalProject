@@ -11,6 +11,7 @@ import { Callout } from "../../Components/Callout/Callout";
 import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateEmail, validatePassword } from "../../Services/validate";
 import { getAuthToken } from "../../Services/apicalls";
+import { IconLogin } from "../../Components/Icons/Icons";
 
 export const LogIn: FC = () => {
   const { theme } = useThemeContext();
@@ -83,6 +84,7 @@ export const LogIn: FC = () => {
             errorText="Include numbers and capital letters (8+ characters)"
           />
           <Form.Submit disabled={!formIsValid}>
+            <IconLogin size={22} />
             Log in
           </Form.Submit>
         </Form>

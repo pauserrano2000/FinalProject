@@ -10,6 +10,7 @@ import { useNotification } from "../../Hooks/useNotification";
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
 import { updateUser, type UpdateUserData } from "../../Services/apicalls";
 import { capitalizeFirstLetter, camelCaseToWords } from "../../Utils/utils";
+import { IconEdit } from "../../Components/Icons/Icons"
 
 export const ProfileSettings: FC = () => {
   const { theme } = useThemeContext();
@@ -70,7 +71,7 @@ export const ProfileSettings: FC = () => {
           </div>
         </div>
         <div className="form-wrapper">
-          <Form onSubmit={(event) => updateHandler(event, "firstName", firstNameInput)}>
+          <Form direction="row" onSubmit={(event) => updateHandler(event, "firstName", firstNameInput)}>
             <Form.Input
               label="First name"
               type="text"
@@ -82,10 +83,10 @@ export const ProfileSettings: FC = () => {
               errorText="Numbers and some special characters not allowed"
             />
             <Form.Submit disabled={!firstNameInput.isValid}>
-              Update first name
+              <IconEdit size={22}/>
             </Form.Submit>
           </Form>
-          <Form onSubmit={(event) => updateHandler(event, "lastName", lastNameInput)}>
+          <Form direction="row" onSubmit={(event) => updateHandler(event, "lastName", lastNameInput)}>
             <Form.Input
               label="Last name"
               type="text"
@@ -97,10 +98,10 @@ export const ProfileSettings: FC = () => {
               errorText="Numbers and some special characters not allowed"
             />
             <Form.Submit disabled={!lastNameInput.isValid}>
-              Update last name
+              <IconEdit size={22} />
             </Form.Submit>
           </Form>
-          <Form onSubmit={(event) => updateHandler(event, "email", emailInput)}>
+          <Form direction="row" onSubmit={(event) => updateHandler(event, "email", emailInput)}>
             <Form.Input
               label="Email address"
               type="email"
@@ -112,10 +113,10 @@ export const ProfileSettings: FC = () => {
               errorText="E.g. example@example.com"
             />
             <Form.Submit disabled={!emailInput.isValid}>
-              Update email
+              <IconEdit size={22}/>
             </Form.Submit>
           </Form>
-          <Form onSubmit={(event) => updateHandler(event, "password", passwordInput)}>
+          <Form direction="row" onSubmit={(event) => updateHandler(event, "password", passwordInput)}>
             <Form.Input
               label="Password"
               type="password"
@@ -127,7 +128,7 @@ export const ProfileSettings: FC = () => {
               errorText="Include numbers and capital letters (8+ characters)"
             />
             <Form.Submit disabled={!passwordInput.isValid}>
-              Update password
+              <IconEdit size={22}/>
             </Form.Submit>
           </Form>
         </div>

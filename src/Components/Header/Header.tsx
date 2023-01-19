@@ -56,11 +56,11 @@ export const Header: FC = () => {
         {isLoggedIn && <>
           <MenuDropdown>
             <MenuDropdown.Option onClick={() => navigate("/profile-settings")}>
-              <IconSettings/>
+              <IconSettings size={22}/>
               Profile settings
             </MenuDropdown.Option>
             <MenuDropdown.Option onClick={logoutHandler}>
-              <IconLogout/>
+              <IconLogout size={22}/>
               Log out
             </MenuDropdown.Option>
           </MenuDropdown>

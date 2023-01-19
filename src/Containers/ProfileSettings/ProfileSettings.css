@@ -16,16 +16,8 @@
   gap: 10rem;
 }
 
-.heading {
-  font-size: 5rem;
-}
-
-.dark-heading {
-  color: white;
-  border-color: white;
-}
-
-.light-heading {
-  color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
+.form-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }

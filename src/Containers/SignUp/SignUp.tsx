@@ -11,6 +11,7 @@ import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
 import { createUser } from "../../Services/apicalls";
 import { capitalizeFirstLetter } from "../../Utils/utils";
+import { IconUserPlus } from "../../Components/Icons/Icons";
 
 export const SignUp: FC = () => {
   const { theme } = useThemeContext();
@@ -108,6 +109,7 @@ export const SignUp: FC = () => {
             errorText="Include numbers and capital letters (8+ characters)"
           />
           <Form.Submit disabled={!formIsValid}>
+            <IconUserPlus size={22} />
             Sign up
           </Form.Submit>
         </Form>

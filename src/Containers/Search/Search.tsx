@@ -11,6 +11,7 @@ import { type ImageDataFE } from "../../Services/apicalls-mapper";
 import { validateName } from "../../Services/validate";
 import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Callout } from "../../Components/Callout/Callout";
+import { IconSearch } from "../../Components/Icons/Icons";
 
 
 export const Search: FC = () => {
@@ -63,7 +64,7 @@ export const Search: FC = () => {
   return (
     <main className="search">
       <div className="search-input-wrapper">
-        <Form onSubmit={submitHandler}>
+        <Form direction="row" onSubmit={submitHandler}>
           <Form.Input
             type="text"
             id="query"
@@ -74,10 +75,10 @@ export const Search: FC = () => {
             errorText="Numbers and some special characters not allowed"
           />
           <Form.Submit disabled={!queryIsValid}>
-            Search
+            <IconSearch size={22}/>
           </Form.Submit>
         </Form>
-        <Callout to="/image-generation" textLink="Generate your own image">
+        <Callout to="/image-creator" textLink="Generate your own image">
           Can't find what you're looking for?
         </Callout>
       </div>
