@@ -11,11 +11,11 @@
   max-width: 72rem;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 10rem;
 }
+
 .heading {
   font-size: 5rem;
 }

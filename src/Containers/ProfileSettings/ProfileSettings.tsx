@@ -9,7 +9,7 @@ import { useUserContext } from "../../Context/user-context";
 import { useNotification } from "../../Hooks/useNotification";
 import { validateName, validateEmail, validatePassword } from "../../Services/validate";
 import { updateUser, type UpdateUserData } from "../../Services/apicalls";
-import { capitalizeFirstLetter } from "../../Utils/utils";
+import { capitalizeFirstLetter, camelCaseToWords } from "../../Utils/utils";
 
 export const ProfileSettings: FC = () => {
   const { theme } = useThemeContext();
@@ -37,7 +37,7 @@ export const ProfileSettings: FC = () => {
         resetUserData();
         showSuccesNotification({
           title: "User data succesfully updated",
-          message: "The new profile data has been saved in the db",
+          message: `The new ${camelCaseToWords(key)} has been saved in the db`,
         });
       } else {
         showErrorNotification({
