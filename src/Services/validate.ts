@@ -1,7 +1,7 @@
 // Checks if the string contains only letters, and allows for spaces, hyphens, and some
 // punctuation. It does not allow numbers, symbols, or other special characters.
 export const validateName = (value: string): boolean => {
-  const nameRegex = /^[a-zA-ZñÑ]+(([',. -][a-zA-ZñÑ ])?[a-zA-ZñÑ]*)*$/;
+  const nameRegex = /^[a-zA-ZñÑçÇ]+(([',. -][a-zA-ZñÑçÇ ])?[a-zA-ZñÑ]*)*$/;
   return nameRegex.test(value);
 };
 // Checks if the string is a properly formatted email address, including the local part
