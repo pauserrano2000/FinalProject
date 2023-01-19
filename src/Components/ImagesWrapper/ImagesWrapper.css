@@ -1,0 +1,11 @@
+.images-wrapper{
+    max-width: 72rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: aqua;
+}
