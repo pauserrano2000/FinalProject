@@ -15,10 +15,10 @@ export const Welcome: FC = () => {
           <span className="headline-gradient">
             Perfect Image
           </span>
-          for Your Design
+          for your design
         </h1>
         <p className={`overview ${theme}-overview`}>
-          Our wide selection of high-quality, free, copyright-free stock images makes it easy
+          Our wide selection (+3.48 million) of high-quality, free, copyright-free stock images makes it easy
           to find the perfect image for your design projects. Can't find exactly what you're
           looking for? Use our AI-powered generators to create custom images on the fly.
           Save and download your favorites with our favorites feature. Elevate your designs

@@ -2,7 +2,7 @@ import "./MenuDropdown.css";
 import { FC, PropsWithChildren, useState, useRef, useEffect } from "react";
 import { useThemeContext } from "../../../Context/theme-context";
 import { useUserContext } from "../../../Context/user-context";
-import { Avatar } from "../../Avatar/Avatar"
+import { Avatar } from "../../Avatar/Avatar";
 
 type OptionProps = {
     onClick: () => void;

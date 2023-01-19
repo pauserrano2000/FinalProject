@@ -1,17 +1,30 @@
 .header {
-  height: 7vh;
+  height: 6vh;
   width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   position: sticky;
   top: 0;
+  
+  border-bottom: 0.06rem solid;
+  backdrop-filter: blur(8px);
+}
+
+.dark-header{
+  background-color: #141517c4;
+  border-color: rgb(55, 58, 64);
+}
+
+.light-header{
+  background-color: rgba(255, 255, 255, 0.80);
+  border-color: rgb(233, 236, 239);
 }
 
 .logo-wrapper {
-  width: 15%;
+  width: 20%;
   min-width: 10rem;
 
   display: flex;
@@ -19,7 +32,7 @@
 }
 
 .logo {
-  width:80%;
+  width:60%;
   min-width: 10rem;
 }
 

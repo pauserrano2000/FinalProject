@@ -11,5 +11,6 @@ export {
     IconEdit,
     IconSearch,
     IconUserPlus,
+    IconRocket,
 } from "@tabler/icons";
 

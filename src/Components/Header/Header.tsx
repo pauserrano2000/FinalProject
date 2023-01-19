@@ -23,7 +23,7 @@ export const Header: FC = () => {
   }
 
   return (
-    <header className="header">
+    <header className={`header ${theme}-header `}>
       <div className="logo-wrapper">
         <Logo className={`logo ${theme}-logo `} />
       </div>

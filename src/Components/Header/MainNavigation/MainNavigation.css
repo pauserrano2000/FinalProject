@@ -1,5 +1,5 @@
 .main-navigation {
-  width: 55%;
+  width: 50%;
 }
 
 .navlink-wrapper {
@@ -8,7 +8,7 @@
   padding: 0;
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 4rem;
 }
@@ -16,12 +16,12 @@
 .navlink {
   text-decoration: none;
   font-size: 1.3rem;
-  transition: 0.3s;
 }
 
 .navlink:hover {
-  font-size: 1.4rem;
-  transition: 0.3s;
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .dark-navlink {
@@ -33,10 +33,9 @@
 }
 
 .active {
-  font-size: 1.4rem;
-  border-bottom: 0.10rem solid #1F9BD3; /* midpoint color*/ 
+  border-bottom: 0.2rem solid #1F9BD3; /* midpoint color*/ 
+  padding-bottom: 0.9rem;
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: 0.3s;
 }

@@ -1,5 +1,5 @@
 .image-creator {
-  min-height: 93vh;
+  min-height: 94vh;
   width: 100%;
 
   display: flex;
@@ -9,5 +9,8 @@
 }
 
 .image-creator-input-wrapper {
-  height: 10%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }

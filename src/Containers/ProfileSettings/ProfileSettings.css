@@ -1,5 +1,5 @@
 .profile-settings {
-  min-height: 93vh;
+  min-height: 94vh;
   width: 100%;
 
   display: flex;
@@ -11,13 +11,16 @@
   max-width: 72rem;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
+  gap: 2rem;
 }
 
 .form-wrapper{
+  width: 35rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
 }

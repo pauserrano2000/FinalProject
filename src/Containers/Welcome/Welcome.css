@@ -1,5 +1,5 @@
 .welcome {
-  min-height: 93vh;
+  min-height: 94vh;
   width: 100%;
 
   display: flex;
@@ -42,7 +42,7 @@
 
 .overview {
   max-width: 55rem;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 1.55;
 }
 

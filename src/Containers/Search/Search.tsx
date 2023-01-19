@@ -78,7 +78,7 @@ export const Search: FC = () => {
             <IconSearch size={22}/>
           </Form.Submit>
         </Form>
-        <Callout to="/image-creator" textLink="Generate your own image">
+        <Callout to="/image-creator" textLink="Create your own image">
           Can't find what you're looking for?
         </Callout>
       </div>

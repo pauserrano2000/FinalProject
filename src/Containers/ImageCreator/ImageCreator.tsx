@@ -11,6 +11,7 @@ import { type ImageDataFE } from "../../Services/apicalls-mapper";
 import { validateName } from "../../Services/validate";
 import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Callout } from "../../Components/Callout/Callout";
+import { IconRocket } from "../../Components/Icons/Icons";
 
 
 export const ImageCreator: FC = () => {
@@ -57,9 +58,13 @@ export const ImageCreator: FC = () => {
             errorText="Numbers and some special characters not allowed"
           />
           <Form.Submit disabled={!prompt.isValid}>
-            Generate
+            <IconRocket size={22}/>
+            Create
           </Form.Submit>
         </Form>
+        <Callout to="/search" textLink="Search in our wide selection (+3.48 million images) ">
+          Can't find what you're looking for?
+        </Callout>
       </div>
       <ImagesWrapper>
         {isLoading && <p>Loading....</p>}
