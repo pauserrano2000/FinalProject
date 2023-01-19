@@ -13,6 +13,6 @@ export const validateEmail = (value: string): boolean => {
 };
 // At least 8 characters and at least 1 uppercase letter, 1 lowercase letter and 1 number.
 export const validatePassword = (value: string): boolean => {
-  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\dñÑ]{8,}$/;
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\dñÑçÇ]{8,}$/;
   return passwordRegex.test(value);
 };
