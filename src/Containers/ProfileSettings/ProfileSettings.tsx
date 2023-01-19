@@ -21,7 +21,7 @@ export const ProfileSettings: FC = () => {
   const lastNameInput = useInput(validateName);
   const emailInput = useInput(validateEmail);
   const passwordInput = useInput(validatePassword);
-  
+
   const updateHandler = async (event: React.FormEvent<HTMLFormElement>, key: keyof UpdateUserData, input: Input) => {
     event.preventDefault();
     const update: UpdateUserData = {}
@@ -76,15 +76,14 @@ export const ProfileSettings: FC = () => {
               type="text"
               id="firstName"
               value={firstNameInput.value}
-              onChange={firstNameInput.ChangeHandler}
-              onBlur={firstNameInput.BlurHandler}
+              onChange={firstNameInput.changeHandler}
+              onBlur={firstNameInput.blurHandler}
               hasError={firstNameInput.hasError}
               errorText="Numbers and some special characters not allowed"
             />
-            <Form.Submit
-              disabled={!firstNameInput.isValid}
-              text="Update first name"
-            />
+            <Form.Submit disabled={!firstNameInput.isValid}>
+              Update first name
+            </Form.Submit>
           </Form>
           <Form onSubmit={(event) => updateHandler(event, "lastName", lastNameInput)}>
             <Form.Input
@@ -92,15 +91,14 @@ export const ProfileSettings: FC = () => {
               type="text"
               id="lastName"
               value={lastNameInput.value}
-              onChange={lastNameInput.ChangeHandler}
-              onBlur={lastNameInput.BlurHandler}
+              onChange={lastNameInput.changeHandler}
+              onBlur={lastNameInput.blurHandler}
               hasError={lastNameInput.hasError}
               errorText="Numbers and some special characters not allowed"
             />
-            <Form.Submit
-              disabled={!lastNameInput.isValid}
-              text="Update last name"
-            />
+            <Form.Submit disabled={!lastNameInput.isValid}>
+              Update last name
+            </Form.Submit>
           </Form>
           <Form onSubmit={(event) => updateHandler(event, "email", emailInput)}>
             <Form.Input
@@ -108,15 +106,14 @@ export const ProfileSettings: FC = () => {
               type="email"
               id="email"
               value={emailInput.value}
-              onChange={emailInput.ChangeHandler}
-              onBlur={emailInput.BlurHandler}
+              onChange={emailInput.changeHandler}
+              onBlur={emailInput.blurHandler}
               hasError={emailInput.hasError}
               errorText="E.g. example@example.com"
             />
-            <Form.Submit
-              disabled={!emailInput.isValid}
-              text="Update email"
-            />
+            <Form.Submit disabled={!emailInput.isValid}>
+              Update email
+            </Form.Submit>
           </Form>
           <Form onSubmit={(event) => updateHandler(event, "password", passwordInput)}>
             <Form.Input
@@ -124,15 +121,14 @@ export const ProfileSettings: FC = () => {
               type="password"
               id="password"
               value={passwordInput.value}
-              onChange={passwordInput.ChangeHandler}
-              onBlur={passwordInput.BlurHandler}
+              onChange={passwordInput.changeHandler}
+              onBlur={passwordInput.blurHandler}
               hasError={passwordInput.hasError}
               errorText="Include numbers and capital letters (8+ characters)"
             />
-            <Form.Submit
-              disabled={!passwordInput.isValid}
-              text="Update password"
-            />
+            <Form.Submit disabled={!passwordInput.isValid}>
+              Update password
+            </Form.Submit>
           </Form>
         </div>
       </div>

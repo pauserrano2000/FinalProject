@@ -26,8 +26,6 @@
 }
 
 .input {
-  position: relative;
-
   width: 20rem;
   padding: 0.4em;
   border: 0.07rem solid;
@@ -50,9 +48,8 @@
 }
 
 .error-text {
-  position: absolute;
-  transform: translate(0%, 295%);
-  
+  margin: 0;
+  height: 0;
   font-size: 0.8rem;
   color: red;
 }

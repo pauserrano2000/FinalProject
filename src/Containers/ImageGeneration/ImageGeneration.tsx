@@ -56,10 +56,9 @@ export const ImageGeneration: FC = () => {
             hasError={prompt.hasError}
             errorText="Numbers and some special characters not allowed"
           />
-          <Form.Submit
-            disabled={!prompt.isValid}
-            text="Generate"
-          />
+          <Form.Submit disabled={!prompt.isValid}>
+            Generate
+          </Form.Submit>
         </Form>
       </div>
       <ImagesWrapper>

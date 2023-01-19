@@ -1,9 +1,9 @@
 import "./Form.css";
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { useThemeContext } from "../../Context/theme-context";
 
 type InputProps = {
-    label: string;
+    label?: string;
     type: string;
     id: string;
     value: string;
@@ -15,7 +15,6 @@ type InputProps = {
 
 type SubmitProps = {
     disabled: boolean;
-    text: string;
 }
 
 type FormProps = {
@@ -35,9 +34,11 @@ const Input: FC<InputProps> = ({
     const { theme } = useThemeContext();
     return (
         <div className="input-wrapper">
-            <label className={`label ${theme}-label`} htmlFor={id}>
-                {label}
-            </label>
+            {label &&
+                <label className={`label ${theme}-label`} htmlFor={id}>
+                    {label}
+                </label>
+            }
             <input
                 className={`input ${theme}-input ${hasError ? "invalid-input" : ""}`}
                 type={type}
@@ -53,10 +54,10 @@ const Input: FC<InputProps> = ({
     )
 }
 
-const Submit: React.FC<SubmitProps> = ({ disabled, text }) => {
+const Submit: FC<PropsWithChildren<SubmitProps>> = ({ children, disabled}) => {
     return (
         <button className="submit" type="submit" disabled={disabled}>
-            {text}
+            {children}
         </button>
     );
 };

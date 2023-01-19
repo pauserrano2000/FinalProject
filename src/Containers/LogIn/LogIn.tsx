@@ -82,10 +82,9 @@ export const LogIn: FC = () => {
             hasError={passwordInput.hasError}
             errorText="Include numbers and capital letters (8+ characters)"
           />
-          <Form.Submit
-            disabled={!formIsValid}
-            text="Log in"
-          />
+          <Form.Submit disabled={!formIsValid}>
+            Log in
+          </Form.Submit>
         </Form>
         <Callout to="/signup" textLink="Create an account">
           New to ImageHub?

@@ -73,10 +73,9 @@ export const Search: FC = () => {
             hasError={queryHasError}
             errorText="Numbers and some special characters not allowed"
           />
-          <Form.Submit
-            disabled={!queryIsValid}
-            text="Search"
-          />
+          <Form.Submit disabled={!queryIsValid}>
+            Search
+          </Form.Submit>
         </Form>
         <Callout to="/image-generation" textLink="Generate your own image">
           Can't find what you're looking for?

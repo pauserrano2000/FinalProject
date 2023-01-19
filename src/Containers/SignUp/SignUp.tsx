@@ -107,10 +107,9 @@ export const SignUp: FC = () => {
             hasError={passwordInput.hasError}
             errorText="Include numbers and capital letters (8+ characters)"
           />
-          <Form.Submit
-            disabled={!formIsValid}
-            text="Sign up"
-          />
+          <Form.Submit disabled={!formIsValid}>
+            Sign up
+          </Form.Submit>
         </Form>
         <Callout to="/login" textLink="Log in">
           Already have an account?
