@@ -1,4 +1,4 @@
-.image-generation {
+.image-creator {
   min-height: 93vh;
   width: 100%;
 
@@ -8,6 +8,6 @@
   align-items: center;
 }
 
-.image-generation-input-wrapper {
+.image-creator-input-wrapper {
   height: 10%;
 }

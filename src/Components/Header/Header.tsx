@@ -33,8 +33,8 @@ export const Header: FC = () => {
           <MainNavigation.Link to="/search">
             Search
           </MainNavigation.Link>
-          <MainNavigation.Link to="/image-generation">
-            Image Generation
+          <MainNavigation.Link to="/image-creator">
+            Image Creator
           </MainNavigation.Link>
           <MainNavigation.Link to="/favorites">
             Favorites

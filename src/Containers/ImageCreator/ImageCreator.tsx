@@ -1,4 +1,4 @@
-import "./ImageGeneration.css";
+import "./ImageCreator.css";
 import { FC, useState, useEffect, useCallback } from "react";
 import { Form } from "../../Components/Form/Form";
 import { ImagesWrapper } from "../../Components/ImagesWrapper/ImagesWrapper";
@@ -13,7 +13,7 @@ import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Callout } from "../../Components/Callout/Callout";
 
 
-export const ImageGeneration: FC = () => {
+export const ImageCreator: FC = () => {
   const { theme } = useThemeContext();
   const navigate = useNavigate();
   const { showErrorNotification } = useNotification();
@@ -44,8 +44,8 @@ export const ImageGeneration: FC = () => {
   }
 
   return (
-    <main className="image-generation">
-      <div className="image-generation-input-wrapper">
+    <main className="image-creator">
+      <div className="image-creator-input-wrapper">
         <Form direction="row" onSubmit={submitHandler}>
           <Form.Input
             type="text"

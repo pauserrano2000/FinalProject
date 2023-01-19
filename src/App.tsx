@@ -7,7 +7,7 @@ import { Welcome } from "./Containers/Welcome/Welcome"
 import { LogIn } from "./Containers/LogIn/LogIn"
 import { SignUp } from './Containers/SignUp/SignUp';
 import { Search } from './Containers/Search/Search';
-import { ImageGeneration } from './Containers/ImageGeneration/ImageGeneration';
+import { ImageCreator } from './Containers/ImageCreator/ImageCreator';
 import { Detail } from './Containers/Detail/Detail';
 import { Favorites } from './Containers/Favorites/Favorites';
 import { ProfileSettings } from './Containers/ProfileSettings/ProfileSettings';
@@ -55,7 +55,7 @@ function App() {
           </>}
           {isLoggedIn && <>
             <Route path="/search" element={<Search />} />
-            <Route path="/image-generation" element={<ImageGeneration />} />
+            <Route path="/image-creator" element={<ImageCreator />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/profile-settings" element={<ProfileSettings />} />
