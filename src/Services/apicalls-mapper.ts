@@ -39,7 +39,7 @@ export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
 };
 
 export type ImageDataFE = {
-  id: number;
+  id: string;
   url: string;
   description: string;
   altDescription: string;
