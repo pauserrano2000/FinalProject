@@ -18,6 +18,7 @@ type SubmitProps = {
 }
 
 type FormProps = {
+    direction?: "row" | "column"
     onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
@@ -63,9 +64,9 @@ const Submit: FC<PropsWithChildren<SubmitProps>> = ({ children, disabled}) => {
 };
 
 
-export const Form = ({ children, onSubmit }: PropsWithChildren<FormProps>) => {
+export const Form = ({ children, direction="column", onSubmit }: PropsWithChildren<FormProps>) => {
     return (
-        <form className="form" onSubmit={onSubmit}>
+        <form className={`form ${direction}-form`} onSubmit={onSubmit}>
             {children}
         </form>
     );

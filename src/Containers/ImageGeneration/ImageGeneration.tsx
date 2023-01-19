@@ -46,7 +46,7 @@ export const ImageGeneration: FC = () => {
   return (
     <main className="image-generation">
       <div className="image-generation-input-wrapper">
-        <Form onSubmit={submitHandler}>
+        <Form direction="row" onSubmit={submitHandler}>
           <Form.Input
             type="text"
             id="prompt"
