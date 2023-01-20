@@ -3,24 +3,94 @@
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 4rem;
 }
 
-.profile-settings-wrapper {
-  max-width: 72rem;
+.profile-settings__user {
+  width: 100%;
+  padding: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+  gap:1rem;
+}
+
+.light-profile-settings__user {
+  background-color:rgb(251, 251, 251);
+}
+
+.dark-profile-settings__user {
+  background-color:  rgb(23, 23, 25);
+}
+
+.profile-settings__user__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-settings__user__info__name{
+  margin:0;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-settings__user__info__email{
+  margin:0;
+  font-size: 1.5rem;
+  text-align: center;
+
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-settings__forms{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap:2rem;
+}
+
+.profile-settings__forms__heading{
+  margin:0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.dark-profile-settings__forms__heading{
+  color: white;
+}
+
+.light-profile-settings__forms__heading{
+  color: rgb(0, 0, 0);
+}
+
+.profile-settings__forms__info{
+  width: 32rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 2.3rem;
 }
 
-.form-wrapper{
-  width: 35rem;
+.profile-settings__forms__password{
+  width: 28rem;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 4rem;
 }
+
