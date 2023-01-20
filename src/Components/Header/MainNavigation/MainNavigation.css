@@ -34,7 +34,7 @@
 
 .active {
   border-bottom: 0.2rem solid #1F9BD3; /* midpoint color*/ 
-  padding-bottom: 0.9rem;
+  padding-bottom: 0.95rem;
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
