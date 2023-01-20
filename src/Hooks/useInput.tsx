@@ -14,7 +14,7 @@ export const useInput = (validate: (value: string) => boolean) => {
   const [isTouched, setIsTouched] = useState<boolean>(false);
 
   const isValid = validate(value);
-  const hasError = isTouched && !isValid;
+  const hasError = isTouched && !isValid && value!=="";
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);

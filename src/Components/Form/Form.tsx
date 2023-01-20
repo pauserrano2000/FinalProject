@@ -7,6 +7,7 @@ type InputProps = {
     type: string;
     id: string;
     value: string;
+    placeholder?: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
     hasError: boolean;
@@ -27,6 +28,7 @@ const Input: FC<InputProps> = ({
     type,
     id,
     value,
+    placeholder,
     onChange,
     onBlur,
     hasError,
@@ -47,6 +49,7 @@ const Input: FC<InputProps> = ({
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
+                placeholder={placeholder}
             />
             {hasError && (
                 <p className="error-text">{errorText}</p>
