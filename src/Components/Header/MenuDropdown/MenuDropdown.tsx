@@ -46,7 +46,7 @@ export const MenuDropdown = ({ children }: PropsWithChildren) => {
     return (
         <div className="dropdown">
             <button className="target" onClick={clickTargetHandler}>
-                <Avatar size={45}/>
+                <Avatar/>
             </button>
             {isVisible &&
                 <div className={`dropdown-content ${theme}-dropdown-content`}>
