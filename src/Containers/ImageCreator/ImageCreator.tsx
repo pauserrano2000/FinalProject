@@ -8,7 +8,7 @@ import { useThemeContext } from "../../Context/theme-context";
 import { useNotification } from "../../Hooks/useNotification";
 import { searchImages } from "../../Services/apicalls";
 import { type ImageDataFE } from "../../Services/apicalls-mapper";
-import { validateName } from "../../Services/validate";
+import { validateSearch } from "../../Services/validate";
 import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Callout } from "../../Components/Callout/Callout";
 import { IconRocket } from "../../Components/Icons/Icons";
@@ -19,15 +19,26 @@ export const ImageCreator: FC = () => {
   const navigate = useNavigate();
   const { showErrorNotification } = useNotification();
 
-  const [images, setImages] = useState<ImageDataFE[]>([]);
+  const promptInput = useInput(validateSearch);
+  const [prompt, setPrompt] = useState(""); //stores the query for pagination since queryInput.value is reset after submit
+  const [images, setImages] = useState<null | ImageDataFE[]>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(30);
+  const [totalResults, setTotalResults] = useState<null | number>(null);
+  const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const prompt = useInput(validateName); //todo change validate
-
-  const fetchSearchImages = useCallback(async (query: string) => {
+  const fetchSearchImages = useCallback(async (prompt: string, currentPage: number, perPage: number) => {
     try {
       setIsLoading(true);
-      setImages(await searchImages(query));
+      const { total, pages, images: fetchedImages } = await searchImages(prompt, currentPage, perPage)
+      setImages(fetchedImages);
+      if (total !== totalResults) {
+        setTotalResults(total);
+      }
+      if (pages !== totalPages) {
+        setTotalPages(pages);
+      }
       setIsLoading(false);
     } catch (error) {
       console.error(error);
@@ -36,12 +47,20 @@ export const ImageCreator: FC = () => {
         message: "You have reached the limit of 50 requests/hour",
       });
     }
-  }, [showErrorNotification])
+  }, [showErrorNotification, totalResults, totalPages])
+
+  useEffect(() => {
+    if (prompt) {
+      fetchSearchImages(prompt, currentPage, perPage);
+    }
+  }, [fetchSearchImages, prompt, currentPage, perPage]);
+
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetchSearchImages(prompt.value);
-    prompt.reset();
+    setPrompt(promptInput.value);
+    fetchSearchImages(prompt, currentPage, perPage);
+    promptInput.reset();
   }
 
   return (
@@ -52,13 +71,13 @@ export const ImageCreator: FC = () => {
           <Form.Input
             type="text"
             id="prompt"
-            value={prompt.value}
-            onChange={prompt.changeHandler}
-            onBlur={prompt.blurHandler}
-            hasError={prompt.hasError}
+            value={promptInput.value}
+            onChange={promptInput.changeHandler}
+            onBlur={promptInput.blurHandler}
+            hasError={promptInput.hasError}
             errorText="Numbers and some special characters not allowed"
           />
-          <Form.Submit disabled={!prompt.isValid}>
+          <Form.Submit disabled={!promptInput.isValid}>
             <IconRocket size={22}/>
             Create
           </Form.Submit>
@@ -67,13 +86,21 @@ export const ImageCreator: FC = () => {
           Can't find what you're looking for?
         </Callout>
         </div>
+        <div className="prompt__info">
+          {!isLoading && images && (<>
+            <p className={`prompt__info__p ${theme}-prompt__info__p `}>
+              {images.length === 0 && `No results found for "${prompt}"`}
+              {images.length !== 0 && `Total "${prompt}" results: ${totalResults} images`}
+            </p>
+          </>)}
+        </div>
       </div>
       <ImagesWrapper>
         {isLoading && <p>Loading....</p>}
         {(images !== null) && !isLoading && (
           <div>
             {images.map((image) => (
-              <ImageCard key={image.id} image={image} />
+              <ImageCard key={image.id} image={image} onClick={()=>console.log("h")} />
             ))}
           </div>
         )}
