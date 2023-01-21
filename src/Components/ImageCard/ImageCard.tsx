@@ -1,7 +1,8 @@
 import React from 'react';
 import './ImageCard.css';
+import { Badge } from '../Badge/Badge';
 
-interface Props {
+interface ImageCardProps {
   image: {
     id: string;
     url: string;
@@ -9,18 +10,18 @@ interface Props {
     altDescription: string;
     tags: string[];
   };
+  onClick: ()=>void;
 }
 
-export const ImageCard: React.FC<Props> = ({ image }) => {
+export const ImageCard: React.FC<ImageCardProps> = ({ image, onClick }) => {
   return (
-    <div className="image-card">
-      <img src={image.url} alt={image.altDescription} />
-      <p>{image.description}</p>
-      <div className="tags">
+    <li className="image-card" onClick={onClick}>
+      <img src={image.url} alt={image.description ?? image.altDescription} />
+      <div className="image-card__tags">
         {image.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
+          <Badge key={tag}>{tag}</Badge>
         ))}
       </div>
-    </div>
+    </li>
   );
 };
