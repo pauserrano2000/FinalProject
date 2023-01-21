@@ -46,7 +46,8 @@ export const ImageCreator: FC = () => {
 
   return (
     <main className="image-creator">
-      <div className="image-creator-input-wrapper">
+      <div className={`image-creator__form-wrapper ${theme}-image-creator__form-wrapper `}>
+      <div className="image-creator__form">
         <Form direction="row" onSubmit={submitHandler}>
           <Form.Input
             type="text"
@@ -65,6 +66,7 @@ export const ImageCreator: FC = () => {
         <Callout to="/search" textLink="Search in our wide selection (+3.48 million images) ">
           Can't find what you're looking for?
         </Callout>
+        </div>
       </div>
       <ImagesWrapper>
         {isLoading && <p>Loading....</p>}

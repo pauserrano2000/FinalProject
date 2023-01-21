@@ -63,35 +63,37 @@ export const Search: FC = () => {
 
   return (
     <main className="search">
-      <div className="search-input-wrapper">
-        <Form direction="row" onSubmit={submitHandler}>
-          <Form.Input
-            type="text"
-            id="query"
-            value={query}
-            onChange={queryChangeHandler}
-            onBlur={queryBlurHandler}
-            hasError={queryHasError}
-            errorText="Numbers and some special characters not allowed"
-          />
-          <Form.Submit disabled={!queryIsValid}>
-            <IconSearch size={22}/>
-          </Form.Submit>
-        </Form>
-        <Callout to="/image-creator" textLink="Create your own image">
-          Can't find what you're looking for?
-        </Callout>
+      <div className={`search__form-wrapper ${theme}-search__form-wrapper `}>
+        <div className="search__form">
+          <Form direction="row" onSubmit={submitHandler}>
+            <Form.Input
+              type="text"
+              id="query"
+              value={query}
+              placeholder="Search for high-quality, copyright-free stock images (+3.48 million)"
+              onChange={queryChangeHandler}
+              onBlur={queryBlurHandler}
+              hasError={queryHasError}
+              errorText="Numbers and some special characters not allowed"
+            />
+            <Form.Submit disabled={!queryIsValid}>
+              <IconSearch size={22} />
+            </Form.Submit>
+          </Form>
+          <Callout to="/image-creator" textLink="Create your own image">
+            Can't find what you're looking for?
+          </Callout>
+        </div>
       </div>
-      <ImagesWrapper>
+      <p>Total results:</p>
         {isLoading && <p>Loading....</p>}
         {(images !== null) && !isLoading && (
-          <div>
+          <ImagesWrapper>
             {images.map((image) => (
               <ImageCard key={image.id} image={image} />
             ))}
-          </div>
+          </ImagesWrapper>
         )}
-      </ImagesWrapper>
     </main>
   );
 };

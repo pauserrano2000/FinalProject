@@ -4,14 +4,35 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search__form-wrapper{
+  width:100%;
+  height: 25vh;
+
+  display:flex;
   justify-content: center;
   align-items: center;
 }
 
-.search-input-wrapper {
+.light-search__form-wrapper{
+  background-color:rgb(251, 251, 251);
+}
+
+.dark-search__form-wrapper{
+  background-color:  rgb(23, 23, 25);
+}
+
+.search__form {
+  width: 60%;
+
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
 }
+
 

@@ -11,10 +11,11 @@
 
 .profile-settings__user {
   width: 100%;
-  padding: 2.5rem;
+  height: 25vh;
 
   display: flex;
   justify-content: center;
+  align-items: center;
   gap:1rem;
 }
 
@@ -85,7 +86,7 @@
 }
 
 .profile-settings__forms__password{
-  width: 28rem;
+  width: 30rem;
 
   display: flex;
   flex-direction: column;

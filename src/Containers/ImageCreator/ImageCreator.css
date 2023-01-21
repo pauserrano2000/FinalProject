@@ -4,13 +4,33 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.image-creator__form-wrapper{
+  width:100%;
+  height: 25vh;
+
+  display:flex;
   justify-content: center;
   align-items: center;
 }
 
-.image-creator-input-wrapper {
+.light-image-creator__form-wrapper{
+  background-color:rgb(251, 251, 251);
+}
+
+.dark-image-creator__form-wrapper{
+  background-color:  rgb(23, 23, 25);
+}
+
+.image-creator__form {
+  width: 60%;
+
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
 }
