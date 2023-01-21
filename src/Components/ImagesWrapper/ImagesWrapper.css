@@ -1,11 +1,14 @@
-.images-wrapper{
-    max-width: 72rem;
+.images-wrapper {
+  width: 99%;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  list-style-type: none;
+}
 
-    background-color: aqua;
+.images-wrapper:hover .image-card{
+    opacity: 0.85;
 }
