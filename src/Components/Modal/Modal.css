@@ -5,4 +5,6 @@
 
     min-width:30%;
     overflow: hidden;
+
+    z-index: 1;
   }
