@@ -13,8 +13,10 @@
   height: 25vh;
 
   display:flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
+  gap: 1rem;
 }
 
 .light-search__form-wrapper{
@@ -32,7 +34,47 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
+.search__info{
+  height:3rem;
+  margin-bottom: 1.5rem;
+}
 
+.search__info__p{
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.light-search__info__p {
+  color: black;
+}
+
+.dark-search__info__p {
+  color: white;
+}
+
+.search__not-found{
+  font-size: 1.7rem;
+  font-weight: 300;
+
+  height: 58vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-search__not-found {
+  color: black;
+}
+
+.dark-search__not-found {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+ }

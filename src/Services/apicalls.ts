@@ -14,7 +14,6 @@ enum API_URL {
   UNSPLASH = "https://api.unsplash.com",
 }
 
-
 export const getAuthToken = async (email: string, password: string) => {
   const response = await axios.get(`${API_URL.JSON_SERVER}/users`, {
     params: { email, password },
@@ -29,16 +28,17 @@ export const getUserData = async (token: string) => {
   return hydrateFEGetUserData(cleanResponse);
 };
 
-// todo page	Page number to retrieve. (Optional; default: 1)
-// per_page	Number of items per page. (Optional; default: 10)
-// order_by	How to sort the photos. (Optional; default: relevant). Valid values are latest and relevant.
-// color	Filter results by color. Optional. Valid values are: black_and_white, black, white, yellow, orange, red, purple, magenta, green, teal, and blue.
-export const searchImages = async (query: string) => {
+export const searchImages = async (
+  query: string,
+  page: number, // tpage	Page number to retrieve
+  perPage: number, // per_page	Number of items per page
+) => {
   const response = await axios.get(
-    `${API_URL.UNSPLASH}/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`,{
-      params: { query },
+    `${API_URL.UNSPLASH}/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`,
+    {
+      params: { query, page, per_page: perPage },
     }
-);
+  );
   const cleanResponse = cleanAxiosResponse(response);
   return hydrateFESearchImages(cleanResponse);
 };

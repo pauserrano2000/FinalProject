@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 
 export type Input = {
   value: string;
@@ -24,10 +24,10 @@ export const useInput = (validate: (value: string) => boolean) => {
     setIsTouched(true);
   };
 
-  const reset = useCallback( () => {
+  const reset = () => { 
     setValue('');
     setIsTouched(false);
-  }, [] )
+  };
 
   return {
     value,

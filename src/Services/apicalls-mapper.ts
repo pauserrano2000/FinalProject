@@ -46,10 +46,10 @@ export type ImageDataFE = {
   tags: string[];
 };
 
-export const hydrateFESearchImages = (cleanResponse: any): ImageDataFE[] => {
+export const hydrateFESearchImages = (cleanResponse: any): {total: number, pages: number, images: ImageDataFE[]} => {
   // Modifies the response to match the front-end's needs
-  const { results } = cleanResponse; //todo total and total_pages data
-  return results.map((image: any) => {
+  const { total, total_pages: pages, results } = cleanResponse;
+  const images = results.map((image: any) => {
     return {
       id: image.id,
       url: image.urls.raw,
@@ -58,6 +58,7 @@ export const hydrateFESearchImages = (cleanResponse: any): ImageDataFE[] => {
       tags: image.tags.map((tag: any) => tag.title),
     };
   });
+  return { total, pages, images};
 };
 
 export const hydrateFECreateUser = (response: any): boolean => {

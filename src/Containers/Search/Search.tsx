@@ -2,16 +2,18 @@ import "./Search.css";
 import { FC, useState, useEffect, useCallback } from "react";
 import { Form } from "../../Components/Form/Form";
 import { ImagesWrapper } from "../../Components/ImagesWrapper/ImagesWrapper";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useNotification } from "../../Hooks/useNotification";
 import { searchImages } from "../../Services/apicalls";
 import { type ImageDataFE } from "../../Services/apicalls-mapper";
-import { validateName } from "../../Services/validate";
+import { validateSearch } from "../../Services/validate";
 import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Callout } from "../../Components/Callout/Callout";
 import { IconSearch } from "../../Components/Icons/Icons";
+import { Pagination } from "../../Components/Pagination/Pagination";
+import { Loading } from "../../Components/Loading/Loading";
 
 
 export const Search: FC = () => {
@@ -19,22 +21,28 @@ export const Search: FC = () => {
   const navigate = useNavigate();
   const { showErrorNotification } = useNotification();
 
-  const [images, setImages] = useState<ImageDataFE[]>([]);
+  const queryInput = useInput(validateSearch);
+  const [query, setQuery] = useState(""); //stores the query for pagination since queryInput.value is reset after submit
+  const [images, setImages] = useState<null | ImageDataFE[]>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(30); //todo
+  const [totalResults, setTotalResults] = useState<null | number>(null);
+  const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {
-    value: query,
-    isValid: queryIsValid,
-    hasError: queryHasError,
-    changeHandler: queryChangeHandler,
-    blurHandler: queryBlurHandler,
-    reset: queryReset } = useInput(validateName); //todo change validate
 
-  const fetchSearchImages = useCallback(async (query: string) => {
+  const fetchSearchImages = useCallback(async (query: string, currentPage: number, perPage: number) => {
     try {
       setIsLoading(true);
-      setImages(await searchImages(query));
-      setIsLoading(false);
+      const { total, pages, images: fetchedImages } = await searchImages(query, currentPage, perPage)
+      setImages(fetchedImages);
+      if (total !== totalResults) {
+        setTotalResults(total);
+      }
+      if (pages !== totalPages) {
+        setTotalPages(pages);
+      }
+      setTimeout(() => setIsLoading(false), 150); //Little delay (design decision)
     } catch (error) {
       console.error(error);
       showErrorNotification({
@@ -42,23 +50,22 @@ export const Search: FC = () => {
         message: "You have reached the limit of 50 requests/hour",
       });
     }
-  }, [showErrorNotification])
+  }, [showErrorNotification, totalResults, totalPages])
+
 
   useEffect(() => {
-    //executes when the user stops writing 2 seconds
-    const timer = setTimeout(() => {
-      if (queryIsValid) {
-        fetchSearchImages(query);
-        queryReset();
-      }
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [fetchSearchImages, query, queryIsValid, queryReset]);
+    if (query) {
+      fetchSearchImages(query, currentPage, perPage);
+    }
+  }, [fetchSearchImages, query, currentPage, perPage]);
+
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetchSearchImages(query);
-    queryReset();
+    setQuery(queryInput.value);
+    setCurrentPage(1);
+    fetchSearchImages(query, currentPage, perPage);
+    queryInput.reset();
   }
 
   return (
@@ -69,14 +76,14 @@ export const Search: FC = () => {
             <Form.Input
               type="text"
               id="query"
-              value={query}
+              value={queryInput.value}
               placeholder="Search for high-quality, copyright-free stock images (+3.48 million)"
-              onChange={queryChangeHandler}
-              onBlur={queryBlurHandler}
-              hasError={queryHasError}
-              errorText="Numbers and some special characters not allowed"
+              onChange={queryInput.changeHandler}
+              onBlur={queryInput.blurHandler}
+              hasError={queryInput.hasError}
+              errorText="Some special characters not allowed"
             />
-            <Form.Submit disabled={!queryIsValid}>
+            <Form.Submit disabled={!queryInput.isValid}>
               <IconSearch size={22} />
             </Form.Submit>
           </Form>
@@ -84,16 +91,36 @@ export const Search: FC = () => {
             Can't find what you're looking for?
           </Callout>
         </div>
+        <div className="search__info">
+          {!isLoading && images && (<>
+            <p className={`search__info__p ${theme}-search__info__p `}>
+              {images.length !== 0 && `Total "${query}" results: ${totalResults} images`}
+            </p>
+          </>)}
+        </div>
       </div>
-      <p>Total results:</p>
-        {isLoading && <p>Loading....</p>}
-        {(images !== null) && !isLoading && (
-          <ImagesWrapper>
-            {images.map((image) => (
-              <ImageCard key={image.id} image={image} />
-            ))}
-          </ImagesWrapper>
-        )}
+      {isLoading && <Loading />}
+      {images?.length === 0 &&
+        <p className={`search__not-found ${theme}-search__not-found`}>
+          Sorry, we couldn't find any results for "{query}"
+        </p>}
+      {!isLoading && images && (<>
+        <ImagesWrapper>
+          {images.map((image) => (
+            <ImageCard
+              key={image.id}
+              image={{ ...image, url: image.url + "&fm=jpg&q=80&h=350&fit=max" }}
+              onClick={() => navigate(`/search/${image.id}`)}
+            />
+          ))}
+        </ImagesWrapper>
+        <Pagination
+          currentPage={currentPage}
+          onChange={setCurrentPage}
+          totalPages={totalPages!}
+        />
+      </>
+      )}
     </main>
   );
 };

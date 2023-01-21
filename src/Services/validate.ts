@@ -16,3 +16,9 @@ export const validatePassword = (value: string): boolean => {
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\dñÑçÇ]{8,}$/;
   return passwordRegex.test(value);
 };
+
+// Checks if the string contains only letters, numbers, spaces, hyphens, commas and periods.
+export const validateSearch = (value: string): boolean => {
+  const searchRegex = /^[a-zA-Z0-9ñÑçÇ ,.-]+$/;
+  return searchRegex.test(value);
+};
