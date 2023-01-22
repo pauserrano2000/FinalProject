@@ -34,7 +34,7 @@ export const SignUp: FC = () => {
       firstName: capitalizeFirstLetter(firstNameInput.value),
       lastName: capitalizeFirstLetter(lastNameInput.value),
       email: emailInput.value,
-      password: passwordInput.value
+      password: passwordInput.value,
     };
     try {
       const isCreated = await createUser(user)

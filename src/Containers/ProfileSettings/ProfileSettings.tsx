@@ -40,11 +40,11 @@ export const ProfileSettings: FC = () => {
     try {
       const isUpdated = await updateUser(token!, update);
       input.reset();
-      if (altReset) {
+      if (altReset) { //for password2
         altReset();
       }
       if (isUpdated) {
-        resetUserData();
+        resetUserData(); //todo changeeeeee
         showSuccesNotification({
           title: "User data succesfully updated",
           message: `The new ${camelCaseToWords(key)} has been saved in the db`,
