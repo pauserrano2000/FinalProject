@@ -1,11 +1,12 @@
 import React, { FC, PropsWithChildren, useState, useContext, useCallback } from "react";
-import { type UserDataFE } from "../Services/apicalls-mapper";
+import { type UserDataFE, type ImageDataFE } from "../Services/apicalls-mapper";
 import { getInitials } from "../Utils/utils";
 
 type UserContextObj = {
     firstName: string | null;
     lastName: string | null;
     email: string | null;
+    favorites: ImageDataFE[];
     isUpToDate: boolean;
     initials: string | null;
     populateUserData: (userData: UserDataFE) => void;
@@ -16,6 +17,7 @@ const UserContext = React.createContext<UserContextObj>({
     firstName: null,
     lastName: null,
     email: null,
+    favorites: [],
     isUpToDate: false,
     initials: null,
     populateUserData: (userData: UserDataFE) => {},
@@ -26,6 +28,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const [firstName, setFirstName] = useState<string | null>(null);
     const [lastName, setLastName] = useState<string | null>(null);
     const [email, setEmail] = useState<string | null>(null);
+    const [favorites, setFavorites] = useState<ImageDataFE[]>([]);
     const [isUpToDate, setIsUpToDate] = useState(false);
 
     const initials = getInitials(firstName,lastName);
@@ -34,6 +37,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setFirstName(userData.firstName);
         setLastName(userData.lastName);
         setEmail(userData.email);
+        setFavorites(userData.favorites);
         setIsUpToDate(true);
     },[])
 
@@ -41,6 +45,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setFirstName(null);
         setLastName(null);
         setEmail(null);
+        setFavorites([]);
         setIsUpToDate(false);
     }
 
@@ -48,6 +53,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         firstName,
         lastName,
         email,
+        favorites,
         initials,
         isUpToDate,
         populateUserData,

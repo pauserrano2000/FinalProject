@@ -5,49 +5,64 @@
       "firstName": "Admin",
       "lastName": "User",
       "email": "user1@example.com",
-      "password": "Password1"
+      "password": "Password1",
+      "favorites": []
     },
     {
       "id": 2,
       "firstName": "Normal",
       "lastName": "User",
       "email": "user2@example.com",
-      "password": "Password2"
+      "password": "Password2",
+      "favorites": []
     },
     {
       "id": 3,
       "firstName": "Normal",
       "lastName": "User",
       "email": "user3@example.com",
-      "password": "Password3"
+      "password": "Password3",
+      "favorites": []
     },
     {
       "id": 4,
-      "firstName": "Normal",
-      "lastName": "User",
+      "firstName": "Nal",
+      "lastName": "Hola",
       "email": "user4@example.com",
-      "password": "Password4"
+      "password": "Password4",
+      "favorites": []
     },
     {
       "id": 5,
       "firstName": "Normal",
       "lastName": "User",
       "email": "user5@example.com",
-      "password": "Password5"
+      "password": "Password5",
+      "favorites": []
     },
     {
       "id": 6,
       "firstName": "Normal",
       "lastName": "User",
       "email": "user6@example.com",
-      "password": "Password6"
+      "password": "Password6",
+      "favorites": []
     },
     {
       "firstName": "Hola",
       "lastName": "Hola",
       "email": "hola@hola.com",
       "password": "Hola101010",
-      "id": 7
+      "id": 7,
+      "favorites": []
+    },
+    {
+      "firstName": "Iker",
+      "lastName": "Sassss",
+      "email": "ssss@dddn.com",
+      "password": "Pajhsk334",
+      "favorites": [],
+      "id": 9
     }
   ]
 }

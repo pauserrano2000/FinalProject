@@ -2,32 +2,62 @@ import "./ImageDetail.css";
 import { FC, useState } from "react";
 import { Modal } from "../../Components/Modal/Modal";
 import { Badge } from "../../Components/Badge/Badge";
-import { useThemeContext } from "../../Context/theme-context";
+import { useAuthContext } from "../../Context/auth-context";
+import { useUserContext } from "../../Context/user-context";
 import { useNavigate } from "react-router-dom";
 import { useSelectedImage } from "../Search/Search";
 import { IconHeart, IconDownload } from "../../Components/Icons/Icons";
 import { useNotification } from "../../Hooks/useNotification";
+import { updateFavorites, type UpdateFavoritesData } from "../../Services/apicalls";
 
 export const ImageDetail: FC = () => {
-  const { theme } = useThemeContext();
-  const navigate = useNavigate()
+  const { token } = useAuthContext();
+  const { favorites, resetUserData } = useUserContext();
   const { selectedImage } = useSelectedImage();
-  const { showSuccesNotification } = useNotification();
+  const navigate = useNavigate()
+  const { showSuccesNotification, showErrorNotification } = useNotification();
 
-  const [isFavorited, setIsFavorited] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(favorites.some(image => image.id === selectedImage.id));
 
-  const favoriteHandler = () => {
+  const favoriteHandler = async () => {
+    const update: UpdateFavoritesData = {
+      favorites: isFavorited
+        ?
+        favorites.filter(image => image.id !== selectedImage.id)
+        :
+        [...favorites, selectedImage]
+    }
     setIsFavorited((prevState) => !isFavorited);
     if (isFavorited) {
-      showSuccesNotification({
-        title: "Image removed from your favorites",
-        message: "You can check it in the favorites section",
-      });
+      try {
+        await updateFavorites(token!, update);
+        resetUserData(); //todo changeeee
+        showSuccesNotification({
+          title: "Image removed from your favorites",
+          message: "You can check it in the favorites section",
+        });
+      } catch (error) {
+        console.log(error);
+        showErrorNotification({
+          title: "The server is not working, http requests failing",
+          message: "The admin should check this...",
+        });
+      }
     } else {
-      showSuccesNotification({
-        title: "Image added to your favorites",
-        message: "You can check it in the favorites section",
-      });
+      try {
+        await updateFavorites(token!, update);
+        resetUserData(); //todo changeeee
+        showSuccesNotification({
+          title: "Image added to your favorites",
+          message: "You can check it in the favorites section",
+        });
+      } catch (error) {
+        console.log(error);
+        showErrorNotification({
+          title: "The server is not working, http requests failing",
+          message: "The admin should check this...",
+        });
+      }
     }
   }
 

@@ -1,4 +1,6 @@
 import axios from "axios";
+import { type ImageDataFE } from "./apicalls-mapper";
+
 import {
   cleanAxiosResponse,
   hydrateFEGetAuthToken,
@@ -31,7 +33,7 @@ export const getUserData = async (token: string) => {
 export const searchImages = async (
   query: string,
   page: number, // tpage	Page number to retrieve
-  perPage: number, // per_page	Number of items per page
+  perPage: number // per_page	Number of items per page
 ) => {
   const response = await axios.get(
     `${API_URL.UNSPLASH}/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`,
@@ -58,9 +60,11 @@ export type UserData = {
   lastName: string;
   email: string;
   password: string;
+  favorites?: ImageDataFE[];
 };
 
 export const createUser = async (user: UserData) => {
+  user.favorites = [];
   // If the email doesn't already exist, makes a POST request to create a new user
   const isEmailValid = !(await emailExists(user.email));
   if (isEmailValid) {
@@ -96,6 +100,21 @@ export const updateUser = async (token: string, update: UpdateUserData) => {
     );
     return hydrateFEUpdateUser(response);
   }
+};
+
+export type UpdateFavoritesData = {
+  favorites: ImageDataFE[];
+};
+
+export const updateFavorites = async (
+  token: string,
+  update: UpdateFavoritesData
+) => {
+  const response = await axios.patch(
+    `${API_URL.JSON_SERVER}/users/${token}`,
+    update
+  );
+  return hydrateFEUpdateUser(response);
 };
 
 export const generateImageFromDescription = async (description: string) => {

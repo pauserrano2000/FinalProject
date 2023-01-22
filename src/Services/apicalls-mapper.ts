@@ -23,10 +23,19 @@ export const hydrateFEGetAuthToken = (
   }
 };
 
+export type ImageDataFE = {
+  id: string;
+  url: string;
+  description: string;
+  altDescription: string;
+  tags: string[];
+};
+
 export type UserDataFE = {
   firstName: string;
   lastName: string;
   email: string;
+  favorites: ImageDataFE[];
 };
 
 export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
@@ -35,15 +44,8 @@ export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
     firstName: cleanResponse.firstName,
     lastName: cleanResponse.lastName,
     email: cleanResponse.email,
+    favorites: cleanResponse.favorites,
   };
-};
-
-export type ImageDataFE = {
-  id: string;
-  url: string;
-  description: string;
-  altDescription: string;
-  tags: string[];
 };
 
 export const hydrateFESearchImages = (cleanResponse: any): {total: number, pages: number, images: ImageDataFE[]} => {
