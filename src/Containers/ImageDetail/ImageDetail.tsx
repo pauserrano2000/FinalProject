@@ -4,16 +4,17 @@ import { Modal } from "../../Components/Modal/Modal";
 import { Badge } from "../../Components/Badge/Badge";
 import { useAuthContext } from "../../Context/auth-context";
 import { useUserContext } from "../../Context/user-context";
-import { useNavigate } from "react-router-dom";
-import { useSelectedImage } from "../Search/Search";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { type ImageDataFE } from "../../Services/apicalls-mapper";
 import { IconHeart, IconDownload } from "../../Components/Icons/Icons";
 import { useNotification } from "../../Hooks/useNotification";
 import { updateFavorites, type UpdateFavoritesData } from "../../Services/apicalls";
 
-export const ImageDetail: FC = () => {
+
+export const ImageDetail: FC= () => {
   const { token } = useAuthContext();
   const { favorites, resetUserData } = useUserContext();
-  const { selectedImage } = useSelectedImage();
+  const { selectedImage } = useOutletContext<{selectedImage: ImageDataFE}>();
   const navigate = useNavigate()
   const { showSuccesNotification, showErrorNotification } = useNotification();
 
@@ -66,7 +67,7 @@ export const ImageDetail: FC = () => {
   }
 
   return (
-    <Modal onClose={() => navigate("/search")}>
+    <Modal onClose={() => navigate(-1)}>
       <main className="image-detail">
         <img
           src={selectedImage.url + "&fm=jpg&q=80&w=1240&h=874&fit=max"}
