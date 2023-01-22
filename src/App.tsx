@@ -8,7 +8,7 @@ import { LogIn } from "./Containers/LogIn/LogIn"
 import { SignUp } from './Containers/SignUp/SignUp';
 import { Search } from './Containers/Search/Search';
 import { ImageCreator } from './Containers/ImageCreator/ImageCreator';
-import { Detail } from './Containers/Detail/Detail';
+import { ImageDetail } from './Containers/ImageDetail/ImageDetail';
 import { Favorites } from './Containers/Favorites/Favorites';
 import { ProfileSettings } from './Containers/ProfileSettings/ProfileSettings';
 import { useThemeContext } from "./Context/theme-context";
@@ -24,15 +24,15 @@ function App() {
 
   const fetchUserData = useCallback(async (token: string) => {
     try {
-      populateUserData( await getUserData(token));
+      populateUserData(await getUserData(token));
     } catch (error) {
       console.error(error);
       showErrorNotification({
         title: "Http requests to load user data failing",
-        message:"The stored token has been modified or the server is down",
+        message: "The stored token has been modified or the server is down",
       });
     }
-  }, [populateUserData,showErrorNotification])
+  }, [populateUserData, showErrorNotification])
 
   useEffect(() => { //executes twice initially in developement mode due to React.Strict
     if (isLoggedIn && !isUpToDate) {
@@ -54,10 +54,15 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </>}
           {isLoggedIn && <>
-            <Route path="/search" element={<Search />} />
-            <Route path="/image-creator" element={<ImageCreator />} />
-            <Route path="/detail" element={<Detail />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/search" element={<Search />} >
+              <Route path=":imageId" element={<ImageDetail />} />
+            </Route>
+            <Route path="/image-creator" element={<ImageCreator />} >
+              <Route path=":imageId" element={<ImageDetail />} />
+            </Route>
+            <Route path="/favorites" element={<Favorites />} >
+              <Route path=":imageId" element={<ImageDetail />} />
+            </Route>
             <Route path="/profile-settings" element={<ProfileSettings />} />
             <Route path="*" element={<Navigate to="/search" />} />
           </>}

@@ -1,0 +1,58 @@
+.detail {
+}
+
+.heading {
+  font-size: 5rem;
+}
+
+.dark-heading {
+  color: white;
+}
+
+.light-heading {
+  color: rgb(0, 0, 0);
+}
+
+.image-detail {
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.image-detail__buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+
+  display: flex;
+  gap:1rem;
+}
+.image-detail__favorite {
+
+}
+.image-detail__download {
+
+}
+
+.image-detail__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.image-detail__description {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin:0;
+  color:white;
+}
+
+.image-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import './ImageCard.css';
 import { Badge } from '../Badge/Badge';
+import { type ImageDataFE } from '../../Services/apicalls-mapper';
 
 interface ImageCardProps {
   image: {
@@ -10,12 +11,12 @@ interface ImageCardProps {
     altDescription: string;
     tags: string[];
   };
-  onClick: ()=>void;
+  onClickImage: (image: ImageDataFE) => void;
 }
 
-export const ImageCard: React.FC<ImageCardProps> = ({ image, onClick }) => {
+export const ImageCard: React.FC<ImageCardProps> = ({ image, onClickImage }) => {
   return (
-    <li className="image-card" onClick={onClick}>
+    <li className="image-card" onClick={(e) => onClickImage(image)}>
       <img src={image.url} alt={image.description ?? image.altDescription} />
       <div className="image-card__tags">
         {image.tags.map((tag) => (

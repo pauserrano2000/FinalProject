@@ -1,8 +1,8 @@
 import "./Search.css";
-import { FC, useState, useEffect, useCallback } from "react";
+import React, { FC, useState, useEffect, useCallback } from "react";
 import { Form } from "../../Components/Form/Form";
 import { ImagesWrapper } from "../../Components/ImagesWrapper/ImagesWrapper";
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, useOutletContext } from "react-router-dom";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useNotification } from "../../Hooks/useNotification";
@@ -21,16 +21,18 @@ export const Search: FC = () => {
   const navigate = useNavigate();
   const { showErrorNotification } = useNotification();
 
-  const queryInput = useInput(validateSearch);
-  const [query, setQuery] = useState(""); //stores the query for pagination since queryInput.value is reset after submit
   const [images, setImages] = useState<null | ImageDataFE[]>(null);
+  const [selectedImage, setSelectedImage] = useState<null | ImageDataFE>(null);
+  const queryInput = useInput(validateSearch);
+  const [query, setQuery] = useState(""); //stores the query for pagination since queryInput.value is reseted after submit
+
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(30); //todo
   const [totalResults, setTotalResults] = useState<null | number>(null);
   const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
-
-
+  
+  
   const fetchSearchImages = useCallback(async (query: string, currentPage: number, perPage: number) => {
     try {
       setIsLoading(true);
@@ -66,6 +68,11 @@ export const Search: FC = () => {
     setCurrentPage(1);
     fetchSearchImages(query, currentPage, perPage);
     queryInput.reset();
+  }
+
+  const clickImageHandler = (image: ImageDataFE) => {
+    setSelectedImage({...image, url: image.url + "&fm=jpg&q=80&w=1240&h=874&fit=max"});
+    navigate(`/search/${image.id}`);
   }
 
   return (
@@ -109,8 +116,8 @@ export const Search: FC = () => {
           {images.map((image) => (
             <ImageCard
               key={image.id}
-              image={{ ...image, url: image.url + "&fm=jpg&q=80&h=350&fit=max" }}
-              onClick={() => navigate(`/search/${image.id}`)}
+              image={{...image, url: image.url + "&fm=jpg&q=80&h=350&fit=max"}} 
+              onClickImage={clickImageHandler}
             />
           ))}
         </ImagesWrapper>
@@ -121,6 +128,11 @@ export const Search: FC = () => {
         />
       </>
       )}
+      <Outlet context={{selectedImage}}/>
     </main>
   );
 };
+
+export const useSelectedImage = () => {
+  return useOutletContext<{selectedImage: ImageDataFE}>();
+}
