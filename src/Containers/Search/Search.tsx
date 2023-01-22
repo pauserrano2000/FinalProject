@@ -2,7 +2,7 @@ import "./Search.css";
 import React, { FC, useState, useEffect, useCallback } from "react";
 import { Form } from "../../Components/Form/Form";
 import { ImagesWrapper } from "../../Components/ImagesWrapper/ImagesWrapper";
-import { useNavigate, Outlet, useOutletContext } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import { useInput } from "../../Hooks/useInput";
 import { useThemeContext } from "../../Context/theme-context";
 import { useNotification } from "../../Hooks/useNotification";
@@ -31,8 +31,8 @@ export const Search: FC = () => {
   const [totalResults, setTotalResults] = useState<null | number>(null);
   const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
-  
-  
+
+
   const fetchSearchImages = useCallback(async (query: string, currentPage: number, perPage: number) => {
     try {
       setIsLoading(true);
@@ -77,7 +77,10 @@ export const Search: FC = () => {
 
   return (
     <main className="search">
-      <div className={`search__form-wrapper ${theme}-search__form-wrapper `}>
+      <div className={`search__top ${theme}-search__top `}>
+        <h1 className="search__h1">
+          Find the perfect image
+        </h1>
         <div className="search__form">
           <Form direction="row" onSubmit={submitHandler}>
             <Form.Input
@@ -99,11 +102,11 @@ export const Search: FC = () => {
           </Callout>
         </div>
         <div className="search__info">
-          {!isLoading && images && (<>
+          {!isLoading && images && (
             <p className={`search__info__p ${theme}-search__info__p `}>
               {images.length !== 0 && `Total "${query}" results: ${totalResults} images`}
             </p>
-          </>)}
+          )}
         </div>
       </div>
       {isLoading && <Loading />}
@@ -116,7 +119,7 @@ export const Search: FC = () => {
           {images.map((image) => (
             <ImageCard
               key={image.id}
-              image={image} 
+              image={image}
               onClickImage={clickImageHandler}
             />
           ))}
@@ -128,11 +131,7 @@ export const Search: FC = () => {
         />
       </>
       )}
-      <Outlet context={{selectedImage}}/>
+      <Outlet context={{ selectedImage }} />
     </main>
   );
 };
-
-export const useSelectedImage = () => {
-  return useOutletContext<{selectedImage: ImageDataFE}>();
-}
