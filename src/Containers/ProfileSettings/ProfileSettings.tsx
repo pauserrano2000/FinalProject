@@ -67,13 +67,13 @@ export const ProfileSettings: FC = () => {
 
   return (
     <main className="profile-settings">
-      <div className={`profile-settings__user ${theme}-profile-settings__user`}>
+      <div className={`profile-settings__top ${theme}-profile-settings__top`}>
         <Avatar size={170} radius={23} />
-        <div className="profile-settings__user__info">
-          <p className="profile-settings__user__info__name">
+        <div className="profile-settings__user">
+          <p className="profile-settings__user__name">
             {`${firstName} ${lastName}`}
           </p>
-          <p className="profile-settings__user__info__email">
+          <p className="profile-settings__user__email">
             {email}
           </p>
         </div>
