@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.search__form-wrapper{
+.search__top{
   width:100%;
   height: 25vh;
 
@@ -19,12 +19,24 @@
   gap: 1rem;
 }
 
-.light-search__form-wrapper{
+.light-search__top{
   background-color:rgb(251, 251, 251);
 }
 
-.dark-search__form-wrapper{
+.dark-search__top{
   background-color:  rgb(23, 23, 25);
+}
+
+.search__h1 {
+  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .search__form {
@@ -38,8 +50,8 @@
 }
 
 .search__info{
-  height:3rem;
-  margin-bottom: 1.5rem;
+  height:1.5rem;
+  margin-bottom: 2rem;
 }
 
 .search__info__p{
