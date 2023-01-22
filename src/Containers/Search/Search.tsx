@@ -71,7 +71,7 @@ export const Search: FC = () => {
   }
 
   const clickImageHandler = (image: ImageDataFE) => {
-    setSelectedImage({...image, url: image.url + "&fm=jpg&q=80&w=1240&h=874&fit=max"});
+    setSelectedImage(image);
     navigate(`/search/${image.id}`);
   }
 
@@ -116,7 +116,7 @@ export const Search: FC = () => {
           {images.map((image) => (
             <ImageCard
               key={image.id}
-              image={{...image, url: image.url + "&fm=jpg&q=80&h=350&fit=max"}} 
+              image={image} 
               onClickImage={clickImageHandler}
             />
           ))}
