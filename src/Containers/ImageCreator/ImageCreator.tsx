@@ -100,7 +100,7 @@ export const ImageCreator: FC = () => {
         {(images !== null) && !isLoading && (
           <div>
             {images.map((image) => (
-              <ImageCard key={image.id} image={image} onClick={()=>console.log("h")} />
+              <ImageCard key={image.id} image={image} onClickImage={()=>console.log("h")} />
             ))}
           </div>
         )}

@@ -33,7 +33,7 @@ export const LogIn: FC = () => {
       const authToken = await getAuthToken(emailInput.value, passwordInput.value);
       if ((typeof authToken === 'string')) {
         showSuccesNotification({
-          title: `Welcome to ImageHub`,
+          title: "Welcome to ImageHub",
           message: "Entering in a few seconds...",
           loading: true,
         });
