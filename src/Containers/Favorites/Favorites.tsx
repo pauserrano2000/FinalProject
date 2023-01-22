@@ -36,7 +36,7 @@ export const Favorites: FC = () => {
     <main className="favorites">
       <div className={`favorites__top ${theme}-favorites__top`}>
         <h1 className="favorites__h1">
-          Welcome {firstName}, here are your favorite images
+          Welcome {firstName}, your favorited images will appear here
         </h1>
         <div className="favorites__info">
           {!isLoading && favorites.length !== 0 && (

@@ -31,6 +31,7 @@ export const Search: FC = () => {
   const [totalResults, setTotalResults] = useState<null | number>(null);
   const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
 
   const fetchSearchImages = useCallback(async (query: string, currentPage: number, perPage: number) => {
@@ -44,9 +45,11 @@ export const Search: FC = () => {
       if (pages !== totalPages) {
         setTotalPages(pages);
       }
+      setHasError(false);
       setTimeout(() => setIsLoading(false), 150); //Little delay (design decision)
     } catch (error) {
       console.error(error);
+      setHasError(true);
       showErrorNotification({
         title: "Http requests to load search images failing",
         message: "You have reached the limit of 50 requests/hour",
@@ -109,7 +112,11 @@ export const Search: FC = () => {
           )}
         </div>
       </div>
-      {isLoading && <Loading />}
+      {!hasError && isLoading && <Loading />}
+      {hasError &&
+        <p className={`search__not-found ${theme}-search__not-found`}>
+          Http requests to load search images failing (check the api key)
+        </p>}
       {images?.length === 0 &&
         <p className={`search__not-found ${theme}-search__not-found`}>
           Sorry, we couldn't find any results for "{query}"

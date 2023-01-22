@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+
 }
 
 .light-search__top{
@@ -32,7 +32,7 @@
   font-size: 2.5rem;
   font-weight: 800;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
 
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
   background-clip: text;
