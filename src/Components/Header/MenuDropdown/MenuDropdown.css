@@ -25,12 +25,12 @@
 
 .dark-dropdown-content {
   background-color:  rgb(30, 30, 32);
-  border-color:  rgb(30, 30, 32);
+  border-color: rgb(55, 58, 64);
 }
 
 .light-dropdown-content {
   background-color: rgb(245, 245, 245);
-  border-color: rgb(245, 245, 245);
+  border-color: rgb(233, 236, 239);
 }
 
 .user-info{

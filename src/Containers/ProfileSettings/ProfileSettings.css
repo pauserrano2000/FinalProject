@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .profile-settings__user {
@@ -63,7 +63,7 @@
 
 .profile-settings__forms__heading{
   margin:0;
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 600;
 }
 

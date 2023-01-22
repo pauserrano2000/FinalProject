@@ -7,10 +7,11 @@ export {
     IconBrandGithub,
     IconX,
     IconCheck,
-    IconDownload,
     IconEdit,
     IconSearch,
     IconUserPlus,
     IconRocket,
+    IconHeart,
+    IconDownload,
 } from "@tabler/icons";
 
