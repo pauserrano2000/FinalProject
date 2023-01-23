@@ -11,10 +11,10 @@ import { useNotification } from "../../Hooks/useNotification";
 import { updateFavorites, type UpdateFavoritesData } from "../../Services/apicalls";
 
 
-export const ImageDetail: FC= () => {
+export const ImageDetail: FC = () => {
   const { token } = useAuthContext();
   const { favorites, resetUserData } = useUserContext();
-  const { selectedImage } = useOutletContext<{selectedImage: ImageDataFE}>();
+  const { selectedImage } = useOutletContext<{ selectedImage: ImageDataFE }>();
   const navigate = useNavigate()
   const { showSuccesNotification, showErrorNotification } = useNotification();
 
@@ -32,7 +32,7 @@ export const ImageDetail: FC= () => {
     if (isFavorited) {
       try {
         await updateFavorites(token!, update);
-        resetUserData(); //todo changeeee
+        resetUserData(); 
         showSuccesNotification({
           title: "Image removed from your favorites",
           message: "You can check it in the favorites section",
@@ -47,7 +47,7 @@ export const ImageDetail: FC= () => {
     } else {
       try {
         await updateFavorites(token!, update);
-        resetUserData(); //todo changeeee
+        resetUserData(); 
         showSuccesNotification({
           title: "Image added to your favorites",
           message: "You can check it in the favorites section",
@@ -60,17 +60,6 @@ export const ImageDetail: FC= () => {
         });
       }
     }
-  }
-
-  const downloadHandler = async () => {
-    const response = await fetch(selectedImage.url, { mode: 'no-cors' }); //last resort to avoid cors policy openai api blocking the request
-    const blob = await response.blob();
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${selectedImage.description}.jpg`;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
   }
 
   return (
@@ -89,9 +78,9 @@ export const ImageDetail: FC= () => {
               fill={isFavorited ? "red" : "none"}
             />
           </button>
-          <button onClick={downloadHandler} className="image-detail__download">
+          <a href={selectedImage.url + "&dl"} download target="_blank" className="image-detail__download">
             <IconDownload color="white" size={70} stroke={1.5} />
-          </button>
+          </a>
         </div>
         <div className="image-detail__info">
           <p className="image-detail__description">
