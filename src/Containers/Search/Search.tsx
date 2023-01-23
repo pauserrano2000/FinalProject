@@ -26,12 +26,14 @@ export const Search: FC = () => {
   const queryInput = useInput(validateSearch);
   const [query, setQuery] = useState(""); //stores the query for pagination since queryInput.value is reseted after submit
 
+  const perPageOptions = [10, 20, 30];
+  const [perPage, setPerPage] = useState(perPageOptions[2]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(30); //todo
   const [totalResults, setTotalResults] = useState<null | number>(null);
   const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
+
 
 
   const fetchSearchImages = useCallback(async (query: string, currentPage: number, perPage: number) => {
@@ -56,8 +58,12 @@ export const Search: FC = () => {
       });
     }
   }, [showErrorNotification, totalResults, totalPages])
+  
 
-
+  useEffect(() => { //example loaded at the beggining
+    setQuery("galaxy")
+  }, []);
+  
   useEffect(() => {
     if (query) {
       fetchSearchImages(query, currentPage, perPage);
@@ -76,6 +82,10 @@ export const Search: FC = () => {
   const clickImageHandler = (image: ImageDataFE) => {
     setSelectedImage(image);
     navigate(`/search/${image.id}`);
+  }
+
+  const selectHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setPerPage(Number(event.target.value));
   }
 
   return (
@@ -110,6 +120,21 @@ export const Search: FC = () => {
               {images.length !== 0 && `Total "${query}" results: ${totalResults} images`}
             </p>
           )}
+          <label className={`search__info__label ${theme}-search__info__p `} htmlFor="perPage">
+            Images per page:
+          </label>
+          <select
+            id="perPage"
+            className={`search__info__select ${theme}-search__info__p `}
+            value={perPage}
+            onChange={selectHandler}
+          >
+            {perPageOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       {!hasError && isLoading && <Loading />}

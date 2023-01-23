@@ -16,7 +16,6 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-
 }
 
 .light-search__top{
@@ -51,10 +50,16 @@
 
 .search__info{
   height:1.5rem;
-  margin-bottom: 2rem;
+  margin: 1rem;
+
+  display: flex;
+  gap:0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .search__info__p{
+  margin:0;
   font-size: 1.4rem;
   font-weight: 300;
 }
@@ -65,6 +70,19 @@
 
 .dark-search__info__p {
   color: white;
+}
+
+.search__info__label{
+  margin-left:3rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.search__info__select{
+  font-size: 1.2rem;
+  padding: 0.1em;
+  background-color: transparent;
+  border-radius: 0.2rem;
 }
 
 .search__not-found{
