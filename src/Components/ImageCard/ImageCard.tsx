@@ -11,13 +11,15 @@ interface ImageCardProps {
     altDescription: string;
     tags: string[];
   };
+  size?: "image-card__image__xl";
   onClickImage: (image: ImageDataFE) => void;
 }
 
-export const ImageCard: React.FC<ImageCardProps> = ({ image, onClickImage }) => {
+export const ImageCard: React.FC<ImageCardProps> = ({ image, size, onClickImage }) => {
+  
   return (
     <li className="image-card" onClick={(e) => onClickImage(image)}>
-      <img src={image.url + "&fm=jpg&q=80&h=350&fit=max"} alt={image.description ?? image.altDescription} />
+      <img className={`image-card__image ${size}`} src={image.url + "&fm=jpg&q=80&h=350&fit=max"} alt={image.altDescription} />
       <div className="image-card__tags">
         {image.tags.map((tag) => (
           <Badge key={tag}>{tag}</Badge>

@@ -47,6 +47,10 @@
   background-color: #0000009d;
 }
 
+.image-detail__image{
+  height: 874px;
+}
+
 .image-detail__info {
   position: absolute;
   bottom: 0;

@@ -25,3 +25,11 @@
 .image-card:hover .image-card__tags {
   opacity: 1; /* Show the tags when the image is hovered */
 }
+
+.image-card__image{
+  height: 350px;
+}
+
+.image-card__image__xl{
+  height: 512px;
+}

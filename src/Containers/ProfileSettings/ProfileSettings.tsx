@@ -149,7 +149,7 @@ export const ProfileSettings: FC = () => {
             />
             <Form.Input
               type="password"
-              id="password"
+              id="password2"
               value={passwordInput2.value}
               placeholder={"Introduce it again"}
               onChange={passwordInput2.changeHandler}
