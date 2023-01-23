@@ -10,18 +10,18 @@ import { useNotification } from "../../Hooks/useNotification";
 import { validateName, validateEmail, validatePassword, validateURL } from "../../Services/validate";
 import { updateUser, type UpdateUserData } from "../../Services/apicalls";
 import { capitalizeFirstLetter, camelCaseToWords } from "../../Utils/utils";
-import { IconEdit } from "../../Components/Icons/Icons"
+import { IconEdit, IconTrash } from "../../Components/Icons/Icons"
 
 export const ProfileSettings: FC = () => {
   const { theme } = useThemeContext();
   const { token } = useAuthContext();
-  const { firstName, lastName, email, resetUserData } = useUserContext();
+  const { firstName, lastName, email, avatar, resetUserData } = useUserContext();
   const { showSuccesNotification, showErrorNotification } = useNotification();
 
   const firstNameInput = useInput(validateName);
   const lastNameInput = useInput(validateName);
   const emailInput = useInput(validateEmail);
-  const avatarInput = useInput(validateURL); 
+  const avatarInput = useInput(validateURL);
   const passwordInput1 = useInput(validatePassword);
   const passwordInput2 = useInput(validatePassword);
 
@@ -132,11 +132,6 @@ export const ProfileSettings: FC = () => {
               <IconEdit size={22} />
             </Form.Submit>
           </Form>
-        </div>
-        <div className="profile-settings__forms__info">
-          <h2 className={`profile-settings__forms__heading ${theme}-profile-settings__forms__heading`}>
-            Edit profile image
-          </h2>
           <Form direction="row" onSubmit={(event) => updateHandler(event, "avatar", avatarInput)}>
             <Form.Input
               label="Profile image"
@@ -151,6 +146,9 @@ export const ProfileSettings: FC = () => {
             />
             <Form.Submit disabled={!avatarInput.isValid}>
               <IconEdit size={22} />
+            </Form.Submit>
+            <Form.Submit disabled={!(!(avatar === "") && avatarInput.value === "")}>
+              <IconTrash size={22} />
             </Form.Submit>
           </Form>
         </div>

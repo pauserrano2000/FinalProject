@@ -13,5 +13,6 @@ export {
     IconRocket,
     IconHeart,
     IconDownload,
+    IconTrash
 } from "@tabler/icons";
 
