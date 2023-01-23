@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.image-creator__form-wrapper{
+.image-creator__top{
   width:100%;
   height: 25vh;
 
@@ -16,15 +16,26 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
 }
 
-.light-image-creator__form-wrapper{
+.light-image-creator__top{
   background-color:rgb(251, 251, 251);
 }
 
-.dark-image-creator__form-wrapper{
+.dark-image-creator__top{
   background-color:  rgb(23, 23, 25);
+}
+
+.image-creator__h1 {
+  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 1rem;
+
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .image-creator__form {
@@ -38,11 +49,17 @@
 }
 
 .prompt__info{
-  height:3rem;
-  margin-bottom: 1.5rem;
+  height:1.5rem;
+  margin: 1rem;
+
+  display: flex;
+  gap:0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .prompt__info__p{
+  margin-bottom:1rem;
   font-size: 1.4rem;
   font-weight: 300;
 }

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { type ImageDataFE } from "./apicalls-mapper";
+import { Configuration, OpenAIApi } from "openai";
 
 import {
   cleanAxiosResponse,
@@ -8,6 +9,8 @@ import {
   hydrateFEUpdateUser,
   hydrateFEGetUserData,
   hydrateFESearchImages,
+  hydrateFECreateImages,
+  cleanOpenAIApiResponse,
 } from "./apicalls-mapper";
 
 enum API_URL {
@@ -32,8 +35,8 @@ export const getUserData = async (token: string) => {
 
 export const searchImages = async (
   query: string,
-  page: number, // tpage	Page number to retrieve
-  perPage: number // per_page	Number of items per page
+  page: number, //Page number to retrieve
+  perPage: number //Number of items per page
 ) => {
   const response = await axios.get(
     `${API_URL.UNSPLASH}/search/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`,
@@ -43,6 +46,22 @@ export const searchImages = async (
   );
   const cleanResponse = cleanAxiosResponse(response);
   return hydrateFESearchImages(cleanResponse);
+};
+
+const configuration = new Configuration({
+	apiKey: process.env.REACT_APP_DALL_E_API_KEY_3,
+});
+const openai = new OpenAIApi(configuration);
+
+export const createImages = async (prompt: string) => {
+  const response = await openai.createImage({
+    prompt: prompt,
+    n: 1,
+    size: "1024x1024",
+  });
+  const cleanResponse = cleanOpenAIApiResponse(response);
+  console.log(hydrateFECreateImages(prompt, cleanResponse));
+  return hydrateFECreateImages(prompt, cleanResponse);
 };
 
 const emailExists = async (email: string) => {
@@ -117,12 +136,3 @@ export const updateFavorites = async (
   return hydrateFEUpdateUser(response);
 };
 
-export const generateImageFromDescription = async (description: string) => {
-  const response = await axios.post(API_URL.DALL_E, {
-    prompt: description,
-    model: "image-alpha-001",
-    api_key: "YOUR_API_KEY_HERE",
-  });
-  const cleanResponse = cleanAxiosResponse(response);
-  return cleanResponse.data.url;
-};

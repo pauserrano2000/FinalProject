@@ -4,6 +4,12 @@ export const cleanAxiosResponse = (response: any) => {
   return data;
 };
 
+export const cleanOpenAIApiResponse = (response: any) => {
+  // Removes unnecessary properties from the response
+  const { data } = response;
+  return data;
+};
+
 export const hydrateFEGetAuthToken = (
   cleanResponse: any
 ): string | { errorTitle: string; errorMessage: string } => {
@@ -48,7 +54,9 @@ export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
   };
 };
 
-export const hydrateFESearchImages = (cleanResponse: any): {total: number, pages: number, images: ImageDataFE[]} => {
+export const hydrateFESearchImages = (
+  cleanResponse: any
+): { total: number; pages: number; images: ImageDataFE[] } => {
   // Modifies the response to match the front-end's needs
   const { total, total_pages: pages, results } = cleanResponse;
   const images = results.map((image: any) => {
@@ -60,7 +68,21 @@ export const hydrateFESearchImages = (cleanResponse: any): {total: number, pages
       tags: image.tags.map((tag: any) => tag.title),
     };
   });
-  return { total, pages, images};
+  return { total, pages, images };
+};
+
+export const hydrateFECreateImages = (prompt:string, cleanResponse: any): ImageDataFE[] => {
+  // Modifies the response to match the front-end's needs
+  const { created, data } = cleanResponse;
+  return data.map((image: any) => {
+    return {
+      id: created,
+      url: image.url,
+      description: prompt,
+      altDescription: "If you are seeing this, probably the created image has expired...",
+      tags: [],
+    };
+  });
 };
 
 export const hydrateFECreateUser = (response: any): boolean => {
@@ -72,4 +94,3 @@ export const hydrateFEUpdateUser = (response: any): boolean => {
   // Modifies the response to match the front-end's needs
   return response.statusText === "OK";
 };
-
