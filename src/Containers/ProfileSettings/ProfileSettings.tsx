@@ -147,7 +147,7 @@ export const ProfileSettings: FC = () => {
               onChange={avatarInput.changeHandler}
               onBlur={avatarInput.blurHandler}
               hasError={avatarInput.hasError}
-              errorText="Must be a valid url"
+              errorText="Must be a valid image url"
             />
             <Form.Submit disabled={!avatarInput.isValid}>
               <IconEdit size={22} />
