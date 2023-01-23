@@ -56,7 +56,7 @@ const openai = new OpenAIApi(configuration);
 export const createImages = async (prompt: string) => {
   const response = await openai.createImage({
     prompt: prompt,
-    n: 1,
+    n: 4,
     size: "1024x1024",
   });
   const cleanResponse = cleanOpenAIApiResponse(response);
