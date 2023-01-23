@@ -7,7 +7,7 @@
 }
 
 .welcome-wrapper{
-  max-width: 72rem;
+  max-width: 80rem;
 
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@
 }
 
 .headline {
+  max-width: 72rem;
   font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
   font-size: 5.7rem;
   font-weight: 900;
@@ -39,10 +40,14 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.overview-wrapper{
+  display: flex;
+  gap:1rem;
+  align-items: center;
+}
 .overview {
-  max-width: 55rem;
-  font-size: 1.7rem;
+  max-width: 45rem;
+  font-size: 1.5rem;
   line-height: 1.55;
 }
 
@@ -52,6 +57,11 @@
 
 .light-overview {
   color: #343A40;
+}
+
+.video{
+  width: 35rem;
+  border-radius: 0.5rem;
 }
 
 .link-wrapper{
