@@ -53,11 +53,11 @@
 }
 
 .light-favorites__info__p {
-  color: black;
+  color: #000000;
 }
 
 .dark-favorites__info__p {
-  color: white;
+  color: #ffff;
 }
 
 .favorites__not-found{
@@ -73,11 +73,11 @@
 }
 
 .light-favorites__not-found {
-  color: black;
+  color: #000000;
 }
 
 .dark-favorites__not-found {
-  color: white;
+  color: #ffff;
 }
 
 ul {

@@ -87,7 +87,7 @@
 }
 
 .dark-option {
-  color: white;
+  color: #ffff;
   border-color: rgb(55, 58, 64);
 }
 
@@ -96,7 +96,7 @@
 }
 
 .light-option {
-  color: black;
+  color: #000000;
   border-color: rgb(233, 236, 239);
 }
 

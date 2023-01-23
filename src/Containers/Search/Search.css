@@ -65,11 +65,11 @@
 }
 
 .light-search__info__p {
-  color: black;
+  color: #000000;
 }
 
 .dark-search__info__p {
-  color: white;
+  color: #ffff;
 }
 
 .search__info__label{
@@ -99,11 +99,11 @@
 }
 
 .light-search__not-found {
-  color: black;
+  color: #000000;
 }
 
 .dark-search__not-found {
-  color: white;
+  color: #ffff;
 }
 
 ul {

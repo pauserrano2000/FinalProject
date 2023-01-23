@@ -39,11 +39,11 @@
 }
 
 .dark-logo {
-  fill: white;
+  fill: #ffff;
 }
 
 .light-logo {
-  fill:black;
+  fill:#000000;
 }
 
 .button-wrapper {
@@ -74,8 +74,8 @@
 }
 
 .dark-link {
-  color: white;
-  border-color: white;
+  color: #ffff;;
+  border-color: #ffff;;
 }
 
 .dark-link:hover {

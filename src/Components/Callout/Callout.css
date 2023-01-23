@@ -4,11 +4,11 @@
 }
 
 .light-callout {
-  color: black;
+  color: #000000;
 }
 
 .dark-callout {
-  color: white;
+  color: #ffff;
 }
 
 .callout-link {

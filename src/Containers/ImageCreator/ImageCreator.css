@@ -65,9 +65,9 @@
 }
 
 .light-prompt__info__p {
-  color: black;
+  color: #000000;
 }
 
 .dark-prompt__info__p {
-  color: white;
+  color: #ffff;
 }
