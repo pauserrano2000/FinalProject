@@ -60,7 +60,6 @@ export const createImages = async (prompt: string) => {
     size: "1024x1024",
   });
   const cleanResponse = cleanOpenAIApiResponse(response);
-  console.log(hydrateFECreateImages(prompt, cleanResponse));
   return hydrateFECreateImages(prompt, cleanResponse);
 };
 

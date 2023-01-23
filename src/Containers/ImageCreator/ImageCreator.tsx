@@ -23,17 +23,25 @@ export const ImageCreator: FC = () => {
   const [images, setImages] = useState<null | ImageDataFE[]>(null);
   const [selectedImage, setSelectedImage] = useState<null | ImageDataFE>(null);
   const promptInput = useInput(validateSearch);
-  const [prompt, setPrompt] = useState(""); //stores the query for pagination since queryInput.value is reset after submit
+  const [prompt, setPrompt] = useState(""); //stores the query for presentation of the promp since promptInput.value is reset after submit
 
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   const fetchCreatedImages = async (prompt: string) => {
-
-    setIsLoading(true);
-    setImages(await createImages(prompt));
-    setHasError(false);
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      setImages(await createImages(promptInput.value));
+      setHasError(false);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setHasError(true);
+      showErrorNotification({
+        title: "Http requests to load the generated image failing",
+        message: "You may have reached the limit of free generations",
+      });
+    }
 
   };
 
@@ -53,7 +61,7 @@ export const ImageCreator: FC = () => {
     <main className="image-creator">
       <div className={`image-creator__top ${theme}-image-creator__top`}>
         <h1 className="image-creator__h1">
-          Create custom images
+          Create custom images with AI
         </h1>
         <div className="image-creator__form">
           <Form direction="row" onSubmit={submitHandler}>
@@ -88,7 +96,8 @@ export const ImageCreator: FC = () => {
       {!hasError && isLoading && <Loading />}
       {hasError &&
         <p className={`prompt__not-found ${theme}-prompt__not-found`}>
-          Http requests to load the generated image failing (check the api key)
+          Http requests to load the generated image failing, maybe the prompt violates our usage policy. 
+          Otherwise, check the api key,maybe you have reached the limit of free creations.  
         </p>}
       {!isLoading && images && (<>
         <ImagesWrapper>
@@ -96,7 +105,6 @@ export const ImageCreator: FC = () => {
             <ImageCard
               key={image.id}
               image={image}
-              size="image-card__image__xl"
               onClickImage={clickImageHandler}
             />
           ))}

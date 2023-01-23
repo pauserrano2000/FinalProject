@@ -76,13 +76,13 @@ export const hydrateFESearchImages = (
 export const hydrateFECreateImages = (prompt:string, cleanResponse: any): ImageDataFE[] => {
   // Modifies the response to match the front-end's needs
   const { created, data } = cleanResponse;
-  return data.map((image: any) => {
+  return data.map((image: any, index:number) => {
     return {
-      id: created,
+      id: created+index,
       url: image.url,
       description: prompt,
       altDescription: "If you are seeing this, probably the created image has expired...",
-      tags: [],
+      tags: ["Generated with AI"],
     };
   });
 };
