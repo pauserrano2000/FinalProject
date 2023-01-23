@@ -62,14 +62,21 @@ export const ImageDetail: FC= () => {
     }
   }
 
-  const downloadHandler = () => {
-    window.location.assign(selectedImage.url + "&dl");
+  const downloadHandler = async () => {
+    const response = await fetch(selectedImage.url, { mode: 'no-cors' }); //last resort to avoid cors policy openai api blocking the request
+    const blob = await response.blob();
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${selectedImage.description}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 
   return (
     <Modal onClose={() => navigate(-1)}>
       <main className="image-detail">
-        <img
+        <img className="image-detail__image"
           src={selectedImage.url + "&fm=jpg&q=80&w=1240&h=874&fit=max"}
           alt={selectedImage.description ?? selectedImage.altDescription}
         />
