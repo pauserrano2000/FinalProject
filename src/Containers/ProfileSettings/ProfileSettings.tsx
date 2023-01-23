@@ -45,7 +45,7 @@ export const ProfileSettings: FC = () => {
         altReset();
       }
       if (isUpdated) {
-        resetUserData(); //todo changeeeeee
+        resetUserData(); 
         showSuccesNotification({
           title: "User data succesfully updated",
           message: `The new ${camelCaseToWords(key)} has been saved in the db`,

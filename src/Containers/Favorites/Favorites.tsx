@@ -16,9 +16,6 @@ export const Favorites: FC = () => {
   const { favorites, firstName } = useUserContext();
   const [selectedImage, setSelectedImage] = useState<null | ImageDataFE>(null);
 
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [perPage, setPerPage] = useState(30); //todo
-  // const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
   const totalFavorites = favorites.length;
   

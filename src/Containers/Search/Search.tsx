@@ -54,7 +54,7 @@ export const Search: FC = () => {
       setHasError(true);
       showErrorNotification({
         title: "Http requests to load search images failing",
-        message: "You have reached the limit of 50 requests/hour",
+        message: "You may have reached the limit of 50 requests/hour",
       });
     }
   }, [showErrorNotification, totalResults, totalPages])

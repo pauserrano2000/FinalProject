@@ -72,3 +72,27 @@
 .dark-prompt__info__p {
   color: #ffff;
 }
+
+.prompt__not-found{
+  font-size: 1.7rem;
+  font-weight: 300;
+
+  height: 58vh;
+  width: 70%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-prompt__not-found {
+  color: #000000;
+}
+
+.dark-prompt__not-found {
+  color: #ffff;
+}
+
+ul {
+  list-style-type: none;
+ }
