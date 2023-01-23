@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .profile-settings__top {
@@ -83,7 +83,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2.3rem;
+  gap: 2rem;
 }
 
 .profile-settings__forms__password{
