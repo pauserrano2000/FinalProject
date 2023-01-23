@@ -6,6 +6,7 @@ type UserContextObj = {
     firstName: string | null;
     lastName: string | null;
     email: string | null;
+    avatar: string | null;
     favorites: ImageDataFE[];
     isUpToDate: boolean;
     initials: string | null;
@@ -17,6 +18,7 @@ const UserContext = React.createContext<UserContextObj>({
     firstName: null,
     lastName: null,
     email: null,
+    avatar: null,
     favorites: [],
     isUpToDate: false,
     initials: null,
@@ -28,6 +30,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
     const [firstName, setFirstName] = useState<string | null>(null);
     const [lastName, setLastName] = useState<string | null>(null);
     const [email, setEmail] = useState<string | null>(null);
+    const [avatar, setAvatar] = useState<string | null>(null);
     const [favorites, setFavorites] = useState<ImageDataFE[]>([]);
     const [isUpToDate, setIsUpToDate] = useState(false);
 
@@ -37,6 +40,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setFirstName(userData.firstName);
         setLastName(userData.lastName);
         setEmail(userData.email);
+        setAvatar(userData.avatar);
         setFavorites(userData.favorites);
         setIsUpToDate(true);
     },[])
@@ -45,6 +49,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setFirstName(null);
         setLastName(null);
         setEmail(null);
+        setAvatar(null);
         setFavorites([]);
         setIsUpToDate(false);
     }
@@ -53,6 +58,7 @@ export const UserContextProvider: FC<PropsWithChildren> = ({ children }) => {
         firstName,
         lastName,
         email,
+        avatar,
         favorites,
         initials,
         isUpToDate,

@@ -5,6 +5,7 @@
       "firstName": "Admin",
       "lastName": "User",
       "email": "user1@example.com",
+      "avatar": "",
       "password": "Password1",
       "favorites": []
     },
@@ -13,6 +14,7 @@
       "firstName": "Normal",
       "lastName": "User",
       "email": "user2@example.com",
+      "avatar": "",
       "password": "Password2",
       "favorites": []
     },
@@ -21,6 +23,7 @@
       "firstName": "Normal",
       "lastName": "User",
       "email": "user3@example.com",
+      "avatar": "",
       "password": "Password3",
       "favorites": []
     },
@@ -29,6 +32,7 @@
       "firstName": "Normal",
       "lastName": "User",
       "email": "user4@example.com",
+      "avatar": "",
       "password": "Password4",
       "favorites": []
     },
@@ -37,6 +41,7 @@
       "firstName": "Normal",
       "lastName": "User",
       "email": "user5@example.com",
+      "avatar": "",
       "password": "Password5",
       "favorites": []
     },
@@ -45,6 +50,7 @@
       "firstName": "Normal",
       "lastName": "User",
       "email": "user6@example.com",
+      "avatar": "",
       "password": "Password6",
       "favorites": []
     },
@@ -52,6 +58,7 @@
       "firstName": "Hola",
       "lastName": "Hola",
       "email": "hola@hola.com",
+      "avatar": "",
       "password": "Hola101010",
       "id": 7,
       "favorites": []
@@ -60,6 +67,7 @@
       "firstName": "Iker",
       "lastName": "Sassss",
       "email": "ssss@dddn.com",
+      "avatar": "",
       "password": "Pajhsk334",
       "favorites": [],
       "id": 9

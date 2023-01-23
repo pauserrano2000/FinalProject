@@ -7,7 +7,7 @@ import { useThemeContext } from "../../Context/theme-context";
 import { useAuthContext } from "../../Context/auth-context";
 import { useUserContext } from "../../Context/user-context";
 import { useNotification } from "../../Hooks/useNotification";
-import { validateName, validateEmail, validatePassword } from "../../Services/validate";
+import { validateName, validateEmail, validatePassword, validateURL } from "../../Services/validate";
 import { updateUser, type UpdateUserData } from "../../Services/apicalls";
 import { capitalizeFirstLetter, camelCaseToWords } from "../../Utils/utils";
 import { IconEdit } from "../../Components/Icons/Icons"
@@ -21,6 +21,7 @@ export const ProfileSettings: FC = () => {
   const firstNameInput = useInput(validateName);
   const lastNameInput = useInput(validateName);
   const emailInput = useInput(validateEmail);
+  const avatarInput = useInput(validateURL); 
   const passwordInput1 = useInput(validatePassword);
   const passwordInput2 = useInput(validatePassword);
 
@@ -128,6 +129,27 @@ export const ProfileSettings: FC = () => {
               errorText="E.g. example@example.com"
             />
             <Form.Submit disabled={!emailInput.isValid}>
+              <IconEdit size={22} />
+            </Form.Submit>
+          </Form>
+        </div>
+        <div className="profile-settings__forms__info">
+          <h2 className={`profile-settings__forms__heading ${theme}-profile-settings__forms__heading`}>
+            Edit profile image
+          </h2>
+          <Form direction="row" onSubmit={(event) => updateHandler(event, "avatar", avatarInput)}>
+            <Form.Input
+              label="Profile image"
+              type="text"
+              id="avatar"
+              value={avatarInput.value}
+              placeholder={"Introduce the image url"}
+              onChange={avatarInput.changeHandler}
+              onBlur={avatarInput.blurHandler}
+              hasError={avatarInput.hasError}
+              errorText="Must be a valid url"
+            />
+            <Form.Submit disabled={!avatarInput.isValid}>
               <IconEdit size={22} />
             </Form.Submit>
           </Form>

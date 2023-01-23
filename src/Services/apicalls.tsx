@@ -79,11 +79,13 @@ export type UserData = {
   lastName: string;
   email: string;
   password: string;
+  avatar?: string;
   favorites?: ImageDataFE[];
 };
 
 export const createUser = async (user: UserData) => {
-  user.favorites = [];
+  user.avatar = ""; //default value if not seted
+  user.favorites = []; //default value if not seted
   // If the email doesn't already exist, makes a POST request to create a new user
   const isEmailValid = !(await emailExists(user.email));
   if (isEmailValid) {
@@ -98,6 +100,7 @@ export type UpdateUserData = {
   lastName?: string;
   email?: string;
   password?: string;
+  avatar?: string;
 };
 
 export const updateUser = async (token: string, update: UpdateUserData) => {

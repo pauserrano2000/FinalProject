@@ -10,17 +10,17 @@ type AvatarProps = {
 
 export const Avatar: FC<AvatarProps> = React.memo(({size=45, radius="md"}) => {
     const { theme } = useThemeContext();
-    const { initials, email } = useUserContext();
+    const { avatar, initials, email } = useUserContext();
     return (
         <MantineAvatar
             variant="outline"
             radius={radius}
             size={size}
             color={theme === "dark" ? 'gray.0' : 'dark.9'}
-            src="avatar.png"
+            src={avatar ?? null}
             alt={email ?? "??"}
         >
-            {initials ?? "??"}
+            {avatar ? null : (initials ?? "??")}
         </MantineAvatar>
     )
 })

@@ -41,6 +41,7 @@ export type UserDataFE = {
   firstName: string;
   lastName: string;
   email: string;
+  avatar: string;
   favorites: ImageDataFE[];
 };
 
@@ -50,6 +51,7 @@ export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {
     firstName: cleanResponse.firstName,
     lastName: cleanResponse.lastName,
     email: cleanResponse.email,
+    avatar: cleanResponse.avatar,
     favorites: cleanResponse.favorites,
   };
 };
