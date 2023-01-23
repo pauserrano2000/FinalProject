@@ -26,6 +26,7 @@ export const validateSearch = (value: string): boolean => {
 // Checks if The URL begins with either "http://www.", "https://www.", "http://", or "https://", 
 // Followed by one or more characters that can be letters or numbers
 export const validateURL = (value: string): boolean => {
-  const urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+  const urlRegex = /^(http:\/\/www|https:\/\/www|http:\/\/|https:\/\/)?[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
   return urlRegex.test(value);
 };
+

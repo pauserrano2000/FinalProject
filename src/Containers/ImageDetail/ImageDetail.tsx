@@ -78,7 +78,7 @@ export const ImageDetail: FC = () => {
               fill={isFavorited ? "red" : "none"}
             />
           </button>
-          <a href={selectedImage.url + "&dl"} download target="_blank" className="image-detail__download">
+          <a href={selectedImage.url + "&dl"} download target="_blank" rel="noreferrer" className="image-detail__download">
             <IconDownload color="white" size={70} stroke={1.5} />
           </a>
         </div>
