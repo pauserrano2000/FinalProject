@@ -1,6 +1,7 @@
 import "./Admin.css";
 import React, { FC, useState, useEffect, useCallback } from "react";
 import { useNotification } from "../../Hooks/useNotification";
+import { useThemeContext } from "../../Context/theme-context";
 import { Loading } from "../../Components/Loading/Loading";
 import { NotFound } from "../../Components/NotFound/NotFound";
 import { UsersWrapper } from "../../Components/UsersWrapper/UsersWrapper";
@@ -10,6 +11,7 @@ import { type UserDataFE } from "../../Services/apicalls-mapper";
 import { getUsersData } from "../../Services/apicalls";
 
 export const Admin: FC = () => {
+    const { theme } = useThemeContext();
     const { showErrorNotification } = useNotification();
 
     const [users, setUsers] = useState<null | UserDataFE[]>(null);
@@ -39,27 +41,34 @@ export const Admin: FC = () => {
 
     return (
         <main className="admin">
-          <TopWrapper>
-            <h1 className="search__h1">
-              Admin panel
-            </h1>
-          </TopWrapper>
-          {isLoading && <Loading />}
-          {hasError &&
-            <NotFound>
-              Http requests to load users data failing (json-server not working...)
-            </NotFound>}
-          {!isLoading && users && (<>
-            <UsersWrapper>
-              {users.map((user) => (
-                <UserCard
-                  key={user.email}
-                  user={user}
-                />
-              ))}
-            </UsersWrapper>
-          </>
-          )}
+            <TopWrapper>
+                <h1 className="admin__h1">
+                    Admin panel, here you can see app users information
+                </h1>
+                <div className="admin__info">
+                    {!isLoading && users?.length !== 0 && (
+                        <p className={`admin__info__p ${theme}-admin__info__p`}>
+                            Total users: {users?.length}
+                        </p>
+                    )}
+                </div>
+            </TopWrapper>
+            {isLoading && <Loading />}
+            {hasError &&
+                <NotFound>
+                    Http requests to load users data failing (json-server not working...)
+                </NotFound>}
+            {!isLoading && users && (<>
+                <UsersWrapper>
+                    {users.map((user) => (
+                        <UserCard
+                            key={user.email}
+                            user={user}
+                        />
+                    ))}
+                </UsersWrapper>
+            </>
+            )}
         </main>
-      );
-    };
+    );
+};

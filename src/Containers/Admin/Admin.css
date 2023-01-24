@@ -1,10 +1,46 @@
 .admin {
-    min-height: 94vh;
-    width: 100%;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-  }
+  min-height: 94vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.admin__h1 {
+  height: 50%;
+  max-width: 50rem;
+  font-family: Greycliff CF, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  padding: 1rem;
+
+  background: linear-gradient(52deg, #1c7ed6 3%, #22b8cf 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-align: center;
+}
+
+.admin__info {
+  height: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin__info__p {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.light-admin__info__p {
+  color: #000000;
+}
+
+.dark-admin__info__p {
+  color: #ffff;
+}
