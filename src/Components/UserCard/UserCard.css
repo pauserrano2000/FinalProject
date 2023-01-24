@@ -1,0 +1,42 @@
+.user-card {
+  min-width: 50rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+
+  border: 0.1rem solid;
+  border-radius: 1rem;
+  padding: 0.3em;
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.user-card:hover {
+    opacity:1;
+}
+.light-user-card {
+  background-color: rgb(243, 243, 243);
+  border-color: rgb(23, 23, 25);
+}
+
+.dark-user-card {
+  background-color: rgb(30, 30, 32);
+  border-color: rgb(251, 251, 251);
+}
+
+.user-card__p {
+  min-width: 15rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-user-card__p {
+  color: #000000;
+}
+
+.dark-user-card__p {
+  color: #ffff;
+}
