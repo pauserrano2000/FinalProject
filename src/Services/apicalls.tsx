@@ -5,8 +5,10 @@ import { Configuration, OpenAIApi } from "openai";
 import {
   cleanAxiosResponse,
   hydrateFEGetAuthToken,
+  hydrateFEGetIsAdmin,
   hydrateFECreateUser,
   hydrateFEUpdateUser,
+  hydrateFEGetUsersData,
   hydrateFEGetUserData,
   hydrateFESearchImages,
   hydrateFECreateImages,
@@ -25,6 +27,18 @@ export const getAuthToken = async (email: string, password: string) => {
   });
   const cleanResponse = cleanAxiosResponse(response);
   return hydrateFEGetAuthToken(cleanResponse);
+};
+
+export const getIsAdmin = async (token: string) => {
+  const response = await axios.get(`${API_URL.JSON_SERVER}/users/${token}`);
+  const cleanResponse = cleanAxiosResponse(response);
+  return hydrateFEGetIsAdmin(cleanResponse);
+};
+
+export const getUsersData = async () => {
+  const response = await axios.get(`${API_URL.JSON_SERVER}/users`);
+  const cleanResponse = cleanAxiosResponse(response);
+  return hydrateFEGetUsersData(cleanResponse);
 };
 
 export const getUserData = async (token: string) => {

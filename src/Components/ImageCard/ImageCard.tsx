@@ -1,4 +1,4 @@
-import React from 'react';
+import {FC} from 'react';
 import './ImageCard.css';
 import { Badge } from '../Badge/Badge';
 import { type ImageDataFE } from '../../Services/apicalls-mapper';
@@ -14,7 +14,7 @@ type ImageCardProps = {
   onClickImage: (image: ImageDataFE) => void;
 }
 
-export const ImageCard: React.FC<ImageCardProps> = ({ image, onClickImage }) => {
+export const ImageCard: FC<ImageCardProps> = ({ image, onClickImage }) => {
   
   return (
     <li className="image-card" onClick={(e) => onClickImage(image)}>

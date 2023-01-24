@@ -37,6 +37,7 @@ export const ImageCreator: FC = () => {
       setHasError(false);
       setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
       setHasError(true);
       showErrorNotification({
@@ -94,7 +95,7 @@ export const ImageCreator: FC = () => {
           )}
         </div>
       </TopWrapper>
-      {!hasError && isLoading && <Loading />}
+      {isLoading && <Loading />}
       {hasError &&
         <NotFound>
           Http requests to load the generated image failing, maybe the prompt violates our usage policy. 

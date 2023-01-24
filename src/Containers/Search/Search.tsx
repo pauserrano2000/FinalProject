@@ -50,6 +50,7 @@ export const Search: FC = () => {
       setHasError(false);
       setTimeout(() => setIsLoading(false), 150); //Little delay (design decision)
     } catch (error) {
+      setIsLoading(false);
       setImages(null);
       console.error(error);
       setHasError(true);
@@ -133,7 +134,7 @@ export const Search: FC = () => {
           </select>
         </div>
       </TopWrapper>
-      {!hasError && isLoading && <Loading />}
+      {isLoading && <Loading />}
       {hasError &&
         <NotFound>
           Http requests to load search images failing (check the api key)
