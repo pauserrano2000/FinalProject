@@ -25,7 +25,7 @@
   border-color: rgb(249, 249, 249);
 }
 
-.logo-wrapper {
+.header__logo-wrapper {
   width: 20%;
   min-width: 10rem;
 
@@ -33,20 +33,20 @@
   justify-content: flex-start;
 }
 
-.logo {
+.header__logo {
   width:60%;
   min-width: 10rem;
 }
 
-.dark-logo {
+.dark-header__logo {
   fill: #ffff;
 }
 
-.light-logo {
+.light-header__logo {
   fill:#000000;
 }
 
-.button-wrapper {
+.header__button-wrapper {
   width: 20%;
 
   display: flex;
@@ -55,7 +55,7 @@
   gap: 2.5rem;
 }
 
-.link{
+.header__link{
   background-color: transparent;
   text-decoration: none;
   line-height: 1.15;
@@ -68,29 +68,29 @@
   justify-content: center;
 }
 
-.signup-link {
+.signup-header__link {
   border: 0.1em solid;
   border-radius: 1rem;
 }
 
-.dark-link {
+.dark-header__link {
   color: #ffff;;
   border-color: #ffff;;
 }
 
-.dark-link:hover {
+.dark-header__link:hover {
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   border-color: #1F9BD3; /* midpoint color*/ 
 }
 
-.light-link {
+.light-header__link {
   color: rgb(0, 0, 0);
   border-color: rgb(0, 0, 0);
 }
 
-.light-link:hover {
+.light-header__link:hover {
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
   background-clip: text;
   -webkit-text-fill-color: transparent;

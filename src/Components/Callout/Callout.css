@@ -11,7 +11,7 @@
   color: #ffff;
 }
 
-.callout-link {
+.callout__link {
   margin-left: 0.3rem;
   text-decoration: none;
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);

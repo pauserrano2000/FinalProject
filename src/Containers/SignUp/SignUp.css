@@ -1,4 +1,4 @@
-.signup-modal {
+.signup {
   min-width:30vw;
   border-radius: 2rem;
   padding: 1.5rem;
@@ -9,28 +9,28 @@
   gap: 1rem;
 }
 
-.light-signup-modal {
+.light-signup {
   background-color: #ffffff;
 }
 
-.dark-signup-modal {
+.dark-signup {
   background-color: #141517;
 }
 
-.small-logo{
+.signup__small-logo{
   width:4rem;
 }
 
-.signup-title {
+.signup__title {
   font-weight: 800;
   font-size: 2rem;
   margin: 0 0 0 0;
 }
 
-.light-signup-title {
+.light-signup__title {
   color: #000000;
 }
 
-.dark-signup-title {
+.dark-signup__title {
   color: #ffffff;
 }

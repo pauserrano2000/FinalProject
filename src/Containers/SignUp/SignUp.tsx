@@ -62,9 +62,9 @@ export const SignUp: FC = () => {
 
   return (
     <Modal onClose={() => navigate("/")}>
-      <main className={`signup-modal ${theme}-signup-modal`}>
-        <Logo className="small-logo" />
-        <h1 className={`signup-title ${theme}-signup-title`}>
+      <main className={`signup ${theme}-signup`}>
+        <Logo className="signup__small-logo" />
+        <h1 className={`signup__title ${theme}-signup__title`}>
           Sign up to ImageHub
         </h1>
         <Form onSubmit={signupHandler}>

@@ -57,9 +57,9 @@ export const LogIn: FC = () => {
 
   return (
     <Modal onClose={() => navigate("/")}>
-      <main className={`login-modal ${theme}-login-modal`}>
-        <Logo className="small-logo" />
-        <h1 className={`login-title ${theme}-login-title`}>
+      <main className={`login ${theme}-login`}>
+        <Logo className="login__small-logo" />
+        <h1 className={`login__title ${theme}-login__title`}>
           Log in to ImageHub
         </h1>
         <Form onSubmit={loginHandler}>

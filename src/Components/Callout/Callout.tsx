@@ -12,7 +12,7 @@ export const Callout: FC<PropsWithChildren<CalloutProps>> = ({ children, to, tex
     return (
         <p className={`callout ${theme}-callout`}>
             {children}
-            <Link className="callout-link" to={to}>
+            <Link className="callout__link" to={to}>
                 {textLink}
             </Link>
         </p>

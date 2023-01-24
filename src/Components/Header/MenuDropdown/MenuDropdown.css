@@ -2,14 +2,14 @@
   position: relative;
 }
 
-.target {
+.dropdown__target {
   background-color: transparent;
   cursor: pointer;
   border: none;
   padding: 0em;
 }
 
-.dropdown-content {
+.dropdown__content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,17 +23,17 @@
   flex-direction: column;
 }
 
-.dark-dropdown-content {
+.dark-dropdown__content {
   background-color:  rgb(30, 30, 32);
   border-color: rgb(55, 58, 64);
 }
 
-.light-dropdown-content {
+.light-dropdown__content {
   background-color: rgb(245, 245, 245);
   border-color: rgb(233, 236, 239);
 }
 
-.user-info{
+.dropdown__user-info{
   margin: 0.5rem;
   min-width: 13rem;
   line-height: 1;
@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-.user-info-name{
+.dropdown__name{
   margin: 0;
   padding: 0.5em;
   font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
@@ -57,7 +57,7 @@
   text-align: center;
 }
 
-.user-info-email{
+.dropdown__email{
   margin:0;
   margin-top: -0.6rem;
   padding: 0.5em;
@@ -69,7 +69,7 @@
   text-align: center;
 }
 
-.option {
+.dropdown__option {
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -86,20 +86,20 @@
   transition: background-color 0.5s ease-in-out;
 }
 
-.dark-option {
+.dark-dropdown__option {
   color: #ffff;
   border-color: rgb(55, 58, 64);
 }
 
-.dark-option:hover {
+.dark-dropdown__option:hover {
   background-color: #25262B;
 }
 
-.light-option {
+.light-dropdown__option {
   color: #000000;
   border-color: rgb(233, 236, 239);
 }
 
-.light-option:hover {
+.light-dropdown__option:hover {
   background-color: rgb(223, 226, 229);
 }

@@ -36,9 +36,9 @@ const Input: FC<InputProps> = ({
 }) => {
     const { theme } = useThemeContext();
     return (
-        <div className="input-wrapper">
+        <div className="input__wrapper">
             {label &&
-                <label className={`label ${theme}-label`} htmlFor={id}>
+                <label className={`input__label ${theme}-input__label`} htmlFor={id}>
                     {label}
                 </label>
             }
@@ -52,7 +52,7 @@ const Input: FC<InputProps> = ({
                 placeholder={placeholder}
             />
             {hasError && (
-                <p className="error-text">{errorText}</p>
+                <p className="input__error-text">{errorText}</p>
             )}
         </div>
     )

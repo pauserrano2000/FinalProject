@@ -13,7 +13,7 @@ const Option: FC<PropsWithChildren<OptionProps>> = ({ children, onClick }) => {
 
     return (
         <button
-            className={`option ${theme}-option`}
+            className={`dropdown__option ${theme}-dropdown__option`}
             onClick={onClick}
         >
             {children}
@@ -45,16 +45,16 @@ export const MenuDropdown = ({ children }: PropsWithChildren) => {
 
     return (
         <div className="dropdown">
-            <button className="target" onClick={clickTargetHandler}>
+            <button className="dropdown__target" onClick={clickTargetHandler}>
                 <Avatar/>
             </button>
             {isVisible &&
-                <div className={`dropdown-content ${theme}-dropdown-content`}>
-                    <div ref={ref} className="user-info">
-                        <p className="user-info-name">
+                <div className={`dropdown__content ${theme}-dropdown__content`}>
+                    <div ref={ref} className="dropdown__user-info">
+                        <p className="dropdown__name">
                             {`${firstName} ${lastName}`}
                         </p>
-                        <p className="user-info-email">
+                        <p className="dropdown__email">
                             {email}
                         </p>
                     </div>

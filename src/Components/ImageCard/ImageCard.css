@@ -5,6 +5,10 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.image-card__image{
+  height: 350px;
+}
+
 .image-card__tags {
   position: absolute; 
   bottom: 0;
@@ -26,10 +30,3 @@
   opacity: 1; /* Show the tags when the image is hovered */
 }
 
-.image-card__image{
-  height: 350px;
-}
-
-.image-card__image__xl{
-  height: 512px;
-}

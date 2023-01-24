@@ -2,7 +2,7 @@
   width: 50%;
 }
 
-.navlink-wrapper {
+.main-navigation__navlink-wrapper {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -13,27 +13,27 @@
   gap: 4rem;
 }
 
-.navlink {
+.main-navigation__navlink {
   text-decoration: none;
   font-size: 1.3rem;
   transition: border 0.2s ease-in-out;
 }
 
-.navlink:hover {
+.main-navigation__navlink:hover {
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.dark-navlink {
+.dark-main-navigation__navlink {
   color: #ffff;
 }
 
-.light-navlink {
+.light-main-navigation__navlink {
   color: rgb(0, 0, 0);
 }
 
-.active {
+.active-main-navigation__navlink {
   border-bottom: 0.2rem solid #1F9BD3; /* midpoint color*/ 
   padding-bottom: 0.95rem;
   background: linear-gradient(52deg, #1C7ED6 3%, #22B8CF 97%);

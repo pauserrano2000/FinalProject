@@ -14,7 +14,7 @@ const Link: FC<PropsWithChildren<LinkProps>> = ({ children, to }) => {
     <li>
       <NavLink
         className={({ isActive }) =>
-          `${isActive ? "navlink active" : "navlink"} ${theme}-navlink`
+          `main-navigation__navlink ${isActive ? "active-main-navigation__navlink" : ""} ${theme}-main-navigation__navlink`
         }
         to={to}
       >
@@ -28,7 +28,7 @@ export const MainNavigation = ({ children }: PropsWithChildren) => {
 
   return (
     <nav className="main-navigation">
-      <ul className="navlink-wrapper">
+      <ul className="main-navigation__navlink-wrapper">
         {children}
       </ul>
     </nav>

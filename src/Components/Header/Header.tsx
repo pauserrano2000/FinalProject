@@ -24,8 +24,8 @@ export const Header: FC = () => {
 
   return (
     <header className={`header ${isLoggedIn ? "logged-" : ""}${theme}-header `}>
-      <div className="logo-wrapper">
-        <Logo className={`logo ${theme}-logo `} />
+      <div className="header__logo-wrapper">
+        <Logo className={`header__logo ${theme}-header__logo `} />
       </div>
 
       <MainNavigation>
@@ -42,25 +42,25 @@ export const Header: FC = () => {
         </>}
       </MainNavigation>
 
-      <div className="button-wrapper">
+      <div className="header__button-wrapper">
         {!isLoggedIn && <>
           <Link
-            className={`link ${theme}-link`} to="/login">
+            className={`header__link ${theme}-header__link`} to="/login">
             Log in
           </Link>
           <Link
-            className={`link signup-link ${theme}-link`} to="/signup">
+            className={`header__link signup-header__link ${theme}-header__link`} to="/signup">
             Sign up
           </Link>
         </>}
         {isLoggedIn && <>
           <MenuDropdown>
             <MenuDropdown.Option onClick={() => navigate("/profile-settings")}>
-              <IconSettings size={22}/>
+              <IconSettings size={22} />
               Profile settings
             </MenuDropdown.Option>
             <MenuDropdown.Option onClick={logoutHandler}>
-              <IconLogout size={22}/>
+              <IconLogout size={22} />
               Log out
             </MenuDropdown.Option>
           </MenuDropdown>
