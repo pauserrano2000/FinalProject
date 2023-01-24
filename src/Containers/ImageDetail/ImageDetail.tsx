@@ -32,7 +32,7 @@ export const ImageDetail: FC = () => {
     if (isFavorited) {
       try {
         await updateFavorites(token!, update);
-        resetUserData(); 
+        resetUserData();
         showSuccesNotification({
           title: "Image removed from your favorites",
           message: "You can check it in the favorites section",
@@ -47,7 +47,7 @@ export const ImageDetail: FC = () => {
     } else {
       try {
         await updateFavorites(token!, update);
-        resetUserData(); 
+        resetUserData();
         showSuccesNotification({
           title: "Image added to your favorites",
           message: "You can check it in the favorites section",
@@ -83,9 +83,11 @@ export const ImageDetail: FC = () => {
           </a>
         </div>
         <div className="image-detail__info">
-          <p className="image-detail__description">
-            {selectedImage.description ?? selectedImage.altDescription}
-          </p>
+          {(selectedImage.description || selectedImage.altDescription) &&
+            <p className="image-detail__description">
+              {selectedImage.description ?? selectedImage.altDescription ?? null}
+            </p>
+          }
           <div className="image-detail__tags">
             {selectedImage.tags.map((tag) => (
               <Badge key={tag}>{tag}</Badge>

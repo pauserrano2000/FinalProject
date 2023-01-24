@@ -43,7 +43,7 @@ export const Admin: FC = () => {
         <main className="admin">
             <TopWrapper>
                 <h1 className="admin__h1">
-                    Admin panel, here you can see app users information
+                    Admin panel, here you can see all users information
                 </h1>
                 <div className="admin__info">
                     {!isLoading && users?.length !== 0 && (

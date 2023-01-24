@@ -99,7 +99,7 @@ export const hydrateFECreateImages = (prompt:string, cleanResponse: any): ImageD
       id: created+index,
       url: image.url,
       description: prompt,
-      altDescription: "If you are seeing this, probably the created image has expired...",
+      altDescription: "If you are seeing this, probably the ai created image has expired...",
       tags: ["Generated with AI"],
     };
   });
