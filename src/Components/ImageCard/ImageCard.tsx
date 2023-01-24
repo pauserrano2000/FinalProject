@@ -3,7 +3,7 @@ import './ImageCard.css';
 import { Badge } from '../Badge/Badge';
 import { type ImageDataFE } from '../../Services/apicalls-mapper';
 
-interface ImageCardProps {
+type ImageCardProps = {
   image: {
     id: string;
     url: string;
