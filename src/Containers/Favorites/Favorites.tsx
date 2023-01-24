@@ -8,6 +8,7 @@ import { type ImageDataFE } from "../../Services/apicalls-mapper";
 import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Loading } from "../../Components/Loading/Loading";
 import { NotFound } from "../../Components/NotFound/NotFound";
+import { TopWrapper } from "../../Components/TopWrapper/TopWrapper";
 
 
 export const Favorites: FC = () => {
@@ -32,7 +33,7 @@ export const Favorites: FC = () => {
 
   return (
     <main className="favorites">
-      <div className={`favorites__top ${theme}-favorites__top`}>
+      <TopWrapper>
         <h1 className="favorites__h1">
           Welcome {firstName}, your favorited images will appear here
         </h1>
@@ -43,7 +44,7 @@ export const Favorites: FC = () => {
             </p>
           )}
         </div>
-      </div>
+      </TopWrapper>
       {isLoading && <Loading />}
       {favorites.length === 0 &&
         <NotFound>

@@ -1,0 +1,27 @@
+.top-wrapper-column {
+  width: 100%;
+  height: 25vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-wrapper-row {
+  width: 100%;
+  height: 25vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.light-top-wrapper {
+  background-color: rgb(251, 251, 251);
+}
+
+.dark-top-wrapper {
+  background-color: rgb(23, 23, 25);
+}

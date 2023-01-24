@@ -15,6 +15,7 @@ import { IconSearch } from "../../Components/Icons/Icons";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Loading } from "../../Components/Loading/Loading";
 import { NotFound } from "../../Components/NotFound/NotFound";
+import { TopWrapper } from "../../Components/TopWrapper/TopWrapper";
 
 
 export const Search: FC = () => {
@@ -25,7 +26,7 @@ export const Search: FC = () => {
   const [images, setImages] = useState<null | ImageDataFE[]>(null);
   const [selectedImage, setSelectedImage] = useState<null | ImageDataFE>(null);
   const queryInput = useInput(validateSearch);
-  const [query, setQuery] = useState(""); //stores the query for pagination since queryInput.value is reseted after submit
+  const [query, setQuery] = useState("Galaxy"); //Example search as initial value, stores the query for pagination since queryInput.value is reseted after submit
 
   const perPageOptions = [10, 20, 30];
   const [perPage, setPerPage] = useState(perPageOptions[2]);
@@ -34,8 +35,6 @@ export const Search: FC = () => {
   const [totalPages, setTotalPages] = useState<null | number>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
-
-
 
   const fetchSearchImages = useCallback(async (query: string, currentPage: number, perPage: number) => {
     try {
@@ -60,13 +59,8 @@ export const Search: FC = () => {
       });
     }
   }, [showErrorNotification, totalResults, totalPages])
-  
 
-  useEffect(() => { //example loaded at the beggining
-    setQuery("galaxy")
-  }, []);
-  
-  useEffect(() => {
+  useEffect(() => { //executes twice initially in developement mode due to React.Strict
     if (query) {
       fetchSearchImages(query, currentPage, perPage);
     }
@@ -92,7 +86,7 @@ export const Search: FC = () => {
 
   return (
     <main className="search">
-      <div className={`search__top ${theme}-search__top `}>
+      <TopWrapper>
         <h1 className="search__h1">
           Find the perfect image
         </h1>
@@ -138,7 +132,7 @@ export const Search: FC = () => {
             ))}
           </select>
         </div>
-      </div>
+      </TopWrapper>
       {!hasError && isLoading && <Loading />}
       {hasError &&
         <NotFound>

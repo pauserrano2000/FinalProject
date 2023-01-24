@@ -14,6 +14,7 @@ import { Callout } from "../../Components/Callout/Callout";
 import { IconRocket } from "../../Components/Icons/Icons";
 import { Loading } from "../../Components/Loading/Loading";
 import { NotFound } from "../../Components/NotFound/NotFound";
+import { TopWrapper } from "../../Components/TopWrapper/TopWrapper";
 
 
 export const ImageCreator: FC = () => {
@@ -43,7 +44,6 @@ export const ImageCreator: FC = () => {
         message: "You may have reached the limit of free generations",
       });
     }
-
   };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,7 +60,7 @@ export const ImageCreator: FC = () => {
 
   return (
     <main className="image-creator">
-      <div className={`image-creator__top ${theme}-image-creator__top`}>
+      <TopWrapper>
         <h1 className="image-creator__h1">
           Create custom images with AI
         </h1>
@@ -93,7 +93,7 @@ export const ImageCreator: FC = () => {
             </p>
           )}
         </div>
-      </div>
+      </TopWrapper>
       {!hasError && isLoading && <Loading />}
       {hasError &&
         <NotFound>

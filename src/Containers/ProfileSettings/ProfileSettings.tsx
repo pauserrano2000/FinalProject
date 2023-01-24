@@ -11,6 +11,7 @@ import { validateName, validateEmail, validatePassword, validateURL } from "../.
 import { updateUser, type UpdateUserData } from "../../Services/apicalls";
 import { capitalizeFirstLetter, camelCaseToWords } from "../../Utils/utils";
 import { IconEdit, IconTrash } from "../../Components/Icons/Icons"
+import { TopWrapper } from "../../Components/TopWrapper/TopWrapper";
 
 export const ProfileSettings: FC = () => {
   const { theme } = useThemeContext();
@@ -68,7 +69,7 @@ export const ProfileSettings: FC = () => {
 
   return (
     <main className="profile-settings">
-      <div className={`profile-settings__top ${theme}-profile-settings__top`}>
+      <TopWrapper direction="row">
         <Avatar size={170} radius={23} />
         <div className="profile-settings__user">
           <p className="profile-settings__user__name">
@@ -78,7 +79,7 @@ export const ProfileSettings: FC = () => {
             {email}
           </p>
         </div>
-      </div>
+      </TopWrapper>
       <div className="profile-settings__forms">
         <div className="profile-settings__forms__info">
           <h2 className={`profile-settings__forms__heading ${theme}-profile-settings__forms__heading`}>

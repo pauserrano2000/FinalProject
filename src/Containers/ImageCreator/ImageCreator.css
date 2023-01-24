@@ -8,23 +8,6 @@
   align-items: center;
 }
 
-.image-creator__top{
-  width:100%;
-  height: 25vh;
-
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.light-image-creator__top{
-  background-color:rgb(251, 251, 251);
-}
-
-.dark-image-creator__top{
-  background-color:  rgb(23, 23, 25);
-}
 
 .image-creator__h1 {
   font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;

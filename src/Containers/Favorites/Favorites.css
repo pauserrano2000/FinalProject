@@ -8,24 +8,6 @@
   align-items: center;
 }
 
-.favorites__top{
-  width:100%;
-  height: 25vh;
-
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.light-favorites__top{
-  background-color:rgb(251, 251, 251);
-}
-
-.dark-favorites__top{
-  background-color:  rgb(23, 23, 25);
-}
-
 .favorites__h1 {
   max-width: 37%;
   font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
