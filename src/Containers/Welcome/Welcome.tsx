@@ -35,7 +35,9 @@ export const Welcome: FC = () => {
             Get started
           </Link>
           <a
-            className="welcome__call-to-action welcome__github-call-to-action" href="https://github.com/pauserrano2000/FinalProject">
+            className="welcome__call-to-action welcome__github-call-to-action"
+            href="https://github.com/pauserrano2000/FinalProject"
+            target="_blank" rel="noreferrer">
             <IconBrandGithub />
             GitHub
           </a>
