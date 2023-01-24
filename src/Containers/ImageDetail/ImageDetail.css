@@ -59,13 +59,25 @@
 
   display: flex;
   flex-direction: column;
+  gap:0.5rem;
 }
 
 .image-detail__description {
   font-size: 1.8rem;
   font-weight: 700;
+  padding: 0.06em;
+  margin-bottom: 1rem;
+  line-height: 1;
   margin:0;
   color:#ffff;
+  border-radius:0.5rem;
+  background-color: rgba(0, 0, 0);
+  opacity:0.2;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image-detail__description:hover {
+  opacity:1;
 }
 
 .image-detail__tags {
