@@ -21,8 +21,8 @@ export const useNotification = () => {
           backgroundColor: theme.colors.green[5],
           borderColor: theme.colors.green[5],
         },
-        title: { color: theme.white },
-        description: { color: theme.white },
+        title: { color: theme.white, fontSize: "1.2rem" },
+        description: { color: theme.white, fontSize: "1rem" },
       }),
     });
   }, []);
@@ -36,11 +36,12 @@ export const useNotification = () => {
       icon: <IconX />,
       styles: (theme) => ({
         root: {
+          fontSize: "2rem",
           backgroundColor: theme.colors.red[5],
           borderColor: theme.colors.red[5],
         },
-        title: { color: theme.white },
-        description: { color: theme.white },
+        title: { color: theme.white, fontSize: "1.1rem" },
+        description: { color: theme.white, fontSize: "1rem" },
       }),
     });
   }, []);
