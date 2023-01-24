@@ -29,6 +29,11 @@ export const hydrateFEGetAuthToken = (
   }
 };
 
+export const hydrateFEGetIsAdmin = (cleanResponse: any): boolean => {
+  // Modifies the response to match the front-end's needs
+  return cleanResponse.isAdmin;
+};
+
 export type ImageDataFE = {
   id: string;
   url: string;
@@ -43,6 +48,19 @@ export type UserDataFE = {
   email: string;
   avatar: string;
   favorites: ImageDataFE[];
+};
+
+export const hydrateFEGetUsersData = (cleanResponse: any): UserDataFE[] => {
+  // Modifies the response to match the front-end's needs
+  return cleanResponse.map((user: any) => {
+    return {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        avatar: user.avatar,
+        favorites: user.favorites
+    }
+});
 };
 
 export const hydrateFEGetUserData = (cleanResponse: any): UserDataFE => {

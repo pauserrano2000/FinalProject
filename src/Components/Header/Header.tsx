@@ -12,7 +12,7 @@ import { IconLogout, IconSettings } from "../Icons/Icons"
 
 export const Header: FC = () => {
   const { theme } = useThemeContext();
-  const { isLoggedIn, logout } = useAuthContext();
+  const { isLoggedIn, isAdmin, logout } = useAuthContext();
   const { resetUserData } = useUserContext();
   const navigate = useNavigate()
 
@@ -39,6 +39,10 @@ export const Header: FC = () => {
           <MainNavigation.Link to="/favorites">
             Favorites
           </MainNavigation.Link>
+          {isAdmin &&
+            <MainNavigation.Link to="/admin">
+              Admin panel
+            </MainNavigation.Link>}
         </>}
       </MainNavigation>
 

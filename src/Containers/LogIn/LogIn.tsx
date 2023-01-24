@@ -10,7 +10,7 @@ import { useNotification } from "../../Hooks/useNotification";
 import { Callout } from "../../Components/Callout/Callout";
 import { ReactComponent as Logo } from "../../Assets/smallLogo.svg"
 import { validateEmail, validatePassword } from "../../Services/validate";
-import { getAuthToken } from "../../Services/apicalls";
+import { getAuthToken, getIsAdmin } from "../../Services/apicalls";
 import { IconLogin } from "../../Components/Icons/Icons";
 
 export const LogIn: FC = () => {
@@ -32,12 +32,14 @@ export const LogIn: FC = () => {
     try {
       const authToken = await getAuthToken(emailInput.value, passwordInput.value);
       if ((typeof authToken === 'string')) {
+        const isAdmin = await getIsAdmin(authToken);
         showSuccesNotification({
           title: "Welcome to ImageHub",
           message: "Entering in a few seconds...",
           loading: true,
         });
-        setTimeout(login, 3000, authToken);
+        setTimeout(login, 2000, authToken, isAdmin); //design decision, some delay
+
         navigate("/search")
       } else {
         passwordInput.reset()

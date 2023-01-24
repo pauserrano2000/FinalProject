@@ -11,6 +11,7 @@ import { ImageCreator } from './Containers/ImageCreator/ImageCreator';
 import { ImageDetail } from './Containers/ImageDetail/ImageDetail';
 import { Favorites } from './Containers/Favorites/Favorites';
 import { ProfileSettings } from './Containers/ProfileSettings/ProfileSettings';
+import { Admin } from './Containers/Admin/Admin';
 import { useThemeContext } from "./Context/theme-context";
 import { useAuthContext } from "./Context/auth-context";
 import { useUserContext } from './Context/user-context';
@@ -18,7 +19,7 @@ import { useNotification } from "./Hooks/useNotification";
 
 function App() {
   const { theme } = useThemeContext();
-  const { isLoggedIn, token } = useAuthContext();
+  const { isLoggedIn, token, isAdmin } = useAuthContext();
   const { isUpToDate, populateUserData } = useUserContext();
   const { showErrorNotification } = useNotification();
 
@@ -64,6 +65,7 @@ function App() {
               <Route path=":imageId" element={<ImageDetail />} />
             </Route>
             <Route path="/profile-settings" element={<ProfileSettings />} />
+            {isAdmin && <Route path="/admin" element={<Admin />}></Route>}
             <Route path="*" element={<Navigate to="/search" />} />
           </>}
         </Routes>
