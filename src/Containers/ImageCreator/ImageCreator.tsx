@@ -13,6 +13,7 @@ import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Callout } from "../../Components/Callout/Callout";
 import { IconRocket } from "../../Components/Icons/Icons";
 import { Loading } from "../../Components/Loading/Loading";
+import { NotFound } from "../../Components/NotFound/NotFound";
 
 
 export const ImageCreator: FC = () => {
@@ -95,10 +96,10 @@ export const ImageCreator: FC = () => {
       </div>
       {!hasError && isLoading && <Loading />}
       {hasError &&
-        <p className={`prompt__not-found ${theme}-prompt__not-found`}>
+        <NotFound>
           Http requests to load the generated image failing, maybe the prompt violates our usage policy. 
-          Otherwise, check the api key,maybe you have reached the limit of free creations.  
-        </p>}
+          Otherwise, check the api key, maybe you have reached the limit of free creations.  
+        </NotFound>}
       {!isLoading && images && (<>
         <ImagesWrapper>
           {images.map((image) => (

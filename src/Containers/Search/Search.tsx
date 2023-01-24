@@ -14,6 +14,7 @@ import { Callout } from "../../Components/Callout/Callout";
 import { IconSearch } from "../../Components/Icons/Icons";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Loading } from "../../Components/Loading/Loading";
+import { NotFound } from "../../Components/NotFound/NotFound";
 
 
 export const Search: FC = () => {
@@ -50,6 +51,7 @@ export const Search: FC = () => {
       setHasError(false);
       setTimeout(() => setIsLoading(false), 150); //Little delay (design decision)
     } catch (error) {
+      setImages(null);
       console.error(error);
       setHasError(true);
       showErrorNotification({
@@ -139,13 +141,13 @@ export const Search: FC = () => {
       </div>
       {!hasError && isLoading && <Loading />}
       {hasError &&
-        <p className={`search__not-found ${theme}-search__not-found`}>
+        <NotFound>
           Http requests to load search images failing (check the api key)
-        </p>}
+        </NotFound>}
       {images?.length === 0 &&
-        <p className={`search__not-found ${theme}-search__not-found`}>
+        <NotFound>
           Sorry, we couldn't find any results for "{query}"
-        </p>}
+        </NotFound>}
       {!isLoading && images && (<>
         <ImagesWrapper>
           {images.map((image) => (

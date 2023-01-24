@@ -7,6 +7,7 @@ import { useUserContext } from "../../Context/user-context";
 import { type ImageDataFE } from "../../Services/apicalls-mapper";
 import { ImageCard } from "../../Components/ImageCard/ImageCard";
 import { Loading } from "../../Components/Loading/Loading";
+import { NotFound } from "../../Components/NotFound/NotFound";
 
 
 export const Favorites: FC = () => {
@@ -45,9 +46,9 @@ export const Favorites: FC = () => {
       </div>
       {isLoading && <Loading />}
       {favorites.length === 0 &&
-        <p className={`favorites__not-found ${theme}-favorites__not-found`}>
+        <NotFound>
           There's no favorite images yet
-        </p>}
+        </NotFound>}
       {!isLoading && favorites.length !== 0 && (
         <ImagesWrapper>
           {favorites.map((image) => (

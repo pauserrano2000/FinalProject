@@ -86,26 +86,6 @@
   border-radius: 0.2rem;
 }
 
-.search__not-found{
-  font-size: 1.7rem;
-  font-weight: 300;
-
-  height: 58vh;
-  width: 70%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.light-search__not-found {
-  color: #000000;
-}
-
-.dark-search__not-found {
-  color: #ffff;
-}
-
 ul {
   list-style-type: none;
  }
