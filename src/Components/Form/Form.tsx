@@ -60,7 +60,7 @@ const Input: FC<InputProps> = ({
 
 const Submit: FC<PropsWithChildren<SubmitProps>> = ({ children, disabled}) => {
     return (
-        <button className="submit" type="submit" disabled={disabled}>
+        <button id="submit" className="submit" type="submit" aria-label="submit" disabled={disabled}>
             {children}
         </button>
     );

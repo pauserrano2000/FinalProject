@@ -18,7 +18,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({ image, onClickImage }) => 
   
   return (
     <li className="image-card" onClick={(e) => onClickImage(image)}>
-      <img className="image-card__image" src={image.url + "&fm=jpg&q=80&h=350&fit=max"} alt={image.altDescription} />
+      <img height="350px" className="image-card__image" src={image.url + "&fm=jpg&q=80&h=350&fit=max"} alt={image.description ?? image.altDescription} />
       <div className="image-card__tags">
         {image.tags.map((tag) => (
           <Badge key={tag}>{tag}</Badge>

@@ -20,6 +20,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, onChange, totalPa
                 total={totalPages}
                 radius="md"
                 size="xl"
+                aria-label="pagination"
                 styles={(theme) => ({
                     item: {
                         color: color,
@@ -30,6 +31,23 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, onChange, totalPa
                         },
                     },
                 })}
+                getItemAriaLabel={(page) => {
+                    switch (page) {
+                        case 'dots':
+                            return 'dots element aria-label';
+                        case 'prev':
+                            return 'previous page button aria-label';
+                        case 'next':
+                            return 'next page button aria-label';
+                        case 'first':
+                            return 'first page button aria-label';
+                        case 'last':
+                            return 'last page button aria-label';
+                        default:
+                            return `${page} item aria-label`;
+                    }
+                }}
+
             />
         </div>
 
