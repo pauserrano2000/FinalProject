@@ -10,6 +10,7 @@
 
 
 .image-creator__h1 {
+  height: 37%;
   font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
@@ -22,6 +23,7 @@
 }
 
 .image-creator__form {
+  height: 33%;
   width: 60%;
 
   display:flex;
@@ -32,7 +34,7 @@
 }
 
 .prompt__info{
-  height:1.5rem;
+  height:8%;
   margin: 1rem;
 
   display: flex;
