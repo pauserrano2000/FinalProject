@@ -63,7 +63,7 @@ export const searchImages = async (
 };
 
 const configuration = new Configuration({
-	apiKey: process.env.REACT_APP_DALL_E_API_KEY_3,
+	apiKey: process.env.REACT_APP_DALL_E_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 

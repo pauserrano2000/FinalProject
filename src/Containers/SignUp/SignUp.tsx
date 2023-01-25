@@ -43,7 +43,7 @@ export const SignUp: FC = () => {
           title: "Account succesfully created",
           message: "You are able to log in now",
         });
-        navigate("/");
+        navigate("/login");
       } else {
         emailInput.reset()
         showErrorNotification({
