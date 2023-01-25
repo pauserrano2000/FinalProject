@@ -1,5 +1,5 @@
 # ImageHub
-[![Imagehub]()](https://github.com/pauserrano2000/FinalProject/blob/master/public/images/landing.png)](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/x0trsV3TUIo)
+[![Imagehub]()](https://github.com/pauserrano2000/FinalProject/blob/master/public/images/landing.png)](https://youtu.be/x0trsV3TUIo)
 
 ImageHub is a web application that allows users to find the perfect image for their design projects with a wide selection of high-quality, free, and copyright-free stock images. With over 3.48 million images to choose from (Unsplash API), and an AI-powered image generator (DALL-E 2 API), you can easily find the perfect image or create custom images on the fly. Save and download your favorites with our favorites feature, and elevate your designs with ImageHub.
 
