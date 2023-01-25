@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# ImageHub
+[![video title]()](https://github.com/pauserrano2000/FinalProject/blob/master/public/videos/welcome.mp4)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ImageHub is a web application that allows users to find the perfect image for their design projects with a wide selection of high-quality, free, and copyright-free stock images. With over 3.48 million images to choose from (Unsplash API), and an AI-powered image generator (DALL-E 2 API), you can easily find the perfect image or create custom images on the fly. Save and download your favorites with our favorites feature, and elevate your designs with ImageHub.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Built With](#built-with)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Dark and light theme
+- User authentication with Signup and Login
+- Wide selection of high-quality, free, copyright-free stock images (using Unsplash API)
+- AI-powered image generator (using DALL-E 2 API)
+- Save and download favorite images
+- User account with profile settings
+- Admin panel for showing all users info
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js
+- npm 
+- A web browser
+- Unsplash API key
+- Open AI API key
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/pauserrano2000/FinalProject.git
+```
 
-### `npm run eject`
+2. Install the dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install
+```
+3. Create a ".env" file in the root of the repository to store the api keys (don't write the api key between "")
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+REACT_APP_UNSPLASH_API_KEY=<your unsplash apikey>
+REACT_APP_DALL_E_API_KEY=<your dall-e 2 apikey>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. Sart the fake backend json-server
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm run server
+```
 
-## Learn More
+The fake backend server will be running on http://localhost:3000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Start the development server.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
+
+The application will be running on http://localhost:3001
+
+## Usage
+
+The application is divided into several pages, each one with a different purpose:
+
+### Anonymous user:
+- The landing page, located at the route `/`, where you can see an overview of the application's main features
+- The signup page, located at the route `/signup`, where you can create a new user account
+- The login page, located at the route `/login`, where you can log in with your existing user account
+
+### Logged user:
+- The search page, located at the route `/search`, where you can search for images by keywords
+- The image creator page, located at the route `/image-creator`, where you can generate custom images using the AI-powered generators
+- The image detail page, located at the route `/image-detail/:id`, where you can see a full-size version of an image and download it
+- The favorites page, located at the route `/favorites`, where you can see the images you have saved
+- The profile settings page, located at the route `/profile-settings`, where you can manage your user account
+
+### Logged  admin
+- All logged user pages and...
+- The admin page, located at the route `/admin`, where you can manage the images and users
+
+
+## Built With
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [Typescript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - A stylesheet language used for describing the presentation of a document written in HTML or XML
+- I have tried to use the best possible coding practices, such as creating reusable components, using custom hooks, implementing compound components, conditional rendering, using context for managing state, and keeping the code clean and organized. Additionally, I have utilized services files for separating apicalls and valudation logic and keeping the component files lean.
