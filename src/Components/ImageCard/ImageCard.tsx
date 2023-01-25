@@ -22,7 +22,7 @@ export const ImageCard: FC<ImageCardProps> = ({ image, onClickImage }) => {
         height="350px"
         className="image-card__image"
         src={image.url + "&fm=jpg&q=80&h=350&fit=max"}
-        alt={image.altDescription}
+        alt={image.altDescription ?? "no description"}
         onError={(e) => {
           console.log("Image failed to load, probably the ai created image has expired...");
         }}
